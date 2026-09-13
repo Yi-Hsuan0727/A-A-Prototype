@@ -483,6 +483,16 @@ class Component extends DCLogic {
 
   componentDidMount(){
     this.applyLang(this.state.lang);
+    if (typeof window !== 'undefined' && window.location.hash) {
+      let hashScrolled = false;
+      const scrollToHash = () => {
+        if (hashScrolled) return;
+        const el = document.getElementById(window.location.hash.slice(1));
+        if (el) { el.scrollIntoView({ block: 'start' }); hashScrolled = true; }
+      };
+      scrollToHash();
+      [100, 300, 600, 1000, 1600].forEach(t => setTimeout(scrollToHash, t));
+    }
     this.tryMap(0);
     this.setupReveal();
     this.setupTyping();
