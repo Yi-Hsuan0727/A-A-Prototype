@@ -1,0 +1,14 @@
+.ascenzi-mb .ascenzi-field { margin-bottom: 18px; }
+.ascenzi-mb .ascenzi-field__label { display: block; font-weight: 600; margin-bottom: 6px; }
+.ascenzi-mb .ascenzi-field__sublabel { display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #666; margin-bottom: 4px; }
+.ascenzi-mb .ascenzi-field__help { color: #666; font-size: 12px; margin: 4px 0 0; }
+.ascenzi-mb .ascenzi-field__bilingual { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ascenzi-mb .ascenzi-field__col { display: flex; flex-direction: column; }
+.ascenzi-mb textarea, .ascenzi-mb input[type="text"] { width: 100%; }
+.ascenzi-mb .ascenzi-image-preview img { max-width: 160px; max-height: 120px; display: block; margin-bottom: 8px; border: 1px solid #dcdcde; }
+.ascenzi-mb .ascenzi-field--repeater { border-top: 1px solid #dcdcde; padding-top: 16px; }
+.ascenzi-repeater__row { border: 1px solid #dcdcde; background: #f6f7f7; padding: 12px; margin-bottom: 10px; border-radius: 3px; }
+.ascenzi-repeater__row-fields { display: grid; gap: 10px; }
+.ascenzi-repeater__remove { color: #b32d2e; margin-top: 6px; }
+.ascenzi-repeater__template { display: none; }
+.ascenzi-mb .postbox-header + .inside { padding: 12px; }

@@ -1,0 +1,16 @@
+/*
+Theme Name: Ascenzi & Associates
+Theme URI: https://ascenziassociates.com
+Author: Ascenzi & Associates
+Description: Custom theme for Ascenzi & Associates, a consultancy for firms entering U.S. advanced manufacturing construction. Converted from a high-fidelity HTML/CSS/JS design prototype. Fully admin-editable via custom post types (Service, Insight Post) and custom meta-box fields for Home, About and Privacy Policy content. Bilingual (English / Traditional Chinese) via a lightweight cookie-based locale switch (no multilingual plugin required).
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 7.4
+Text Domain: ascenzi
+Domain Path: /languages
+License: Proprietary
+*/
+
+/* This file intentionally holds only the required WordPress theme header above.
+   All actual styling lives in assets/css/theme.css (enqueued in functions.php)
+   so it can be organized, cached and versioned normally. */

@@ -70,6 +70,9 @@ Four individual service pages, all sharing one layout:
 ### Insight-Post.dc.html (formerly Blog-Post)
 Single post template: category tag + date, H1, dek, topic tags, author line (name + role, **no photo, no read time**), hero image (no caption below it), mixed-media body (paragraphs, pull quote, bullet list, two images, data table), a bordered "← Back" button (browser back, with clear space below it before the prev/next row), prev/next post nav, enquiry CTA. **There is no breadcrumb** (the former "Home / Insight / Article" trail above the category tag was removed) and **no second tag list at the bottom of the article** (the topic tags still appear once, under the headline).
 
+### Privacy-Policy.dc.html
+Standalone legal page: kicker "Legal" + H1 "Privacy Policy" + effective-date line + intro paragraph, then 11 numbered sections (Information We Collect, How We Use Your Information, Cookies, How We Share Information — with a bulleted sub-list, Data Security, Data Retention, Your Rights and Choices, Children's Privacy, International Data Transfers, Changes to This Policy, Contact Us), a contact line with the phone number, then the shared footer/contact modal. `max-width:820px` single-column reading layout (narrower than the 900px article width on Insight-Post). Uses the shared header with `active="none"` (no nav item highlights, since it isn't a primary nav destination) — reached via the footer's "Privacy Policy & Terms" link, which now points here instead of `#`. **The legal content is placeholder copy for design purposes and must be drafted/reviewed by qualified counsel before real use** — same caveat as the rest of the site's placeholder content.
+
 ### Contact-Popup-Figma.dc.html
 Legacy static reference sheet of the old survey modal states — superseded by `ContactModal.dc.html` (below); kept only as a visual reference for modal chrome.
 
@@ -87,7 +90,7 @@ Header, footer and contact form are **separate `.dc.html` components** imported 
 2. **Quick links:** Home · About Us · Services (→ `Home.dc.html#capabilities`) · Insight
 3. **Services:** the four packages
 4. **Contact:** phone (`tel:`), Phoenix office address, then a **Newsletter** block — mono label, one-line blurb, email field + blue Subscribe button (`1px #33383F` frame, max 360px), and a mono confirmation line after subscribing. **No email address, no Contact button, no Company column.**
-Bottom bar: © line + a single **"Privacy Policy & Terms"** link (placeholder `#` — no policy page exists yet).
+Bottom bar: © line + a single **"Privacy Policy & Terms"** link, now pointing to `Privacy-Policy.dc.html`.
 
 **ContactModal.dc.html** — props `lang`, `mode` (`contact` | `partner`), `open`, `on-close()`. Centered overlay (`rgba(4,7,20,0.72)` backdrop), 680px white card, 3px blue top rule, header kicker + firm name + close ×, 2px progress bar (contact mode only), grey footer nav bar (`#F9FAFA`). Escape closes; state resets on close. The phone number and office address are **not shown anywhere in the form steps** — they only appear as a single short line ("Prefer to talk now? 888-523-8168 · Phoenix, Arizona.") under the body copy on the confirmation screen, once the enquiry (or partnership) form has actually been submitted.
 - **Contact mode (2 steps)** — kicker "Enquiry — Step n of 2":
@@ -115,7 +118,7 @@ All images are under `uploads/` (stock/placeholder photography — replace with 
 Serve the folder over HTTP (e.g. `python3 -m http.server`, or a Live Server extension) and open any page `.dc.html` file. `support.js` is the prototyping tool's runtime — it must sit next to the HTML files, or the pages render as raw markup with visible `{{ binding }}` placeholders and every modal expanded at once. Opening the files directly via `file://` will not work (the shared components are fetched over HTTP). Append `?lang=zh` to any page URL to preview the Traditional Chinese version.
 
 ## Known Gaps / Follow-ups
-- Privacy Policy and Terms are one combined footer link only — no page exists yet.
+- Privacy Policy and Terms are still one combined footer link (`Privacy-Policy.dc.html`) — there is no separate Terms of Service page, and the policy's legal content is placeholder copy that needs review by qualified counsel before real use.
 - Contact form and the newsletter boxes (footer, Insight) are not wired to a backend; each shows a static confirmation.
 - Insight posts, authors and dates are sample content; the post template holds one sample article in both languages.
 - Traditional Chinese copy was drafted for design purposes and should be reviewed by a native copywriter before launch.
