@@ -55,6 +55,11 @@
   a { color:#0028FF; text-decoration:none; }
   a:hover { color:#001FBF; }
   html[lang="zh-Hant"] h1, html[lang="zh-Hant"] h2, html[lang="zh-Hant"] h3 { letter-spacing:0 !important; }
+  @media (max-width:860px) {
+    #top > div { grid-template-columns:1fr; }
+    #top > div > div:nth-child(1) { order:2; }
+    #top > div > div:nth-child(2) { order:1; }
+  }
   @keyframes om-pulse { 0%,100% { opacity:0.14; } 50% { opacity:0.42; } }
   @keyframes om-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-9px); } }
   @keyframes om-type-cursor { 0%, 45% { opacity:1; } 50%, 100% { opacity:0; } }
