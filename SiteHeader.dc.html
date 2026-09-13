@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="ext-resource-dependency" content="uploads/logo-horizon.png" data-resource-id="hdr-logo">
+<meta name="ext-resource-dependency" content="uploads/arron-choi-fYD54gVXFGM-unsplash.jpg" data-resource-id="hdr-svc1">
+<meta name="ext-resource-dependency" content="uploads/bilge-tekin-GiATUqz4NYY-unsplash.jpg" data-resource-id="hdr-svc2">
+<meta name="ext-resource-dependency" content="uploads/krakenimages-376KN_ISplE-unsplash.jpg" data-resource-id="hdr-svc3">
+<meta name="ext-resource-dependency" content="uploads/jonakoh-_-r5lbaK3fDaM-unsplash.jpg" data-resource-id="hdr-svc4">
+<meta name="ext-resource-dependency" content="uploads/thumbs/arron-choi-fYD54gVXFGM-unsplash.jpg" data-resource-id="hdr-svc-thumb1">
+<meta name="ext-resource-dependency" content="uploads/thumbs/bilge-tekin-GiATUqz4NYY-unsplash.jpg" data-resource-id="hdr-svc-thumb2">
+<meta name="ext-resource-dependency" content="uploads/thumbs/krakenimages-376KN_ISplE-unsplash.jpg" data-resource-id="hdr-svc-thumb3">
+<meta name="ext-resource-dependency" content="uploads/thumbs/jonakoh-_-r5lbaK3fDaM-unsplash.jpg" data-resource-id="hdr-svc-thumb4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&amp;family=IBM+Plex+Mono:wght@400&amp;family=Noto+Sans+TC:wght@400&amp;display=swap" rel="stylesheet">
+<style>
+  body { font-family:'Questrial', 'Noto Sans TC', system-ui, sans-serif; color:#0B0B0B; -webkit-font-smoothing:antialiased; }
+  a { color:#0028FF; text-decoration:none; }
+  a:hover { color:#001FBF; }
+</style>
+</helmet>
+
+<header style="{{ headerStyle }}">
+  <div style="max-width:1360px; margin:0 auto; padding:12px clamp(18px,4vw,48px); min-height:76px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px 28px">
+    <a href="Home.dc.html" style="display:flex; align-items:center; border-radius:3px">
+      <img src="uploads/logo-horizon.png" alt="Ascenzi &amp; Associates" style="height:34px; width:auto; display:block; border-radius:3px">
+    </a>
+
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <button type="button" onClick="{{ toggleMenu }}" aria-label="Menu" aria-expanded="{{ menuOpen }}" style="display:flex; flex-direction:column; justify-content:center; gap:5px; width:44px; height:44px; padding:0 10px; background:transparent; border:1px solid #E2E5EA; cursor:pointer; border-radius:3px" style-hover="border-color:#0028FF">
+        <span style="display:block; height:1.5px; background:#0B0B0B"></span>
+        <span style="display:block; height:1.5px; background:#0B0B0B"></span>
+        <span style="display:block; height:1.5px; background:#0B0B0B"></span>
+      </button>
+    </sc-if>
+
+    <nav style="{{ navStyle }}">
+      <a href="Home.dc.html" style="{{ homeStyle }}" style-hover="color:#0028FF; border-bottom-color:#0028FF">{{ t.home }}</a>
+      <a href="About.dc.html" style="{{ aboutStyle }}" style-hover="color:#0028FF; border-bottom-color:#0028FF">{{ t.about }}</a>
+
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+        <div style="position:relative" onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeServices }}">
+          <button type="button" onClick="{{ toggleServices }}" aria-haspopup="true" aria-expanded="{{ servicesOpen }}" style="{{ servicesStyle }}" style-hover="color:#0028FF; border-bottom-color:#0028FF">{{ t.services }} <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="display:block; flex:none; transition:transform 160ms ease; transform:{{ caretTransform }}"><path d="M3.5 6l4.5 4.5L12.5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ toggleServices }}" aria-expanded="{{ servicesOpen }}" style="{{ servicesStyle }}" style-hover="color:#0028FF">
+          <span>{{ t.services }}</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="display:block; flex:none; transition:transform 160ms ease; transform:{{ caretTransform }}"><path d="M3.5 6l4.5 4.5L12.5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+        <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; flex-direction:column; gap:0; padding:2px 0 8px 14px; border-left:1px solid #E2E5EA; margin:0 0 4px 2px">
+            <sc-for list="{{ packages }}" as="p" hint-placeholder-count="4">
+              <a href="{{ p.href }}" style="font-size:14px; color:#33383F; padding:9px 0; display:flex; flex-direction:column; gap:3px" style-hover="color:#0028FF">
+                <span>{{ p.title }}</span>
+                <span style="font-size:12.5px; color:#6E7373; line-height:1.45">{{ p.desc }}</span>
+              </a>
+            </sc-for>
+          </div>
+        </sc-if>
+      </sc-if>
+
+      <a href="Insight.dc.html" style="{{ insightStyle }}" style-hover="color:#0028FF; border-bottom-color:#0028FF">{{ t.insight }}</a>
+
+      <div style="{{ toolsStyle }}">
+        <div style="position:relative" onMouseEnter="{{ cancelLangClose }}" onMouseLeave="{{ closeLang }}">
+          <button type="button" onClick="{{ toggleLang }}" aria-haspopup="listbox" aria-expanded="{{ langOpen }}" aria-label="{{ t.language }}" style="{{ langBtnStyle }}" style-hover="border-color:#0028FF; color:#0028FF">
+            <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="display:block; flex:none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.4"></circle><path d="M2 10h16M10 2c2.5 2.4 3.8 5.1 3.8 8s-1.3 5.6-3.8 8c-2.5-2.4-3.8-5.1-3.8-8S7.5 4.4 10 2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path></svg>
+            <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:1px">{{ langShort }}</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="display:block; flex:none; transition:transform 160ms ease; transform:{{ langCaret }}"><path d="M3.5 6l4.5 4.5L12.5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </button>
+          <sc-if value="{{ langOpen }}" hint-placeholder-val="{{ false }}">
+            <div role="listbox" aria-label="{{ t.language }}" onMouseEnter="{{ cancelLangClose }}" onMouseLeave="{{ closeLang }}" style="{{ langMenuStyle }}">
+              <sc-for list="{{ langOptions }}" as="o" hint-placeholder-count="2">
+                <button type="button" role="option" aria-selected="{{ o.active }}" lang="{{ o.code }}" onClick="{{ o.pick }}" style="{{ o.style }}" style-hover="background:#F4F6FF; color:#0028FF">
+                  <span>{{ o.label }}</span>
+                  <sc-if value="{{ o.active }}" hint-placeholder-val="{{ false }}">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex:none"><path d="M3 8.5l3.2 3L13 4.5" stroke="#0028FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  </sc-if>
+                </button>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+        <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+          <button type="button" onClick="{{ contact }}" style="font-size:13.5px; letter-spacing:0.4px; color:#FFFFFF; background:#0028FF; border:none; font-family:inherit; padding:12px 20px; cursor:pointer; white-space:nowrap; border-radius:3px; display:inline-flex; align-items:center; gap:9px; transition:background 140ms ease, transform 90ms ease" style-hover="background:#001FBF" style-active="background:#0018A0; transform:translateY(1px)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex:none"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.4 3.6V16H5.5A1.5 1.5 0 0 1 4 14.5v-9z" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"></path><path d="M8 9h8M8 12h5" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"></path></svg>{{ t.contact }}</button>
+        </sc-if>
+      </div>
+    </nav>
+  </div>
+
+  <sc-if value="{{ showPanel }}" hint-placeholder-val="{{ false }}">
+    <div onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeServices }}" style="position:absolute; top:100%; left:0; right:0; background:#FFFFFF; border-top:1px solid #E2E5EA; box-shadow:0 24px 48px rgba(11,11,11,0.14)">
+      <div style="max-width:1360px; margin:0 auto; padding:32px clamp(18px,4vw,48px) 36px; display:grid; grid-template-columns:minmax(0,1fr) minmax(300px,440px); gap:clamp(28px,4vw,56px); align-items:stretch">
+        <div style="display:flex; flex-direction:column">
+          <div style="display:flex; flex-direction:column">
+            <sc-for list="{{ packages }}" as="p" hint-placeholder-count="4">
+              <a href="{{ p.href }}" onMouseEnter="{{ p.hover }}" onFocus="{{ p.hover }}" style="{{ p.rowStyle }}" style-hover="box-shadow:inset 0 0 0 1px #0028FF; color:#0028FF">
+                <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:1.6px; color:#0028FF; width:34px; flex:none; padding-top:5px">{{ p.num }}</span>
+                <span style="display:flex; flex-direction:column; gap:6px; min-width:0; flex:1">
+                  <span style="font-size:18px; line-height:1.3; letter-spacing:-0.2px; color:{{ p.titleColor }}">{{ p.title }}</span>
+                  <span style="font-size:13.5px; color:#6E7373; line-height:1.5">{{ p.desc }}</span>
+                </span>
+                <span aria-hidden="true" style="font-size:16px; color:{{ p.arrowColor }}; padding-top:4px; transition:color 140ms ease">&rarr;</span>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+        <div style="position:relative; min-height:300px; border-radius:3px; overflow:hidden; background:#141922">
+          <sc-for list="{{ packages }}" as="p" hint-placeholder-count="4">
+            <span aria-hidden="true" style="{{ p.imgStyle }}"></span>
+          </sc-for>
+          <span style="position:absolute; left:0; right:0; bottom:0; padding:22px 24px; background:linear-gradient(180deg, rgba(4,7,20,0) 0%, rgba(4,7,20,0.42) 45%, rgba(4,7,20,0.96) 100%); display:flex; flex-direction:column; gap:6px">
+            <span style="font-size:19px; line-height:1.3; letter-spacing:-0.2px; color:#FFFFFF">{{ activePkg.title }}</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</header>
+
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+  <button type="button" onClick="{{ contact }}" aria-label="{{ t.contact }}" title="{{ t.contact }}" style="position:fixed; right:clamp(14px,3vw,24px); bottom:clamp(14px,3vw,24px); z-index:80; width:56px; height:56px; border-radius:50%; background:#0028FF; color:#FFFFFF; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 28px rgba(0,40,255,0.32); transition:background 140ms ease, transform 120ms ease" style-hover="background:#001FBF; transform:translateY(-2px)" style-active="background:#0018A0; transform:translateY(0)">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.4 3.6V16H5.5A1.5 1.5 0 0 1 4 14.5v-9z" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"></path><path d="M8 9h8M8 12h5" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"></path></svg>
+  </button>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":420},"lang":{"editor":"enum","options":["en","zh"],"default":"en","tsType":"\"en\" | \"zh\"","section":"Site"},"active":{"editor":"enum","options":["home","about","services","insight","none"],"default":"home","tsType":"string","section":"Site"},"onSetLang":{"editor":null,"tsType":"(lang: string) => void"},"onContact":{"editor":null,"tsType":"() => void"}}'>
+// Shared site header. Props: lang ('en'|'zh'), active ('home'|'about'|'services'|'insight'),
+// onSetLang(lang), onContact(). Owns its own mobile/menu/dropdown state.
+class Component extends DCLogic {
+  state = { isMobile: typeof window !== 'undefined' && window.innerWidth <= 860, menuOpen: false, servicesOpen: false, hoverPkg: -1, langOpen: false, scrolled: typeof window !== 'undefined' && window.scrollY > 8 };
+
+  T = {
+    en: { home: 'Home', about: 'About Us', services: 'Services', insight: 'Insight', contact: 'Contact Us', language: 'Language' },
+    zh: { home: '首頁', about: '關於我們', services: '服務項目', insight: '洞察觀點', contact: '聯絡我們', language: '語言' }
+  };
+
+  PKG = [
+    { href: 'Talent-Acquisition.dc.html', img: 'uploads/thumbs/arron-choi-fYD54gVXFGM-unsplash.jpg', en: ['Talent Acquisition', 'Certified, qualified people — from the first weld to the corner office.'], zh: ['人才招募', '從第一道焊縫到管理階層，具備認證與資格的人才。'] },
+    { href: 'Licensing.dc.html', img: 'uploads/thumbs/bilge-tekin-GiATUqz4NYY-unsplash.jpg', en: ['Licensing', 'Fully qualified to operate, from day one.'], zh: ['執照申辦', '從第一天起，就完全具備營運資格。'] },
+    { href: 'US-Market-Entry.dc.html', img: 'uploads/thumbs/krakenimages-376KN_ISplE-unsplash.jpg', en: ['U.S. Market Entry', 'From initial launch to project execution.'], zh: ['美國市場進入', '從初始落地到專案執行。'] },
+    { href: 'Supporting-Growth.dc.html', img: 'uploads/thumbs/jonakoh-_-r5lbaK3fDaM-unsplash.jpg', en: ['Supporting & Growth Services', 'Operational is the starting line. We build from there.'], zh: ['支援與成長服務', '營運上線只是起點，我們由此持續建構。'] }
+  ];
+
+  RES = {
+    'uploads/logo-horizon.png': 'hdr-logo',
+    'uploads/arron-choi-fYD54gVXFGM-unsplash.jpg': 'hdr-svc1',
+    'uploads/bilge-tekin-GiATUqz4NYY-unsplash.jpg': 'hdr-svc2',
+    'uploads/krakenimages-376KN_ISplE-unsplash.jpg': 'hdr-svc3',
+    'uploads/thumbs/arron-choi-fYD54gVXFGM-unsplash.jpg': 'hdr-svc-thumb1',
+    'uploads/thumbs/bilge-tekin-GiATUqz4NYY-unsplash.jpg': 'hdr-svc-thumb2',
+    'uploads/thumbs/krakenimages-376KN_ISplE-unsplash.jpg': 'hdr-svc-thumb3',
+    'uploads/thumbs/jonakoh-_-r5lbaK3fDaM-unsplash.jpg': 'hdr-svc-thumb4',
+    'uploads/jonakoh-_-r5lbaK3fDaM-unsplash.jpg': 'hdr-svc4'
+  };
+  res(p){ const id = this.RES[p]; const map = (typeof window !== 'undefined' && window.__resources) || {}; return (id && map[id]) || p; }
+
+  lang(){ return this.props.lang === 'zh' ? 'zh' : 'en'; }
+  openServices = () => { clearTimeout(this._closeT); this.setState({ servicesOpen: true }); };
+  closeServices = () => { clearTimeout(this._closeT); this._closeT = setTimeout(() => this.setState({ servicesOpen: false, hoverPkg: -1 }), 120); };
+  toggleServices = () => { clearTimeout(this._closeT); this.setState(s => ({ servicesOpen: !s.servicesOpen })); };
+  toggleMenu = () => this.setState(s => ({ menuOpen: !s.menuOpen, servicesOpen: false, langOpen: false }));
+  setLang = (l) => { clearTimeout(this._langCloseT); this.setState({ langOpen: false }); if (this.props.onSetLang) this.props.onSetLang(l); };
+  toggleLang = () => { clearTimeout(this._langCloseT); this.setState(s => ({ langOpen: !s.langOpen, servicesOpen: false })); };
+  cancelLangClose = () => { clearTimeout(this._langCloseT); };
+  closeLang = () => { clearTimeout(this._langCloseT); this._langCloseT = setTimeout(() => this.setState({ langOpen: false }), 180); };
+  contact = () => { this.setState({ menuOpen: false, servicesOpen: false }); if (this.props.onContact) this.props.onContact(); };
+
+  componentDidMount(){
+    this._onResize = () => {
+      const m = window.innerWidth <= 860;
+      if (m !== this.state.isMobile) this.setState({ isMobile: m, menuOpen: false, servicesOpen: false });
+    };
+    window.addEventListener('resize', this._onResize);
+    this._onKey = (e) => { if (e.key === 'Escape' && (this.state.servicesOpen || this.state.langOpen)) this.setState({ servicesOpen: false, langOpen: false }); };
+    window.addEventListener('keydown', this._onKey);
+    // Sticky header: solid white at the top of the page, translucent frosted glass once scrolled.
+    this._onScroll = () => {
+      const sc = window.scrollY > 8;
+      if (sc !== this.state.scrolled) this.setState({ scrolled: sc });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount(){
+    window.removeEventListener('resize', this._onResize);
+    window.removeEventListener('keydown', this._onKey);
+    window.removeEventListener('scroll', this._onScroll);
+    clearTimeout(this._closeT);
+    clearTimeout(this._langCloseT);
+    clearTimeout(this._closeT);
+  }
+
+  renderVals(){
+    const L = this.lang(), t = this.T[L], st = this.state;
+    const active = this.props.active || 'none';
+    const mobile = st.isMobile;
+    const base = 'font-size:14px; padding:6px 0; white-space:nowrap; border:none; border-bottom:1px solid transparent; transition:color 140ms ease, border-color 140ms ease; background:transparent; font-family:inherit; cursor:pointer; text-align:left';
+    const link = (key) => base + (active === key ? '; color:#0028FF; border-bottom-color:#0028FF' : '; color:#33383F');
+    const activeIdx = ['talent', 'licensing', 'market', 'growth'].indexOf(this.props.activePackage || '');
+    const shownIdx = st.hoverPkg >= 0 ? st.hoverPkg : (activeIdx >= 0 ? activeIdx : 0);
+    const packages = this.PKG.map((p, i) => ({
+      href: p.href,
+      num: '0' + (i + 1),
+      title: p[L][0],
+      desc: p[L][1],
+      hover: () => this.setState({ hoverPkg: i }),
+      rowStyle: 'display:flex; align-items:flex-start; gap:18px; padding:18px 14px 18px 10px; border-bottom:1px solid #E2E5EA; color:#0B0B0B; border-radius:3px; transition:box-shadow 140ms ease, color 140ms ease; box-shadow:inset 0 0 0 1px ' + (shownIdx === i ? '#0028FF' : 'transparent'),
+      titleColor: shownIdx === i ? '#0028FF' : '#33383F',
+      arrowColor: shownIdx === i ? '#0028FF' : '#C7CEDB',
+      imgStyle: 'position:absolute; inset:0; display:block; background-image:url("' + encodeURI(this.res(p.img)) + '"); background-size:cover; background-position:center; transition:opacity 320ms ease; opacity:' + (shownIdx === i ? 1 : 0)
+    }));
+    const glass = st.scrolled && !st.menuOpen;
+    return {
+      t,
+      headerStyle: 'position:relative; z-index:50; transition:background 220ms ease, border-color 220ms ease, box-shadow 220ms ease; -webkit-backdrop-filter:blur(18px) saturate(1.4); backdrop-filter:blur(18px) saturate(1.4); ' +
+        (glass
+          ? 'background:rgba(255,255,255,0.72); border-bottom:1px solid rgba(11,11,11,0.08); box-shadow:0 1px 0 rgba(255,255,255,0.4) inset'
+          : 'background:#FFFFFF; border-bottom:1px solid #E2E5EA'),
+      isMobile: mobile,
+      isDesktop: !mobile,
+      menuOpen: st.menuOpen,
+      servicesOpen: st.servicesOpen,
+      showPanel: !mobile && st.servicesOpen,
+      caretTransform: st.servicesOpen ? 'rotate(180deg)' : 'none',
+      toggleMenu: this.toggleMenu,
+      openServices: this.openServices,
+      closeServices: this.closeServices,
+      toggleServices: this.toggleServices,
+      contact: this.contact,
+      langOpen: st.langOpen,
+      toggleLang: this.toggleLang,
+      closeLang: this.closeLang,
+      cancelLangClose: this.cancelLangClose,
+      langShort: L === 'zh' ? '繁中' : 'EN',
+      langCaret: st.langOpen ? 'rotate(180deg)' : 'none',
+      langBtnStyle: 'display:inline-flex; align-items:center; gap:7px; height:40px; padding:0 12px; background:transparent; border:1px solid #E2E5EA; border-radius:3px; color:#33383F; font-family:inherit; cursor:pointer; transition:border-color 140ms ease, color 140ms ease',
+      langMenuStyle: 'position:absolute; top:calc(100% + 6px); ' + (mobile ? 'left:0' : 'right:0') + '; min-width:168px; background:#FFFFFF; border:1px solid #E2E5EA; border-radius:3px; box-shadow:0 12px 32px rgba(11,11,11,0.12); padding:6px; z-index:60; display:flex; flex-direction:column; gap:2px',
+      langOptions: [{ code: 'en', label: 'English' }, { code: 'zh-Hant', label: '繁體中文', l: 'zh' }].map(o => {
+        const code = o.l || o.code, active = L === code;
+        return {
+          code: o.code, label: o.label, active,
+          pick: () => this.setLang(code),
+          style: 'display:flex; align-items:center; justify-content:space-between; gap:14px; width:100%; padding:10px 12px; background:transparent; border:none; border-radius:3px; font-family:inherit; font-size:14px; text-align:left; cursor:pointer; transition:background 120ms ease, color 120ms ease; color:' + (active ? '#0028FF' : '#33383F')
+        };
+      }),
+      homeStyle: link('home'),
+      aboutStyle: link('about'),
+      insightStyle: link('insight'),
+      servicesStyle: link('services') + (mobile
+        ? '; display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; border-bottom-color:transparent'
+        : '; display:inline-flex; align-items:center; gap:7px'),
+      navStyle: mobile
+        ? (st.menuOpen
+            ? 'display:flex; flex-direction:column; align-items:stretch; gap:4px; width:100%; order:3; padding:14px 0 6px; border-top:1px solid #E2E5EA'
+            : 'display:none')
+        : 'display:flex; flex-wrap:wrap; align-items:center; gap:12px 22px; min-width:0; flex:1 1 320px; justify-content:flex-end',
+      toolsStyle: mobile
+        ? 'display:flex; align-items:center; justify-content:space-between; gap:14px; padding:12px 0 4px; margin-top:6px; border-top:1px solid #E2E5EA'
+        : 'display:flex; align-items:center; gap:14px; margin-left:10px',
+      packages,
+      activePkg: packages[shownIdx]
+    };
+  }
+}
+</script>
+</body>
+</html>

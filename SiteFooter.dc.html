@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="ext-resource-dependency" content="uploads/logo-horizon.png" data-resource-id="ftr-logo">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&amp;family=IBM+Plex+Mono:wght@400&amp;family=Noto+Sans+TC:wght@400&amp;display=swap" rel="stylesheet">
+<style>
+  body { font-family:'Questrial', 'Noto Sans TC', system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#0028FF; text-decoration:none; }
+  a:hover { color:#001FBF; }
+</style>
+</helmet>
+
+<footer style="background:#0B0B0B; color:#FFFFFF">
+  <div style="max-width:1360px; margin:0 auto; padding:clamp(52px,6vw,72px) clamp(18px,4vw,48px) 40px">
+    <div style="{{ gridStyle }}">
+      <div style="grid-column:{{ brandSpan }}">
+        <img src="uploads/logo-horizon.png" alt="Ascenzi &amp; Associates" style="height:34px; width:auto; display:block; filter:brightness(0) invert(1); border-radius:3px">
+        <p style="margin:24px 0 0; font-size:14px; line-height:1.7; color:#A8B0BA; max-width:300px">{{ t.blurb }}</p>
+      </div>
+
+      <div>
+        <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.6px; text-transform:uppercase; color:#6E7373; margin-bottom:18px">{{ t.quick }}</div>
+        <div style="display:flex; flex-direction:column; gap:11px">
+          <sc-for list="{{ quickLinks }}" as="l" hint-placeholder-count="4">
+            <a href="{{ l.href }}" style="font-size:14px; color:#CDD4DB; transition:color 140ms ease; border-radius:3px" style-hover="color:#FFFFFF" style-active="color:#0028FF">{{ l.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.6px; text-transform:uppercase; color:#6E7373; margin-bottom:18px">{{ t.services }}</div>
+        <div style="display:flex; flex-direction:column; gap:11px">
+          <sc-for list="{{ serviceLinks }}" as="l" hint-placeholder-count="4">
+            <a href="{{ l.href }}" style="font-size:14px; color:#CDD4DB; transition:color 140ms ease; border-radius:3px" style-hover="color:#FFFFFF" style-active="color:#0028FF">{{ l.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.6px; text-transform:uppercase; color:#6E7373; margin-bottom:18px">{{ t.contactHead }}</div>
+        <div style="display:flex; flex-direction:column; gap:16px">
+          <a href="tel:+18885238168" style="display:flex; flex-direction:column; gap:5px; color:#CDD4DB; border-radius:3px" style-hover="color:#FFFFFF">
+            <span style="font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.phone }}</span>
+            <span style="font-size:14px">888-523-8168</span>
+          </a>
+          <div style="display:flex; flex-direction:column; gap:5px; color:#CDD4DB">
+            <span style="font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.office }}</span>
+            <span style="font-size:14px; line-height:1.55">{{ t.address }}</span>
+          </div>
+          <div style="margin-top:6px">
+            <div style="font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.newsletter }}</div>
+            <p style="margin:8px 0 12px; font-size:13.5px; line-height:1.6; color:#A8B0BA">{{ t.newsletterBody }}</p>
+            <div style="display:flex; border:1px solid #33383F; border-radius:3px; max-width:360px">
+              <input type="email" autocomplete="email" placeholder="{{ t.emailPlaceholder }}" aria-label="{{ t.emailPlaceholder }}" style="flex:1; min-width:0; background:transparent; border:none; outline:none; font-family:inherit; font-size:13.5px; color:#FFFFFF; padding:13px 14px; border-radius:3px">
+              <button type="button" onClick="{{ subscribe }}" style="background:#0028FF; color:#FFFFFF; border:none; font-family:inherit; font-size:13px; letter-spacing:0.4px; padding:0 18px; cursor:pointer; transition:background 140ms ease; border-radius:0 3px 3px 0" style-hover="background:#001FBF" style-active="background:#0018A0">{{ t.subscribe }}</button>
+            </div>
+            <div style="font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:#5B85FF; margin-top:10px; min-height:12px">{{ subscribeMsg }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:56px; padding-top:22px; border-top:1px solid #33383F; display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px 24px; font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.2px; text-transform:uppercase; color:#6E7373">
+      <span>&copy; 2026 Ascenzi &amp; Associates LLC</span>
+      <a href="#" style="color:#6E7373; transition:color 140ms ease" style-hover="color:#FFFFFF">{{ t.legal }}</a>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":520},"lang":{"editor":"enum","options":["en","zh"],"default":"en","tsType":"\"en\" | \"zh\"","section":"Site"}}'>
+// Shared site footer. Props: lang ('en'|'zh'). Newsletter signup shows a static confirmation in this prototype.
+class Component extends DCLogic {
+  state = { narrow: typeof window !== 'undefined' && window.innerWidth <= 1100, subscribeMsg: '' };
+  subscribe = () => this.setState({ subscribeMsg: this.T[this.props.lang === 'zh' ? 'zh' : 'en'].subscribed });
+
+  T = {
+    en: {
+      blurb: 'Consulting for the advanced manufacturing construction sector. Workforce, licensing, market entry and the support that follows.',
+      quick: 'Quick links', services: 'Services', contactHead: 'Contact',
+      phone: 'Phone', office: 'Office', address: 'Phoenix, Arizona, United States',
+      newsletter: 'Newsletter', newsletterBody: 'Industry perspective on US fab delivery.',
+      emailPlaceholder: 'Work email', subscribe: 'Subscribe', subscribed: 'Thank you — you are on the list.',
+      legal: 'Privacy Policy & Terms'
+    },
+    zh: {
+      blurb: '專注於先進製造建設領域的顧問公司：人力、執照、市場進入，以及後續的營運支援。',
+      quick: '快速連結', services: '服務項目', contactHead: '聯絡方式',
+      phone: '電話', office: '辦公室', address: '美國亞利桑那州鳳凰城',
+      newsletter: '電子報', newsletterBody: '關於美國晶圓廠交付的產業觀點。',
+      emailPlaceholder: '公司電子郵件', subscribe: '訂閱', subscribed: '謝謝您——已加入訂閱名單。',
+      legal: '隱私權政策與使用條款'
+    }
+  };
+
+  LINKS = {
+    quick: [
+      { href: 'Home.dc.html', en: 'Home', zh: '首頁' },
+      { href: 'About.dc.html', en: 'About Us', zh: '關於我們' },
+      { href: 'Home.dc.html#capabilities', en: 'Services', zh: '服務項目' },
+      { href: 'Insight.dc.html', en: 'Insight', zh: '洞察觀點' }
+    ],
+    services: [
+      { href: 'Talent-Acquisition.dc.html', en: 'Talent Acquisition', zh: '人才招募' },
+      { href: 'Licensing.dc.html', en: 'Licensing', zh: '執照申辦' },
+      { href: 'US-Market-Entry.dc.html', en: 'U.S. Market Entry', zh: '美國市場進入' },
+      { href: 'Supporting-Growth.dc.html', en: 'Supporting & Growth Services', zh: '支援與成長服務' }
+    ]
+  };
+
+  componentDidMount(){
+    this._onResize = () => {
+      const n = window.innerWidth <= 1100;
+      if (n !== this.state.narrow) this.setState({ narrow: n });
+    };
+    window.addEventListener('resize', this._onResize);
+  }
+  componentWillUnmount(){ window.removeEventListener('resize', this._onResize); }
+
+  renderVals(){
+    const L = this.props.lang === 'zh' ? 'zh' : 'en';
+    const map = (list) => list.map(l => ({ href: l.href, label: l[L] }));
+    return {
+      t: this.T[L],
+      brandSpan: this.state.narrow ? '1 / -1' : 'auto',
+      gridStyle: 'display:grid; gap:clamp(28px,4vw,48px); grid-template-columns:' + (this.state.narrow ? 'repeat(auto-fit, minmax(min(200px,100%), 1fr))' : 'minmax(0,1.3fr) repeat(2, minmax(0,1fr)) minmax(0,1.5fr)'),
+      quickLinks: map(this.LINKS.quick),
+      serviceLinks: map(this.LINKS.services),
+      subscribe: this.subscribe,
+      subscribeMsg: this.state.subscribeMsg
+    };
+  }
+}
+</script>
+</body>
+</html>

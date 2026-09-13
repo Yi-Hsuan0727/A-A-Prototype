@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Questrial&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; font-family:'Questrial', sans-serif; background:#F2F3F5; color:#0B0B0B; }
+  * { box-sizing:border-box; }
+  a { color:#0028FF; text-decoration:none; }
+  a:hover { color:#001FBF; }
+</style>
+</helmet>
+
+<div style="padding:64px 56px; display:flex; flex-direction:column; gap:56px">
+
+  <div style="display:flex; flex-direction:column; gap:10px">
+    <div style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:2.2px; text-transform:uppercase; color:#6E7373">Ascenzi &amp; Associates &mdash; Component sheet</div>
+    <div style="font-size:34px; letter-spacing:-0.6px">Contact enquiry popup &mdash; all states</div>
+    <div style="font-size:15px; line-height:1.6; color:#4A5057; max-width:640px">Four frames, 720&times;auto modal on a 1440&times;900 backdrop. Import to Figma via html.to.design and each frame lands as an editable layer group.</div>
+  </div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:48px">
+
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <div style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:1.6px; text-transform:uppercase; color:#0028FF">State 01 &mdash; Question</div>
+      <div style="width:1440px; height:900px; background:#0B0B0B; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden">
+        <div style="position:absolute; inset:0; background:rgba(4,7,20,0.72)"></div>
+        <div style="position:relative; background:#FFFFFF; width:720px; border-top:3px solid #0028FF">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding:26px 40px; border-bottom:1px solid #E2E5EA">
+            <div>
+              <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.6px; text-transform:uppercase; color:#6E7373">Enquiry &mdash; Step 1 of 4</div>
+              <div style="font-size:15px; margin-top:6px">Ascenzi &amp; Associates</div>
+            </div>
+            <div style="font-size:22px; line-height:1; color:#6E7373">&times;</div>
+          </div>
+          <div style="height:2px; background:#E2E5EA"><div style="height:2px; background:#0028FF; width:25%"></div></div>
+          <div style="padding:44px 40px">
+            <div style="font-size:28px; line-height:1.28; letter-spacing:-0.4px; max-width:520px; text-wrap:pretty">Which best describes you?</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:#E2E5EA; border:1px solid #E2E5EA; margin-top:30px">
+              <div style="background:#FFFFFF; padding:22px 20px; font-size:15.5px; line-height:1.4">Owner / operator</div>
+              <div style="background:#0028FF; color:#FFFFFF; padding:22px 20px; font-size:15.5px; line-height:1.4">EPC or general contractor</div>
+              <div style="background:#FFFFFF; padding:22px 20px; font-size:15.5px; line-height:1.4">International vendor or supplier</div>
+              <div style="background:#FFFFFF; padding:22px 20px; font-size:15.5px; line-height:1.4">Professional or student</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding:22px 40px; border-top:1px solid #E2E5EA; background:#F9FAFA">
+            <span></span>
+            <div style="display:flex; align-items:center; gap:20px">
+              <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">Step 1 / 4</span>
+              <div style="font-size:14px; letter-spacing:0.4px; color:#FFFFFF; background:#0028FF; padding:14px 30px">Skip</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <div style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:1.6px; text-transform:uppercase; color:#0028FF">State 02 &mdash; Details</div>
+      <div style="width:1440px; height:900px; background:#0B0B0B; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden">
+        <div style="position:absolute; inset:0; background:rgba(4,7,20,0.72)"></div>
+        <div style="position:relative; background:#FFFFFF; width:720px; border-top:3px solid #0028FF">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding:26px 40px; border-bottom:1px solid #E2E5EA">
+            <div>
+              <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.6px; text-transform:uppercase; color:#6E7373">Enquiry &mdash; Your details</div>
+              <div style="font-size:15px; margin-top:6px">Ascenzi &amp; Associates</div>
+            </div>
+            <div style="font-size:22px; line-height:1; color:#6E7373">&times;</div>
+          </div>
+          <div style="height:2px; background:#E2E5EA"><div style="height:2px; background:#0028FF; width:75%"></div></div>
+          <div style="padding:44px 40px">
+            <div style="font-size:28px; line-height:1.28; letter-spacing:-0.4px">How do we reach you?</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:30px">
+              <div style="display:flex; flex-direction:column; gap:8px">
+                <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">Name</div>
+                <div style="border:1px solid #CDD4DB; font-size:15px; padding:13px 14px; color:#A8B0BA">Jordan Reyes</div>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:8px">
+                <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">Company</div>
+                <div style="border:1px solid #CDD4DB; font-size:15px; padding:13px 14px; color:#A8B0BA">Company name</div>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:8px; grid-column:1 / -1">
+                <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">Work email</div>
+                <div style="border:1px solid #0028FF; font-size:15px; padding:13px 14px; color:#0B0B0B">jordan@company.com</div>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:8px; grid-column:1 / -1">
+                <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">Anything else we should know</div>
+                <div style="border:1px solid #CDD4DB; font-size:15px; padding:13px 14px; color:#A8B0BA; min-height:88px">Scope, site and target dates.</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding:22px 40px; border-top:1px solid #E2E5EA; background:#F9FAFA">
+            <div style="font-size:14px; color:#6E7373">&larr; Back</div>
+            <div style="display:flex; align-items:center; gap:20px">
+              <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">Step 4 / 4</span>
+              <div style="font-size:14px; letter-spacing:0.4px; color:#FFFFFF; background:#0028FF; padding:14px 30px">Submit enquiry</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <div style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:1.6px; text-transform:uppercase; color:#0028FF">State 03 &mdash; Confirmation</div>
+      <div style="width:1440px; height:900px; background:#0B0B0B; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden">
+        <div style="position:absolute; inset:0; background:rgba(4,7,20,0.72)"></div>
+        <div style="position:relative; background:#FFFFFF; width:720px; border-top:3px solid #0028FF">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding:26px 40px; border-bottom:1px solid #E2E5EA">
+            <div>
+              <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.6px; text-transform:uppercase; color:#6E7373">Enquiry &mdash; Complete</div>
+              <div style="font-size:15px; margin-top:6px">Ascenzi &amp; Associates</div>
+            </div>
+            <div style="font-size:22px; line-height:1; color:#6E7373">&times;</div>
+          </div>
+          <div style="height:2px; background:#0028FF"></div>
+          <div style="padding:64px 40px; text-align:center">
+            <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.6px; text-transform:uppercase; color:#0028FF">Received</div>
+            <div style="margin-top:18px; font-size:28px; line-height:1.3; letter-spacing:-0.4px">Thank you &mdash; a principal will review this personally.</div>
+            <div style="margin:16px auto 0; font-size:15px; line-height:1.7; color:#4A5057; max-width:420px">We typically respond within two business days with a direct assessment of fit.</div>
+            <div style="display:inline-block; margin-top:30px; background:#0028FF; color:#FFFFFF; font-size:14px; letter-spacing:0.4px; padding:14px 30px">Close</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <div style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:1.6px; text-transform:uppercase; color:#0028FF">State 04 &mdash; Trigger &amp; specs</div>
+      <div style="width:1440px; height:900px; background:#FFFFFF; border:1px solid #E2E5EA; padding:64px; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-content:start">
+        <div style="display:flex; flex-direction:column; gap:32px">
+          <div style="font-size:22px; letter-spacing:-0.3px">Triggers</div>
+          <div style="display:flex; flex-direction:column; gap:20px; align-items:flex-start">
+            <div style="font-size:13.5px; letter-spacing:0.4px; color:#FFFFFF; background:#0028FF; padding:12px 22px">Contact Us &mdash; navbar</div>
+            <div style="font-size:14px; letter-spacing:0.4px; color:#FFFFFF; background:#0028FF; padding:15px 30px">Start a conversation &mdash; hero</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:14px; letter-spacing:0.4px; color:#FFFFFF; background:#0028FF; padding:14px 22px">Contact us &mdash; floating hot-key</div>
+            <div style="width:100%; max-width:420px; background:#FFFFFF; border:1px solid #E2E5EA; color:#0028FF; padding:22px 26px; font-size:15px; display:flex; justify-content:space-between">
+              <span>Start an enquiry</span><span>&rarr;</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:32px">
+          <div style="font-size:22px; letter-spacing:-0.3px">Specs</div>
+          <div style="display:flex; flex-direction:column; gap:1px; background:#E2E5EA; border:1px solid #E2E5EA">
+            <div style="background:#FFFFFF; padding:16px 20px; display:flex; justify-content:space-between; font-size:14px"><span style="color:#6E7373">Modal width</span><span>720 px</span></div>
+            <div style="background:#FFFFFF; padding:16px 20px; display:flex; justify-content:space-between; font-size:14px"><span style="color:#6E7373">Max height</span><span>88 vh, scrolls</span></div>
+            <div style="background:#FFFFFF; padding:16px 20px; display:flex; justify-content:space-between; font-size:14px"><span style="color:#6E7373">Backdrop</span><span>rgba(4,7,20,0.72)</span></div>
+            <div style="background:#FFFFFF; padding:16px 20px; display:flex; justify-content:space-between; font-size:14px"><span style="color:#6E7373">Top rule</span><span>3 px #0028FF</span></div>
+            <div style="background:#FFFFFF; padding:16px 20px; display:flex; justify-content:space-between; font-size:14px"><span style="color:#6E7373">Hairline</span><span>1 px #E2E5EA</span></div>
+            <div style="background:#FFFFFF; padding:16px 20px; display:flex; justify-content:space-between; font-size:14px"><span style="color:#6E7373">Body padding</span><span>44 / 40 px</span></div>
+            <div style="background:#FFFFFF; padding:16px 20px; display:flex; justify-content:space-between; font-size:14px"><span style="color:#6E7373">Corner radius</span><span>0</span></div>
+            <div style="background:#FFFFFF; padding:16px 20px; display:flex; justify-content:space-between; font-size:14px"><span style="color:#6E7373">Heading</span><span>Questrial 28 / 1.28</span></div>
+            <div style="background:#FFFFFF; padding:16px 20px; display:flex; justify-content:space-between; font-size:14px"><span style="color:#6E7373">Eyebrow</span><span>IBM Plex Mono 10.5</span></div>
+          </div>
+          <div style="display:flex; gap:1px; background:#E2E5EA; border:1px solid #E2E5EA">
+            <div style="flex:1; background:#0028FF; height:72px"></div>
+            <div style="flex:1; background:#0B0B0B; height:72px"></div>
+            <div style="flex:1; background:#4A5057; height:72px"></div>
+            <div style="flex:1; background:#CDD4DB; height:72px"></div>
+            <div style="flex:1; background:#F9FAFA; height:72px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

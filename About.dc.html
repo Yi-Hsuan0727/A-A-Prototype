@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/png" href="icons/favicon.png">
+<meta name="ext-resource-dependency" content="uploads/autie-ascenzi-portrait.png" data-resource-id="about-portrait">
+<meta name="ext-resource-dependency" content="uploads/testalize-me-9xHsWmh3m_4-unsplash.jpg" data-resource-id="about-firm">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&amp;family=IBM+Plex+Mono:wght@400&amp;family=Noto+Sans+TC:wght@400&amp;display=swap" rel="stylesheet">
+<template id="__bundler_thumbnail" data-bg-color="#0B0B0B">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><rect width="240" height="240" fill="#0B0B0B"/><rect x="72" y="96" width="96" height="10" fill="#0028FF"/><rect x="72" y="118" width="96" height="10" fill="#FFFFFF"/><rect x="72" y="140" width="58" height="10" fill="#FFFFFF" opacity="0.5"/></svg>
+</template>
+<style>
+  html, body { margin:0; padding:0; background:#FFFFFF; }
+  body { font-family:'Questrial', 'Noto Sans TC', system-ui, sans-serif; color:#0B0B0B; -webkit-font-smoothing:antialiased; }
+  * { box-sizing:border-box; }
+  a { color:#0028FF; text-decoration:none; }
+  a:hover { color:#001FBF; }
+  html[lang="zh-Hant"] h1, html[lang="zh-Hant"] h2, html[lang="zh-Hant"] h3 { letter-spacing:0 !important; }
+  .hero-grid { display:grid; grid-template-columns:minmax(0,8fr) minmax(240px,4fr); align-items:stretch; padding-left:max(0px, calc((100% - 1360px) / 2)); }
+  .hero-photo { width:100%; height:100%; min-height:280px; background-size:cover; background-position:center; }
+  @media (max-width:860px) {
+    .hero-grid { grid-template-columns:1fr; }
+    .hero-photo { height:320px; min-height:320px; }
+  }
+</style>
+</helmet>
+
+<div style="width:100%; background:#FFFFFF; overflow-x:clip">
+
+  <dc-import name="SiteHeader" style="position:sticky; top:0; z-index:50" lang="{{ lang }}" active="about" on-set-lang="{{ setLang }}" on-contact="{{ openContact }}" hint-size="100%,76px"></dc-import>
+
+  <section id="firm" style="background:#FFFFFF; overflow:hidden">
+    <div class="hero-grid">
+      <div style="padding:clamp(44px,6vw,72px) clamp(18px,4vw,48px) clamp(48px,6vw,80px) clamp(18px,4vw,48px); min-width:0">
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:26px">
+          <span style="width:28px; height:1px; background:#0028FF"></span>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:2.2px; text-transform:uppercase; color:#6E7373">{{ t.firmKicker }}</span>
+        </div>
+        <h1 style="margin:0; font-size:clamp(34px,5.4vw,58px); line-height:1.08; letter-spacing:-1.4px; font-weight:400; text-wrap:pretty">{{ t.h1 }}</h1>
+        <div style="height:1px; background:#0028FF; margin:clamp(28px,4vw,40px) 0 clamp(24px,3vw,32px); max-width:520px"></div>
+        <p style="margin:0; font-size:16.5px; line-height:1.75; color:#4A5057; max-width:600px; text-wrap:pretty">{{ t.p1 }}</p>
+        <p style="margin:22px 0 0; font-size:16.5px; line-height:1.75; color:#4A5057; max-width:600px; text-wrap:pretty">{{ t.p2 }}</p>
+      </div>
+      <div class="hero-photo" style="{{ firmImgStyle }}"></div>
+    </div>
+  </section>
+
+  <section style="background-color:#0028FF; background-image:repeating-linear-gradient(0deg, rgba(255,255,255,0.14) 0 1px, transparent 1px 14px), repeating-linear-gradient(90deg, rgba(255,255,255,0.14) 0 1px, transparent 1px 14px); color:#FFFFFF">
+    <div style="max-width:1000px; margin:0 auto; padding:clamp(56px,7vw,96px) clamp(18px,4vw,48px); text-align:center">
+      <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.6px; text-transform:uppercase; color:rgba(255,255,255,0.72)">{{ t.spiritLabel }}</div>
+      <p style="margin:clamp(24px,3vw,34px) 0 0; font-size:clamp(24px,3.6vw,40px); line-height:1.32; letter-spacing:-0.7px; text-wrap:balance">{{ t.spiritQuote }}</p>
+      <div style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.82); margin-top:28px">— Zig Ziglar</div>
+    </div>
+  </section>
+
+  <section id="leadership" style="background:#FFFFFF">
+    <div style="max-width:1360px; margin:0 auto; padding:clamp(56px,7vw,96px) clamp(18px,4vw,48px)">
+      <div style="display:flex; align-items:center; gap:14px; margin-bottom:clamp(28px,4vw,40px)">
+        <span style="width:28px; height:1px; background:#0028FF"></span>
+        <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:2.2px; text-transform:uppercase; color:#6E7373">{{ t.leadershipKicker }}</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(320px,100%), 1fr)); gap:clamp(32px,5vw,64px); align-items:start">
+        <div style="border:1px solid #E2E5EA; border-radius:3px; padding:14px 14px 0; background:#FBFBFC">
+          <img src="uploads/autie-ascenzi-portrait.png" alt="Portrait of Autie R. Ascenzi" style="width:100%; aspect-ratio:4 / 5; object-fit:cover; object-position:center top; display:block; background:#EDEFF3">
+          <div style="border-left:2px solid #0028FF; padding:18px 0 22px 16px; margin-top:16px">
+            <div style="font-size:21px; line-height:1.25; letter-spacing:-0.3px; color:#0B0B0B">Autie R. Ascenzi</div>
+            <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373; margin-top:8px">{{ t.founderRole }}</div>
+          </div>
+        </div>
+        <div>
+          <h2 style="margin:0; font-size:clamp(24px,3.2vw,34px); line-height:1.2; letter-spacing:-0.6px; font-weight:400; text-wrap:pretty">{{ t.leadH2 }}</h2>
+          <p style="margin:24px 0 0; font-size:16px; line-height:1.75; color:#4A5057; text-wrap:pretty">{{ t.lead1 }}</p>
+          <p style="margin:18px 0 0; font-size:16px; line-height:1.75; color:#4A5057; text-wrap:pretty">{{ t.lead2 }}</p>
+          <p style="margin:18px 0 0; font-size:16px; line-height:1.75; color:#4A5057; text-wrap:pretty">{{ t.lead3 }}</p>
+          <div style="height:1px; background:#0028FF; margin:clamp(28px,3.5vw,38px) 0 24px"></div>
+          <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.6px; text-transform:uppercase; color:#0028FF; margin-bottom:18px">{{ t.credLabel }}</div>
+          <div style="display:flex; flex-direction:column; gap:12px">
+            <sc-for list="{{ credentials }}" as="c" hint-placeholder-count="5">
+              <span style="display:flex; gap:16px; align-items:baseline; font-size:15px; line-height:1.55; color:#0B0B0B"><span style="color:#0028FF">—</span><span>{{ c }}</span></span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="enquiry" style="background-color:#0028FF; background-image:repeating-linear-gradient(0deg, rgba(255,255,255,0.16) 0 1px, transparent 1px 14px), repeating-linear-gradient(90deg, rgba(255,255,255,0.16) 0 1px, transparent 1px 14px); color:#FFFFFF">
+    <div style="max-width:1360px; margin:0 auto; padding:clamp(56px,7vw,88px) clamp(18px,4vw,48px); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(320px,100%), 1fr)); gap:clamp(32px,5vw,64px); align-items:center">
+      <div>
+        <h2 style="margin:0; font-size:clamp(26px,4vw,40px); line-height:1.16; letter-spacing:-0.8px; font-weight:400; max-width:640px; text-wrap:pretty">{{ t.ctaHead }}</h2>
+        <p style="margin:20px 0 0; font-size:16px; line-height:1.7; color:rgba(255,255,255,0.82); max-width:520px">{{ t.ctaBody }}</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1px; background:rgba(255,255,255,0.28); border:1px solid rgba(255,255,255,0.28); border-radius:3px">
+        <button type="button" onClick="{{ openContact }}" style="background:#FFFFFF; color:#0028FF; padding:22px 26px; font-size:15px; display:flex; justify-content:space-between; align-items:center; gap:16px; border:none; font-family:inherit; cursor:pointer; width:100%; text-align:left; transition:background 140ms ease" style-hover="background:#EEF1FF">{{ t.ctaButton }} <span>&rarr;</span></button>
+        <a href="tel:+18885238168" style="background:#0028FF; color:#FFFFFF; padding:22px 26px; display:block; transition:background 140ms ease" style-hover="background:#001FBF; color:#FFFFFF">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:rgba(255,255,255,0.7); display:block">{{ t.phone }}</span>
+          <span style="font-size:15px; margin-top:8px; display:block">888-523-8168</span>
+        </a>
+        <div style="background:#0028FF; padding:22px 26px">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:rgba(255,255,255,0.7); display:block">{{ t.office }}</span>
+          <span style="font-size:15px; margin-top:8px; display:block">{{ t.address }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" lang="{{ lang }}" hint-size="100%,420px"></dc-import>
+  <dc-import name="ContactModal" lang="{{ lang }}" open="{{ contactOpen }}" on-close="{{ closeContact }}" hint-size="100%,0px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  state = { lang: this.readLang(), contactOpen: false };
+
+  readLang(){
+    try {
+      const q = new URLSearchParams(window.location.search).get('lang');
+      if (q === 'zh' || q === 'en') { localStorage.setItem('aa_lang', q); return q; }
+      return localStorage.getItem('aa_lang') === 'zh' ? 'zh' : 'en';
+    } catch (e) { return 'en'; }
+  }
+  applyLang(l){ if (typeof document !== 'undefined') document.documentElement.lang = l === 'zh' ? 'zh-Hant' : 'en'; }
+  setLang = (l) => { this.setState({ lang: l }); try { localStorage.setItem('aa_lang', l); } catch (e) {} this.applyLang(l); };
+  openContact = () => this.setState({ contactOpen: true });
+  closeContact = () => this.setState({ contactOpen: false });
+  componentDidMount(){ this.applyLang(this.state.lang); }
+
+  T = {
+    en: {
+      firmKicker: 'About the firm', h1: 'Built from the field up.',
+      p1: 'Ascenzi & Associates LLC was founded on a singular premise: the most effective consulting comes from people who have held the wrench themselves. Our firm bridges the gap between executive strategy and craft-level execution in ways that purely academic consultancies cannot.',
+      p2: 'We are a one-stop resource for foreign and domestic companies entering the US market to service semiconductor and advanced manufacturing construction buildouts. We connect clients to everything they need to land, operate and grow.',
+      spiritLabel: 'The spirit of the team', spiritQuote: '“You can have everything in life you want, if you will just help other people get what they want.”',
+      leadershipKicker: 'Leadership', founderRole: 'Founder & Principal Consultant',
+      leadH2: 'Where craft expertise meets strategic intelligence.',
+      lead1: 'Autie Ascenzi brings a rare combination of academic rigor and hands-on field mastery to every engagement. Holding a Master of Science in Construction Management from Arizona State University, Autie also earned his credentials as a journeyman pipefitter and UA-certified orbital welder — giving him direct insight into the craft labor dynamics that determine project success or failure.',
+      lead2: 'His deep specialization in semiconductor construction — one of the most technically demanding and precision-critical sectors in modern industrial building — positions Ascenzi & Associates as a uniquely qualified partner for companies navigating the complexity of US fab buildouts.',
+      lead3: 'Autie founded the firm to solve a gap he experienced firsthand: companies entering the US semiconductor construction market had no single, trusted resource to guide them through every layer of the ecosystem — from workforce qualification to real estate strategy.',
+      credLabel: 'Credentials & qualifications',
+      ctaHead: 'Talk to the person who will do the work.',
+      ctaBody: 'Every enquiry is reviewed by a principal — not routed through a sales desk.',
+      ctaButton: 'Submit an enquiry', phone: 'Phone', office: 'Office', address: 'Phoenix, Arizona, United States'
+    },
+    zh: {
+      firmKicker: '關於本公司', h1: '從現場出發，向上建構。',
+      p1: 'Ascenzi & Associates LLC 建立在一個單純的前提上：最有效的顧問服務，來自親手拿過扳手的人。我們的公司以純學術型顧問無法做到的方式，銜接高階策略與技術層級的執行。',
+      p2: '我們是國內外企業進入美國市場、服務半導體與先進製造建設的一站式資源。我們為客戶連結落地、營運與成長所需的一切。',
+      spiritLabel: '團隊精神', spiritQuote: '「只要你願意幫助別人得到他們想要的，你就能得到人生中你想要的一切。」',
+      leadershipKicker: '領導團隊', founderRole: '創辦人暨首席顧問',
+      leadH2: '技術專業與策略智慧的交會之處。',
+      lead1: 'Autie Ascenzi 為每一項專案帶來學術嚴謹與現場實作能力的難得結合。他擁有亞利桑那州立大學營建管理碩士學位，也取得持證管道工與 UA 認證軌道焊工的資格——讓他能直接洞察決定專案成敗的技術勞動力動態。',
+      lead2: '他在半導體建設領域的深度專精——這是現代工業建築中技術要求最高、最講求精密的領域之一——讓 Ascenzi & Associates 成為協助企業因應美國晶圓廠建設複雜度的獨特合格夥伴。',
+      lead3: 'Autie 創立本公司，是為了解決他親身經歷過的缺口：進入美國半導體建設市場的企業，沒有一個單一且值得信賴的資源，能引導他們走過生態系的每一個層面——從人力資格到不動產策略。',
+      credLabel: '學經歷與資格',
+      ctaHead: '直接與實際執行工作的人對話。',
+      ctaBody: '每一則諮詢都由負責人親自審閱——不會經由業務窗口轉手。',
+      ctaButton: '送出諮詢', phone: '電話', office: '辦公室', address: '美國亞利桑那州鳳凰城'
+    }
+  };
+
+  CREDENTIALS = {
+    en: ['MS Construction Management, Arizona State University', 'Journeyman Pipefitter, UA Local', 'UA-Certified Orbital Welder', 'Semiconductor Construction Expert', 'OSHA 30 Construction Safety Certified'],
+    zh: ['亞利桑那州立大學營建管理碩士', '持證管道工（UA Local）', 'UA 認證軌道焊工', '半導體建設專家', 'OSHA 30 營建安全認證']
+  };
+
+  renderVals(){
+    const L = this.state.lang;
+    return {
+      lang: L,
+      t: this.T[L],
+      setLang: this.setLang,
+      contactOpen: this.state.contactOpen,
+      openContact: this.openContact,
+      closeContact: this.closeContact,
+      credentials: this.CREDENTIALS[L],
+      firmImgStyle: 'background-image:url("uploads/testalize-me-9xHsWmh3m_4-unsplash.jpg")'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&amp;family=IBM+Plex+Mono:wght@400&amp;family=Noto+Sans+TC:wght@400&amp;display=swap" rel="stylesheet">
+<style>
+  body { font-family:'Questrial', 'Noto Sans TC', system-ui, sans-serif; color:#0B0B0B; -webkit-font-smoothing:antialiased; }
+  a { color:#0028FF; text-decoration:none; }
+  a:hover { color:#001FBF; }
+</style>
+</helmet>
+
+<sc-if value="{{ open }}" hint-placeholder-val="{{ true }}">
+  <div role="dialog" aria-modal="true" aria-label="{{ kicker }}" style="position:fixed; inset:0; z-index:100; background:rgba(4,7,20,0.72); display:flex; align-items:center; justify-content:center; padding:clamp(12px,3vw,32px)">
+    <div style="background:#FFFFFF; width:100%; max-width:680px; max-height:88vh; overflow:auto; border-top:3px solid #0028FF; border-radius:3px">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px clamp(20px,3.4vw,40px); border-bottom:1px solid #E2E5EA">
+        <div>
+          <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.6px; text-transform:uppercase; color:#6E7373">{{ kicker }}</div>
+          <div style="font-size:15px; margin-top:6px; color:#0B0B0B">Ascenzi &amp; Associates</div>
+        </div>
+        <button type="button" onClick="{{ close }}" aria-label="{{ t.close }}" style="background:transparent; border:none; font-family:inherit; font-size:22px; line-height:1; color:#6E7373; cursor:pointer; padding:4px 6px; border-radius:3px; transition:color 140ms ease" style-hover="color:#0B0B0B">&times;</button>
+      </div>
+
+      <sc-if value="{{ showProgress }}" hint-placeholder-val="{{ true }}">
+        <div style="height:2px; background:#E2E5EA">
+          <div style="height:2px; background:#0028FF; width:{{ progress }}; transition:width 260ms ease"></div>
+        </div>
+      </sc-if>
+
+      <!-- Contact · step 1: organization type -->
+      <sc-if value="{{ showOrg }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:clamp(28px,4vw,44px) clamp(20px,3.4vw,40px)">
+          <h3 style="margin:0; font-size:clamp(22px,3vw,28px); line-height:1.28; letter-spacing:-0.4px; font-weight:400; color:#0B0B0B; max-width:520px; text-wrap:pretty">{{ t.orgQuestion }}</h3>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(200px,100%), 1fr)); gap:1px; background:#E2E5EA; border:1px solid #E2E5EA; margin-top:30px; border-radius:3px">
+            <sc-for list="{{ orgOptions }}" as="o" hint-placeholder-count="4">
+              <button type="button" onClick="{{ o.pick }}" aria-pressed="{{ o.active }}" style="{{ o.style }}" style-hover="background:#F4F6FF">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Contact · step 2: details -->
+      <sc-if value="{{ showDetails }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:clamp(28px,4vw,44px) clamp(20px,3.4vw,40px)">
+          <h3 style="margin:0; font-size:clamp(22px,3vw,28px); line-height:1.28; letter-spacing:-0.4px; font-weight:400; color:#0B0B0B">{{ t.reachQuestion }}</h3>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(200px,100%), 1fr)); gap:18px; margin-top:30px">
+            <label style="display:flex; flex-direction:column; gap:8px">
+              <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.name }}</span>
+              <input type="text" autocomplete="name" style="border:1px solid #CDD4DB; outline:none; font-family:inherit; font-size:15px; padding:13px 14px; color:#0B0B0B; border-radius:3px" style-focus="border-color:#0028FF">
+            </label>
+            <label style="display:flex; flex-direction:column; gap:8px">
+              <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.company }}</span>
+              <input type="text" autocomplete="organization" style="border:1px solid #CDD4DB; outline:none; font-family:inherit; font-size:15px; padding:13px 14px; color:#0B0B0B; border-radius:3px" style-focus="border-color:#0028FF">
+            </label>
+            <label style="display:flex; flex-direction:column; gap:8px; grid-column:1 / -1">
+              <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.email }}</span>
+              <input type="email" autocomplete="email" style="border:1px solid #CDD4DB; outline:none; font-family:inherit; font-size:15px; padding:13px 14px; color:#0B0B0B; border-radius:3px" style-focus="border-color:#0028FF">
+            </label>
+            <label style="display:flex; flex-direction:column; gap:8px; grid-column:1 / -1">
+              <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.more }}</span>
+              <textarea rows="3" placeholder="{{ t.morePlaceholder }}" style="border:1px solid #CDD4DB; outline:none; font-family:inherit; font-size:15px; padding:13px 14px; color:#0B0B0B; resize:vertical; border-radius:3px" style-focus="border-color:#0028FF"></textarea>
+            </label>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Partnership · single step: the enquiry-form fields -->
+      <sc-if value="{{ showPartner }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:clamp(28px,4vw,44px) clamp(20px,3.4vw,40px)">
+          <h3 style="margin:0 0 26px; font-size:clamp(22px,3vw,28px); line-height:1.28; letter-spacing:-0.4px; font-weight:400; color:#0B0B0B; max-width:520px; text-wrap:pretty">{{ t.partnerTitle }}</h3>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(200px,100%), 1fr)); gap:18px">
+            <label style="display:flex; flex-direction:column; gap:8px">
+              <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.name }}</span>
+              <input type="text" autocomplete="name" style="border:1px solid #CDD4DB; outline:none; font-family:inherit; font-size:15px; padding:13px 14px; color:#0B0B0B; border-radius:3px" style-focus="border-color:#0028FF">
+            </label>
+            <label style="display:flex; flex-direction:column; gap:8px">
+              <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.company }}</span>
+              <input type="text" autocomplete="organization" style="border:1px solid #CDD4DB; outline:none; font-family:inherit; font-size:15px; padding:13px 14px; color:#0B0B0B; border-radius:3px" style-focus="border-color:#0028FF">
+            </label>
+            <label style="display:flex; flex-direction:column; gap:8px">
+              <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.email }}</span>
+              <input type="email" autocomplete="email" style="border:1px solid #CDD4DB; outline:none; font-family:inherit; font-size:15px; padding:13px 14px; color:#0B0B0B; border-radius:3px" style-focus="border-color:#0028FF">
+            </label>
+            <label style="display:flex; flex-direction:column; gap:8px">
+              <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.phoneOpt }}</span>
+              <input type="tel" autocomplete="tel" style="border:1px solid #CDD4DB; outline:none; font-family:inherit; font-size:15px; padding:13px 14px; color:#0B0B0B; border-radius:3px" style-focus="border-color:#0028FF">
+            </label>
+            <label style="display:flex; flex-direction:column; gap:8px; grid-column:1 / -1">
+              <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.need }}</span>
+              <textarea rows="4" placeholder="{{ t.needPlaceholder }}" style="border:1px solid #CDD4DB; outline:none; font-family:inherit; font-size:15px; padding:13px 14px; color:#0B0B0B; resize:vertical; border-radius:3px" style-focus="border-color:#0028FF"></textarea>
+            </label>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Confirmation -->
+      <sc-if value="{{ showDone }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:clamp(40px,6vw,56px) clamp(20px,3.4vw,40px); text-align:center">
+          <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.6px; text-transform:uppercase; color:#0028FF">{{ t.received }}</div>
+          <h3 style="margin:18px 0 0; font-size:clamp(22px,3vw,28px); line-height:1.3; letter-spacing:-0.4px; font-weight:400; color:#0B0B0B; text-wrap:pretty">{{ t.doneTitle }}</h3>
+          <p style="margin:16px auto 0; font-size:15px; line-height:1.7; color:#4A5057; max-width:420px">{{ t.doneBody }}</p>
+          <p style="margin:14px auto 0; font-size:13.5px; line-height:1.6; color:#6E7373; max-width:420px">{{ t.doneContact }}</p>
+          <button type="button" onClick="{{ close }}" style="margin-top:30px; background:#0028FF; color:#FFFFFF; border:none; font-family:inherit; font-size:14px; letter-spacing:0.4px; padding:14px 30px; cursor:pointer; border-radius:3px; transition:background 140ms ease" style-hover="background:#001FBF">{{ t.close }}</button>
+        </div>
+      </sc-if>
+
+      <!-- Footer nav (hidden on confirmation) -->
+      <sc-if value="{{ showNav }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px 16px; padding:20px clamp(20px,3.4vw,40px); border-top:1px solid #E2E5EA; background:#F9FAFA">
+          <div style="display:flex; align-items:center; gap:18px">
+            <sc-if value="{{ canGoBack }}" hint-placeholder-val="{{ false }}">
+              <button type="button" onClick="{{ back }}" style="background:transparent; border:none; font-family:inherit; font-size:14px; color:#6E7373; cursor:pointer; padding:6px 0; transition:color 140ms ease; border-radius:3px" style-hover="color:#0028FF">&larr; {{ t.back }}</button>
+            </sc-if>
+            <sc-if value="{{ showNote }}" hint-placeholder-val="{{ true }}">
+              <span style="font-size:13px; line-height:1.5; color:#6E7373; max-width:320px">{{ t.note }}</span>
+            </sc-if>
+          </div>
+          <div style="display:flex; align-items:center; gap:20px">
+            <sc-if value="{{ showStepCount }}" hint-placeholder-val="{{ true }}">
+              <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ stepCount }}</span>
+            </sc-if>
+            <sc-if value="{{ showSkip }}" hint-placeholder-val="{{ true }}">
+              <button type="button" onClick="{{ next }}" style="background:transparent; border:1px solid #C7CEDB; font-family:inherit; font-size:14px; letter-spacing:0.4px; color:#0028FF; cursor:pointer; padding:13px 24px; border-radius:3px; transition:border-color 140ms ease, background 140ms ease" style-hover="border-color:#0028FF; background:#F4F6FF">{{ t.skip }}</button>
+            </sc-if>
+            <sc-if value="{{ showSubmit }}" hint-placeholder-val="{{ false }}">
+              <button type="button" onClick="{{ submit }}" style="background:#0028FF; color:#FFFFFF; border:none; font-family:inherit; font-size:14px; letter-spacing:0.4px; padding:14px 30px; cursor:pointer; border-radius:3px; transition:background 140ms ease, transform 90ms ease" style-hover="background:#001FBF" style-active="background:#0018A0; transform:translateY(1px)">{{ t.submit }}</button>
+            </sc-if>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900},"lang":{"editor":"enum","options":["en","zh"],"default":"en","tsType":"\"en\" | \"zh\"","section":"Site"},"mode":{"editor":"enum","options":["contact","partner"],"default":"contact","tsType":"\"contact\" | \"partner\"","section":"State"},"open":{"editor":"boolean","default":true,"tsType":"boolean","section":"State"},"onClose":{"editor":null,"tsType":"() => void"}}'>
+// Shared enquiry modal — the only intake channel on the site (no direct email addresses).
+// Props: lang ('en'|'zh'), mode ('contact' = 2-step enquiry, 'partner' = single-step partnership form), open, onClose().
+// Submission is a static confirmation in this prototype.
+class Component extends DCLogic {
+  state = { step: 0, org: null, sent: false };
+
+  T = {
+    en: {
+      kicker: 'Enquiry', partnerKicker: 'Partnership', stepOf: (n) => 'Step ' + n + ' of 2', stepCount: (n) => 'Step ' + n + ' / 2', complete: 'Complete',
+      orgQuestion: 'Which best describes your organization?',
+      reachQuestion: 'How do we reach you?',
+      partnerTitle: 'Tell us who you are and what you bring to U.S. advanced manufacturing.',
+      name: 'Name', company: 'Company', email: 'Work email', more: 'Anything we should know',
+      morePlaceholder: 'Scope, site, timeline and what is already in place.',
+      phoneOpt: 'Phone (optional)', need: 'What do you need', needPlaceholder: 'Your organization, the work you do, and how you would like to collaborate.',
+      note: 'Every enquiry is reviewed by a principal. No cost, no obligation.',
+      submit: 'Submit', skip: 'Skip', back: 'Back', received: 'Received',
+      doneTitle: 'Thank you — a principal will review this personally.',
+      doneBody: 'We typically respond within two business days with a direct assessment of fit.',
+      doneContact: 'Prefer to talk now? 888-523-8168 · Phoenix, Arizona.',
+      close: 'Close'
+    },
+    zh: {
+      kicker: '諮詢', partnerKicker: '合作夥伴', stepOf: (n) => '第 ' + n + ' 步，共 2 步', stepCount: (n) => '第 ' + n + ' / 2 步', complete: '完成',
+      orgQuestion: '以下哪一項最符合貴組織？',
+      reachQuestion: '我們如何聯絡您？',
+      partnerTitle: '告訴我們您是誰，以及您能為美國先進製造帶來什麼。',
+      name: '姓名', company: '公司', email: '公司電子郵件', more: '其他我們應該知道的事',
+      morePlaceholder: '工作範圍、地點、時程，以及目前已就緒的項目。',
+      phoneOpt: '電話（選填）', need: '您的需求', needPlaceholder: '貴組織、您所從事的工作，以及希望如何合作。',
+      note: '每一則諮詢皆由負責人親自審閱。免費，且無任何義務。',
+      submit: '送出', skip: '略過', back: '上一步', received: '已收到',
+      doneTitle: '謝謝您——負責人將親自審閱這則諮詢。',
+      doneBody: '我們通常會在兩個工作天內回覆，並直接評估是否適合合作。',
+      doneContact: '想直接聯絡我們？888-523-8168．美國亞利桑那州鳳凰城。',
+      close: '關閉'
+    }
+  };
+
+  ORG = { en: ['General Contractor', 'Owner / end user', 'Vendor or fabricator', 'Others'], zh: ['總承包商', '業主／終端使用者', '供應商或製造廠', '其他'] };
+
+  componentDidMount(){
+    this._onKey = (e) => { if (e.key === 'Escape' && this.props.open) this.close(); };
+    window.addEventListener('keydown', this._onKey);
+  }
+  componentWillUnmount(){ window.removeEventListener('keydown', this._onKey); }
+  componentDidUpdate(prev){ if (prev.open && !this.props.open) this.setState({ step: 0, org: null, sent: false }); }
+
+  close = () => { if (this.props.onClose) this.props.onClose(); };
+  pickOrg = (o) => this.setState({ org: o, step: 1 });
+  next = () => this.setState({ step: 1 });
+  back = () => this.setState({ step: 0 });
+  submit = () => this.setState({ sent: true });
+
+  renderVals(){
+    const L = this.props.lang === 'zh' ? 'zh' : 'en', t = this.T[L], st = this.state;
+    const partner = this.props.mode === 'partner';
+    const done = st.sent;
+    const onOrg = !partner && !done && st.step === 0;
+    const onDetails = !partner && !done && st.step === 1;
+    return {
+      t,
+      open: !!this.props.open,
+      kicker: partner ? t.partnerKicker : (done ? t.kicker + ' — ' + t.complete : t.kicker + ' — ' + t.stepOf(st.step + 1)),
+      showProgress: !partner,
+      progress: done ? '100%' : (st.step === 0 ? '50%' : '100%'),
+      showOrg: onOrg,
+      showDetails: onDetails,
+      showPartner: partner && !done,
+      showDone: done,
+      showNav: !done,
+      canGoBack: onDetails,
+      showNote: partner,
+      showStepCount: !partner,
+      stepCount: t.stepCount(st.step + 1),
+      showSkip: onOrg,
+      showSubmit: onDetails || partner,
+      orgOptions: this.ORG[L].map(o => ({
+        label: o, active: st.org === o,
+        pick: () => this.pickOrg(o),
+        style: 'border:none; font-family:inherit; text-align:left; cursor:pointer; padding:22px 20px; font-size:15.5px; line-height:1.4; transition:background 130ms ease, color 130ms ease; border-radius:3px; ' + (st.org === o ? 'background:#0028FF; color:#FFFFFF' : 'background:#FFFFFF; color:#0B0B0B')
+      })),
+      close: this.close,
+      next: this.next,
+      back: this.back,
+      submit: this.submit
+    };
+  }
+}
+</script>
+</body>
+</html>

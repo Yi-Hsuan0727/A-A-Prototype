@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/png" href="icons/favicon.png">
+<meta name="ext-resource-dependency" content="uploads/louis-reed-wSTCaQpiLtc-unsplash.jpg" data-resource-id="ins1">
+<meta name="ext-resource-dependency" content="uploads/testalize-me-9xHsWmh3m_4-unsplash.jpg" data-resource-id="ins2">
+<meta name="ext-resource-dependency" content="uploads/mitchell-luo-zxV_xahWh7o-unsplash.jpg" data-resource-id="ins3">
+<meta name="ext-resource-dependency" content="uploads/jan-huber-3Btf2cTAGKs-unsplash.jpg" data-resource-id="ins4">
+<meta name="ext-resource-dependency" content="uploads/tsmc%20flag-2d9dd308.jpg" data-resource-id="ins5">
+<meta name="ext-resource-dependency" content="uploads/dylan-gillis-KdeqA3aTnBY-unsplash.jpg" data-resource-id="ins6">
+<meta name="ext-resource-dependency" content="uploads/albert-stoynov-b_GcLCaKt94-unsplash.jpg" data-resource-id="ins7">
+<meta name="ext-resource-dependency" content="uploads/jonakoh-_-r5lbaK3fDaM-unsplash.jpg" data-resource-id="ins8">
+<meta name="ext-resource-dependency" content="uploads/1981-digital-bf9sZBcGQl4-unsplash.jpg" data-resource-id="ins9">
+<meta name="ext-resource-dependency" content="uploads/vitaly-gariev-2AOIg7Qvu8w-unsplash.jpg" data-resource-id="ins10">
+<meta name="ext-resource-dependency" content="uploads/thumbs/louis-reed-wSTCaQpiLtc-unsplash.jpg" data-resource-id="ins-thumb1">
+<meta name="ext-resource-dependency" content="uploads/thumbs/testalize-me-9xHsWmh3m_4-unsplash.jpg" data-resource-id="ins-thumb2">
+<meta name="ext-resource-dependency" content="uploads/thumbs/mitchell-luo-zxV_xahWh7o-unsplash.jpg" data-resource-id="ins-thumb3">
+<meta name="ext-resource-dependency" content="uploads/thumbs/jan-huber-3Btf2cTAGKs-unsplash.jpg" data-resource-id="ins-thumb4">
+<meta name="ext-resource-dependency" content="uploads/thumbs/tsmc%20flag-2d9dd308.jpg" data-resource-id="ins-thumb5">
+<meta name="ext-resource-dependency" content="uploads/thumbs/dylan-gillis-KdeqA3aTnBY-unsplash.jpg" data-resource-id="ins-thumb6">
+<meta name="ext-resource-dependency" content="uploads/thumbs/albert-stoynov-b_GcLCaKt94-unsplash.jpg" data-resource-id="ins-thumb7">
+<meta name="ext-resource-dependency" content="uploads/thumbs/jonakoh-_-r5lbaK3fDaM-unsplash.jpg" data-resource-id="ins-thumb8">
+<meta name="ext-resource-dependency" content="uploads/thumbs/1981-digital-bf9sZBcGQl4-unsplash.jpg" data-resource-id="ins-thumb9">
+<meta name="ext-resource-dependency" content="uploads/thumbs/vitaly-gariev-2AOIg7Qvu8w-unsplash.jpg" data-resource-id="ins-thumb10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&amp;family=IBM+Plex+Mono:wght@400&amp;family=Noto+Sans+TC:wght@400&amp;display=swap" rel="stylesheet">
+<template id="__bundler_thumbnail" data-bg-color="#0B0B0B">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><rect width="240" height="240" fill="#0B0B0B"/><rect x="72" y="96" width="96" height="10" fill="#0028FF"/><rect x="72" y="118" width="96" height="10" fill="#FFFFFF"/><rect x="72" y="140" width="58" height="10" fill="#FFFFFF" opacity="0.5"/></svg>
+</template>
+<style>
+  html, body { margin:0; padding:0; background:#FFFFFF; }
+  body { font-family:'Questrial', 'Noto Sans TC', system-ui, sans-serif; color:#0B0B0B; -webkit-font-smoothing:antialiased; }
+  * { box-sizing:border-box; }
+  a { color:#0028FF; text-decoration:none; }
+  a:hover { color:#001FBF; }
+  html[lang="zh-Hant"] h1, html[lang="zh-Hant"] h2, html[lang="zh-Hant"] h3 { letter-spacing:0 !important; }
+</style>
+</helmet>
+
+<div style="width:100%; background:#FFFFFF; overflow-x:clip">
+
+  <dc-import name="SiteHeader" style="position:sticky; top:0; z-index:50" lang="{{ lang }}" active="insight" on-set-lang="{{ setLang }}" on-contact="{{ openContact }}" hint-size="100%,76px"></dc-import>
+
+  <section id="all" style="background:#FFFFFF">
+    <div style="max-width:1360px; margin:0 auto; padding:clamp(44px,6vw,72px) clamp(18px,4vw,48px) clamp(56px,7vw,96px)">
+      <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px">
+        <span style="width:28px; height:1px; background:#0028FF"></span>
+        <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:2.2px; text-transform:uppercase; color:#6E7373">{{ t.kicker }}</span>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:22px 48px; margin-bottom:clamp(30px,4vw,44px)">
+        <h1 style="margin:0; font-size:clamp(32px,4.8vw,50px); line-height:1.1; letter-spacing:-1.2px; font-weight:400; max-width:720px; text-wrap:pretty">{{ t.h1 }}</h1>
+        <p style="margin:0; font-size:15px; line-height:1.7; color:#4A5057; max-width:340px">{{ t.blurb }}</p>
+      </div>
+
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px 32px; padding:18px 0; border-top:1px solid #E2E5EA; border-bottom:1px solid #E2E5EA; margin-bottom:clamp(30px,4vw,44px)">
+        <div role="group" aria-label="{{ t.filterLabel }}" style="display:flex; flex-wrap:wrap; align-items:center; gap:8px">
+          <sc-for list="{{ categories }}" as="c" hint-placeholder-count="6">
+            <button type="button" onClick="{{ c.pick }}" aria-pressed="{{ c.active }}" style="{{ c.style }}" style-hover="border-color:#0028FF; color:#0028FF">{{ c.label }}</button>
+          </sc-for>
+        </div>
+        <label style="display:flex; align-items:center; gap:10px; border:1px solid #E2E5EA; border-radius:3px; padding:0 14px; min-width:min(100%,300px); flex:0 1 320px; transition:border-color 140ms ease" style-focus-within="border-color:#0028FF">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex:none"><circle cx="7" cy="7" r="5" stroke="#6E7373" stroke-width="1.4"></circle><path d="M11 11l3.5 3.5" stroke="#6E7373" stroke-width="1.4" stroke-linecap="round"></path></svg>
+          <input type="search" value="{{ query }}" onInput="{{ onSearch }}" placeholder="{{ t.searchPlaceholder }}" aria-label="{{ t.searchLabel }}" style="flex:1; min-width:0; border:none; outline:none; background:transparent; font-family:inherit; font-size:14px; color:#0B0B0B; padding:12px 0">
+        </label>
+      </div>
+
+      <sc-if value="{{ hasPosts }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(min(300px,100%), 1fr)); gap:clamp(24px,3vw,36px)">
+          <sc-for list="{{ posts }}" as="a" hint-placeholder-count="6">
+            <a href="Insight-Post.dc.html" style="display:block; color:#0B0B0B; transition:opacity 140ms ease; border-radius:3px" style-hover="opacity:0.78; color:#0B0B0B">
+              <div role="img" aria-label="{{ a.title }}" style="{{ a.imgStyle }}"></div>
+              <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; margin-top:20px; font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">
+                <span style="color:#0028FF; border:1px solid #C7CEDB; padding:5px 9px; border-radius:3px">{{ a.category }}</span>
+                <span>{{ a.date }}</span>
+              </div>
+              <div style="font-size:20px; line-height:1.35; letter-spacing:-0.2px; margin-top:12px; text-wrap:pretty">{{ a.title }}</div>
+              <div style="font-size:13.5px; line-height:1.6; color:#4A5057; margin-top:10px">{{ t.by }} {{ a.author }}</div>
+            </a>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ noPosts }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:clamp(40px,6vw,72px) 0; text-align:center; border:1px solid #E2E5EA; border-radius:3px">
+          <div style="font-size:18px; color:#0B0B0B">{{ t.emptyTitle }}</div>
+          <div style="font-size:14.5px; color:#4A5057; margin-top:10px">{{ t.emptyBody }}</div>
+          <button type="button" onClick="{{ clearFilters }}" style="margin-top:22px; font-size:14px; letter-spacing:0.4px; color:#0028FF; background:#FFFFFF; border:1px solid #C7CEDB; padding:12px 24px; font-family:inherit; cursor:pointer; border-radius:3px; transition:border-color 140ms ease, background 140ms ease" style-hover="border-color:#0028FF; background:#F4F6FF">{{ t.clear }}</button>
+        </div>
+      </sc-if>
+
+      <div style="margin-top:clamp(40px,5vw,60px); padding-top:26px; border-top:1px solid #E2E5EA; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:18px 24px">
+        <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ rangeLabel }}</span>
+        <div style="display:flex; align-items:center; gap:8px">
+          <button type="button" onClick="{{ prevPage }}" aria-label="Previous page" style="width:42px; height:42px; display:flex; align-items:center; justify-content:center; font-family:inherit; font-size:15px; border:1px solid #E2E5EA; background:#FFFFFF; border-radius:3px; cursor:{{ prevCursor }}; color:{{ prevColor }}; transition:border-color 140ms ease, color 140ms ease" style-hover="border-color:#0028FF; color:#0028FF">←</button>
+          <sc-for list="{{ pages }}" as="p" hint-placeholder-count="2">
+            <button type="button" onClick="{{ p.go }}" style="min-width:42px; height:42px; padding:0 12px; font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.6px; border:1px solid {{ p.border }}; background:{{ p.bg }}; color:{{ p.fg }}; border-radius:3px; cursor:pointer; transition:border-color 140ms ease, color 140ms ease" style-hover="border-color:#0028FF">{{ p.n }}</button>
+          </sc-for>
+          <button type="button" onClick="{{ nextPage }}" aria-label="Next page" style="width:42px; height:42px; display:flex; align-items:center; justify-content:center; font-family:inherit; font-size:15px; border:1px solid #E2E5EA; background:#FFFFFF; border-radius:3px; cursor:{{ nextCursor }}; color:{{ nextColor }}; transition:border-color 140ms ease, color 140ms ease" style-hover="border-color:#0028FF; color:#0028FF">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="newsletter" style="background-color:#0028FF; background-image:repeating-linear-gradient(0deg, rgba(255,255,255,0.16) 0 1px, transparent 1px 14px), repeating-linear-gradient(90deg, rgba(255,255,255,0.16) 0 1px, transparent 1px 14px); color:#FFFFFF">
+    <div style="max-width:1360px; margin:0 auto; padding:clamp(52px,6vw,80px) clamp(18px,4vw,48px); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(320px,100%), 1fr)); gap:clamp(32px,5vw,64px); align-items:center">
+      <div>
+        <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.6px; text-transform:uppercase; color:rgba(255,255,255,0.72); margin-bottom:18px">{{ t.nlKicker }}</div>
+        <h2 style="margin:0; font-size:clamp(24px,3.6vw,36px); line-height:1.18; letter-spacing:-0.7px; font-weight:400; max-width:600px; text-wrap:pretty">{{ t.nlHead }}</h2>
+        <p style="margin:18px 0 0; font-size:16px; line-height:1.7; color:rgba(255,255,255,0.82); max-width:500px">{{ t.nlBody }}</p>
+      </div>
+      <div>
+        <label for="insight-nl-email" style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:rgba(255,255,255,0.72); display:block; margin-bottom:10px">{{ t.nlLabel }}</label>
+        <div style="display:flex; background:#FFFFFF; border-radius:3px; padding:4px">
+          <input id="insight-nl-email" type="email" autocomplete="email" placeholder="{{ t.nlPlaceholder }}" style="flex:1; min-width:0; background:transparent; border:none; outline:none; font-family:inherit; font-size:15px; color:#0B0B0B; padding:14px 16px">
+          <button type="button" onClick="{{ subscribe }}" style="background:#0B0B0B; color:#FFFFFF; border:none; font-family:inherit; font-size:14px; letter-spacing:0.4px; padding:0 26px; cursor:pointer; border-radius:3px; transition:background 140ms ease" style-hover="background:#33383F">{{ t.nlButton }}</button>
+        </div>
+        <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.2px; text-transform:uppercase; color:#FFFFFF; margin-top:12px; min-height:13px">{{ subscribeMsg }}</div>
+        <p style="margin:12px 0 0; font-size:13px; line-height:1.6; color:rgba(255,255,255,0.7)">{{ t.nlNote }}</p>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" lang="{{ lang }}" hint-size="100%,420px"></dc-import>
+  <dc-import name="ContactModal" lang="{{ lang }}" open="{{ contactOpen }}" on-close="{{ closeContact }}" hint-size="100%,0px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  state = { lang: this.readLang(), contactOpen: false, page: 1, category: 'all', query: '', subscribeMsg: '' };
+  subscribe = () => this.setState(s => ({ subscribeMsg: this.T[s.lang].subscribed }));
+
+  readLang(){
+    try {
+      const q = new URLSearchParams(window.location.search).get('lang');
+      if (q === 'zh' || q === 'en') { localStorage.setItem('aa_lang', q); return q; }
+      return localStorage.getItem('aa_lang') === 'zh' ? 'zh' : 'en';
+    } catch (e) { return 'en'; }
+  }
+  applyLang(l){ if (typeof document !== 'undefined') document.documentElement.lang = l === 'zh' ? 'zh-Hant' : 'en'; }
+  setLang = (l) => { this.setState({ lang: l }); try { localStorage.setItem('aa_lang', l); } catch (e) {} this.applyLang(l); };
+  openContact = () => this.setState({ contactOpen: true });
+  closeContact = () => this.setState({ contactOpen: false });
+  componentDidMount(){ this.applyLang(this.state.lang); }
+
+  perPage = 6;
+  goPage = (n) => { this.setState({ page: n }); if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' }); };
+  pickCategory = (id) => this.setState({ category: id, page: 1 });
+  onSearch = (e) => this.setState({ query: e && e.target ? e.target.value : '', page: 1 });
+  clearFilters = () => this.setState({ category: 'all', query: '', page: 1 });
+
+  RES = {
+    'uploads/louis-reed-wSTCaQpiLtc-unsplash.jpg': 'ins1',
+    'uploads/testalize-me-9xHsWmh3m_4-unsplash.jpg': 'ins2',
+    'uploads/mitchell-luo-zxV_xahWh7o-unsplash.jpg': 'ins3',
+    'uploads/jan-huber-3Btf2cTAGKs-unsplash.jpg': 'ins4',
+    'uploads/tsmc flag-2d9dd308.jpg': 'ins5',
+    'uploads/dylan-gillis-KdeqA3aTnBY-unsplash.jpg': 'ins6',
+    'uploads/albert-stoynov-b_GcLCaKt94-unsplash.jpg': 'ins7',
+    'uploads/jonakoh-_-r5lbaK3fDaM-unsplash.jpg': 'ins8',
+    'uploads/1981-digital-bf9sZBcGQl4-unsplash.jpg': 'ins9',
+    'uploads/vitaly-gariev-2AOIg7Qvu8w-unsplash.jpg': 'ins10',
+    'uploads/thumbs/louis-reed-wSTCaQpiLtc-unsplash.jpg': 'ins-thumb1',
+    'uploads/thumbs/testalize-me-9xHsWmh3m_4-unsplash.jpg': 'ins-thumb2',
+    'uploads/thumbs/mitchell-luo-zxV_xahWh7o-unsplash.jpg': 'ins-thumb3',
+    'uploads/thumbs/jan-huber-3Btf2cTAGKs-unsplash.jpg': 'ins-thumb4',
+    'uploads/thumbs/tsmc flag-2d9dd308.jpg': 'ins-thumb5',
+    'uploads/thumbs/dylan-gillis-KdeqA3aTnBY-unsplash.jpg': 'ins-thumb6',
+    'uploads/thumbs/albert-stoynov-b_GcLCaKt94-unsplash.jpg': 'ins-thumb7',
+    'uploads/thumbs/jonakoh-_-r5lbaK3fDaM-unsplash.jpg': 'ins-thumb8',
+    'uploads/thumbs/1981-digital-bf9sZBcGQl4-unsplash.jpg': 'ins-thumb9',
+    'uploads/thumbs/vitaly-gariev-2AOIg7Qvu8w-unsplash.jpg': 'ins-thumb10'
+  };
+  res(p){ const id = this.RES[p]; const map = (typeof window !== 'undefined' && window.__resources) || {}; return (id && map[id]) || p; }
+
+  T = {
+    en: {
+      kicker: 'Insight', h1: 'Technical writing and project record.',
+      blurb: 'Field notes on US fab delivery — schedule, labor, licensing and market entry. Published when there is something worth publishing.',
+      filterLabel: 'Filter by category', searchLabel: 'Search articles', searchPlaceholder: 'Search by keyword', by: 'By',
+      emptyTitle: 'No articles match.', emptyBody: 'Try a different keyword or category.', clear: 'Clear filters',
+      showing: (a, b, n) => 'Showing ' + a + '–' + b + ' of ' + n + ' articles', none: 'No articles',
+      nlKicker: 'Newsletter', nlHead: 'Get the next article before it is published here.',
+      nlBody: 'Industry perspective on US fab delivery — schedule, labor, licensing and market entry.',
+      nlLabel: 'Work email', nlPlaceholder: 'name@company.com', nlButton: 'Subscribe',
+      nlNote: 'No marketing sequences. Unsubscribe with one click.', subscribed: 'Thank you — you are on the list.'
+    },
+    zh: {
+      kicker: '洞察觀點', h1: '技術文章與專案紀錄。',
+      blurb: '關於美國晶圓廠交付的現場筆記——時程、勞動力、執照與市場進入。有值得發表的內容時才發表。',
+      filterLabel: '依分類篩選', searchLabel: '搜尋文章', searchPlaceholder: '輸入關鍵字搜尋', by: '作者：',
+      emptyTitle: '沒有符合的文章。', emptyBody: '請試試其他關鍵字或分類。', clear: '清除篩選',
+      showing: (a, b, n) => '顯示第 ' + a + '–' + b + ' 篇，共 ' + n + ' 篇文章', none: '沒有文章',
+      nlKicker: '電子報', nlHead: '在下一篇文章刊出之前，先送到您的信箱。',
+      nlBody: '關於美國晶圓廠交付的產業觀點——時程、勞動力、執照與市場進入。',
+      nlLabel: '公司電子郵件', nlPlaceholder: 'name@company.com', nlButton: '訂閱',
+      nlNote: '沒有行銷信件轟炸，一鍵即可取消訂閱。', subscribed: '謝謝您——已加入訂閱名單。'
+    }
+  };
+
+  // Category taxonomy (tags) — the filter row is generated from this list.
+  CATS = [
+    { id: 'all', en: 'All', zh: '全部' },
+    { id: 'news', en: 'Industry News', zh: '產業新聞' },
+    { id: 'entry', en: 'U.S. Market Entry', zh: '美國市場進入' },
+    { id: 'workforce', en: 'Workforce & Talent', zh: '人力與人才' },
+    { id: 'regulatory', en: 'Regulatory & Compliance', zh: '法規與合規' },
+    { id: 'projects', en: 'Project Insights', zh: '專案洞察' }
+  ];
+
+  MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  // Sample posts (placeholder editorial content). y/m = publication date.
+  all = [
+    { img: 'uploads/thumbs/1981-digital-bf9sZBcGQl4-unsplash.jpg', cat: 'news', y: 2026, m: 8, author: 'Dayoon Kim', en: 'What the latest Arizona fab announcements mean for inbound contractors', zh: '亞利桑那最新晶圓廠公告對海外承包商的意義' },
+    { img: 'uploads/thumbs/louis-reed-wSTCaQpiLtc-unsplash.jpg', cat: 'projects', y: 2026, m: 7, author: 'Autie R. Ascenzi', en: 'Sequencing off-site modules against a fab tool-install date', zh: '以晶圓廠設備進場日期為基準，安排場外模組的順序' },
+    { img: 'uploads/thumbs/vitaly-gariev-2AOIg7Qvu8w-unsplash.jpg', cat: 'news', y: 2026, m: 7, author: 'Shannon Lonsberry', en: 'Advanced packaging moves onshore: a reading of the 2026 investment wave', zh: '先進封裝回流美國：解讀 2026 年的投資浪潮' },
+    { img: 'uploads/thumbs/testalize-me-9xHsWmh3m_4-unsplash.jpg', cat: 'workforce', y: 2026, m: 6, author: 'Elisa Shivers', en: 'Craft labor availability in the Arizona semiconductor corridor', zh: '亞利桑那半導體走廊的技術勞動力供給' },
+    { img: 'uploads/thumbs/jonakoh-_-r5lbaK3fDaM-unsplash.jpg', cat: 'entry', y: 2026, m: 5, author: 'Dayoon Kim', en: 'Supporting an international supplier through US qualification', zh: '陪伴國際供應商完成美國資格認證' },
+    { img: 'uploads/thumbs/mitchell-luo-zxV_xahWh7o-unsplash.jpg', cat: 'regulatory', y: 2026, m: 4, author: 'Osmond Chong', en: 'What the E-2 pathway actually requires of a construction firm', zh: 'E-2 簽證路徑對營造公司的實際要求' },
+    { img: 'uploads/thumbs/jan-huber-3Btf2cTAGKs-unsplash.jpg', cat: 'workforce', y: 2026, m: 3, author: 'Dr. Oswald Chong', en: 'Building a certification pipeline with a university partner', zh: '與大學夥伴共建認證管道' },
+    { img: 'uploads/thumbs/tsmc flag-2d9dd308.jpg', cat: 'regulatory', y: 2026, m: 2, author: 'Autie R. Ascenzi', en: 'Reading an AHJ before you commit capex', zh: '投入資本支出前，先讀懂主管機關（AHJ）' },
+    { img: 'uploads/thumbs/dylan-gillis-KdeqA3aTnBY-unsplash.jpg', cat: 'entry', y: 2026, m: 1, author: 'Shannon Lonsberry', en: 'Choosing a first US partner without giving away the market', zh: '選擇第一個美國夥伴，而不把市場拱手讓人' },
+    { img: 'uploads/thumbs/albert-stoynov-b_GcLCaKt94-unsplash.jpg', cat: 'workforce', y: 2025, m: 12, author: 'Elisa Shivers', en: 'What a realistic craft ramp curve looks like on a mega-project', zh: '大型專案中，務實的技術工人人力爬升曲線長什麼樣' },
+    { img: 'uploads/thumbs/louis-reed-wSTCaQpiLtc-unsplash.jpg', cat: 'projects', y: 2025, m: 11, author: 'Cathy Chen', en: 'Eighteen months of qualification, condensed into one page', zh: '十八個月的資格認證，濃縮成一頁' }
+  ];
+
+  fmtDate(L, y, m){ return L === 'zh' ? y + ' 年 ' + m + ' 月' : this.MONTHS[m - 1] + ' ' + y; }
+  catLabel(L, id){ const c = this.CATS.find(c => c.id === id); return c ? c[L] : id; }
+
+  renderVals(){
+    const L = this.state.lang, t = this.T[L], st = this.state;
+    const q = st.query.trim().toLowerCase();
+    const list = this.all.filter(a => {
+      if (st.category !== 'all' && a.cat !== st.category) return false;
+      if (!q) return true;
+      const hay = [a.en, a.zh, a.author, this.catLabel('en', a.cat), this.catLabel('zh', a.cat)].join(' ').toLowerCase();
+      return hay.includes(q);
+    });
+    const per = this.perPage;
+    const total = Math.max(1, Math.ceil(list.length / per));
+    const page = Math.min(st.page, total);
+    const start = (page - 1) * per;
+    const shown = list.slice(start, start + per);
+    const pages = Array.from({ length: total }, (_, i) => ({
+      n: String(i + 1),
+      go: () => this.goPage(i + 1),
+      bg: page === i + 1 ? '#0028FF' : '#FFFFFF',
+      fg: page === i + 1 ? '#FFFFFF' : '#33383F',
+      border: page === i + 1 ? '#0028FF' : '#E2E5EA'
+    }));
+    return {
+      lang: L,
+      t,
+      setLang: this.setLang,
+      contactOpen: st.contactOpen,
+      openContact: this.openContact,
+      closeContact: this.closeContact,
+      query: st.query,
+      onSearch: this.onSearch,
+      subscribe: this.subscribe,
+      subscribeMsg: st.subscribeMsg,
+      clearFilters: this.clearFilters,
+      categories: this.CATS.map(c => ({
+        label: c[L],
+        active: st.category === c.id,
+        pick: () => this.pickCategory(c.id),
+        style: 'font-family:\'IBM Plex Mono\', monospace; font-size:10.5px; letter-spacing:1.2px; text-transform:uppercase; padding:9px 13px; border-radius:3px; cursor:pointer; transition:border-color 140ms ease, color 140ms ease, background 140ms ease; ' +
+          (st.category === c.id ? 'background:#0B0B0B; color:#FFFFFF; border:1px solid #0B0B0B' : 'background:#FFFFFF; color:#33383F; border:1px solid #E2E5EA')
+      })),
+      hasPosts: shown.length > 0,
+      noPosts: shown.length === 0,
+      posts: shown.map(a => ({
+        title: a[L],
+        author: a.author,
+        category: this.catLabel(L, a.cat),
+        date: this.fmtDate(L, a.y, a.m),
+        imgStyle: 'width:100%; height:230px; border-radius:3px; background-color:#F0F2F5; background-image:url("' + encodeURI(this.res(a.img)) + '"); background-size:cover; background-position:center'
+      })),
+      pages,
+      rangeLabel: list.length ? t.showing(start + 1, start + shown.length, list.length) : t.none,
+      prevPage: () => this.goPage(Math.max(1, page - 1)),
+      nextPage: () => this.goPage(Math.min(total, page + 1)),
+      prevCursor: page > 1 ? 'pointer' : 'default',
+      nextCursor: page < total ? 'pointer' : 'default',
+      prevColor: page > 1 ? '#0B0B0B' : '#B4BCC5',
+      nextColor: page < total ? '#0B0B0B' : '#B4BCC5'
+    };
+  }
+}
+</script>
+</body>
+</html>

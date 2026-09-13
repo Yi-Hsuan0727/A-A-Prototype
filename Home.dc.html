@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/png" href="icons/favicon.png">
+<meta name="ext-resource-dependency" content="icons/modular.svg" data-resource-id="ico-modular">
+<meta name="ext-resource-dependency" content="icons/permitting.svg" data-resource-id="ico-permitting">
+<meta name="ext-resource-dependency" content="icons/labor.svg" data-resource-id="ico-labor">
+<meta name="ext-resource-dependency" content="icons/market.svg" data-resource-id="ico-market">
+<meta name="ext-resource-dependency" content="icons/road-decision.svg" data-resource-id="ico-rd1">
+<meta name="ext-resource-dependency" content="icons/road-entity.svg" data-resource-id="ico-rd2">
+<meta name="ext-resource-dependency" content="icons/road-site.svg" data-resource-id="ico-rd3">
+<meta name="ext-resource-dependency" content="icons/road-build.svg" data-resource-id="ico-rd4">
+<meta name="ext-resource-dependency" content="icons/road-operating.svg" data-resource-id="ico-rd5">
+<meta name="ext-resource-dependency" content="uploads/Screenshot%202025-11-10%20132017.png" data-resource-id="hero1">
+<meta name="ext-resource-dependency" content="uploads/Screenshot%202025-11-10%20132101.png" data-resource-id="hero2">
+<meta name="ext-resource-dependency" content="uploads/testalize-me-9xHsWmh3m_4-unsplash.jpg" data-resource-id="hero3">
+<meta name="ext-resource-dependency" content="uploads/mitchell-luo-zxV_xahWh7o-unsplash.jpg" data-resource-id="hero4">
+<meta name="ext-resource-dependency" content="uploads/arron-choi-fYD54gVXFGM-unsplash.jpg" data-resource-id="what1">
+<meta name="ext-resource-dependency" content="uploads/krakenimages-376KN_ISplE-unsplash.jpg" data-resource-id="what2">
+<meta name="ext-resource-dependency" content="uploads/tsmc%20flag-2d9dd308.jpg" data-resource-id="what3">
+<meta name="ext-resource-dependency" content="uploads/fatemeh-rezvani-MnPWB-ybjHQ-unsplash-e19d70e3.jpg" data-resource-id="what2b">
+<meta name="ext-resource-dependency" content="uploads/bilge-tekin-GiATUqz4NYY-unsplash.jpg" data-resource-id="svc1">
+<meta name="ext-resource-dependency" content="uploads/jan-huber-3Btf2cTAGKs-unsplash.jpg" data-resource-id="svc3">
+<meta name="ext-resource-dependency" content="uploads/jonakoh-_-r5lbaK3fDaM-unsplash.jpg" data-resource-id="svc4">
+<meta name="ext-resource-dependency" content="uploads/louis-reed-wSTCaQpiLtc-unsplash.jpg" data-resource-id="art1">
+<meta name="ext-resource-dependency" content="uploads/1981-digital-bf9sZBcGQl4-unsplash.jpg" data-resource-id="art2">
+<meta name="ext-resource-dependency" content="uploads/thumbs/arron-choi-fYD54gVXFGM-unsplash.jpg" data-resource-id="svc-thumb1">
+<meta name="ext-resource-dependency" content="uploads/thumbs/bilge-tekin-GiATUqz4NYY-unsplash.jpg" data-resource-id="svc-thumb2">
+<meta name="ext-resource-dependency" content="uploads/thumbs/krakenimages-376KN_ISplE-unsplash.jpg" data-resource-id="svc-thumb3">
+<meta name="ext-resource-dependency" content="uploads/thumbs/jonakoh-_-r5lbaK3fDaM-unsplash.jpg" data-resource-id="svc-thumb4">
+<meta name="ext-resource-dependency" content="uploads/thumbs/1981-digital-bf9sZBcGQl4-unsplash.jpg" data-resource-id="art-thumb2">
+<meta name="ext-resource-dependency" content="uploads/thumbs/louis-reed-wSTCaQpiLtc-unsplash.jpg" data-resource-id="art-thumb1">
+<meta name="ext-resource-dependency" content="uploads/thumbs/testalize-me-9xHsWmh3m_4-unsplash.jpg" data-resource-id="art-thumb3">
+<meta name="ext-resource-dependency" content="https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json" data-resource-id="atlas">
+<template id="__bundler_thumbnail" data-bg-color="#0B0B0B">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><rect width="240" height="240" fill="#0B0B0B"/><rect x="72" y="96" width="96" height="10" fill="#0028FF"/><rect x="72" y="118" width="96" height="10" fill="#FFFFFF"/><rect x="72" y="140" width="58" height="10" fill="#FFFFFF" opacity="0.5"/></svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&amp;family=IBM+Plex+Mono:wght@400&amp;family=Noto+Sans+TC:wght@400&amp;display=swap" rel="stylesheet">
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
+<style>
+  html, body { margin:0; padding:0; background:#FFFFFF; }
+  body { font-family:'Questrial', 'Noto Sans TC', system-ui, sans-serif; color:#0B0B0B; -webkit-font-smoothing:antialiased; }
+  * { box-sizing:border-box; }
+  a { color:#0028FF; text-decoration:none; }
+  a:hover { color:#001FBF; }
+  html[lang="zh-Hant"] h1, html[lang="zh-Hant"] h2, html[lang="zh-Hant"] h3 { letter-spacing:0 !important; }
+  @keyframes om-pulse { 0%,100% { opacity:0.14; } 50% { opacity:0.42; } }
+  @keyframes om-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-9px); } }
+  @keyframes om-type-cursor { 0%, 45% { opacity:1; } 50%, 100% { opacity:0; } }
+</style>
+</helmet>
+
+<div style="width:100%; background:#FFFFFF; overflow-x:clip">
+
+  <dc-import name="SiteHeader" style="position:sticky; top:0; z-index:50" lang="{{ lang }}" active="home" on-set-lang="{{ setLang }}" on-contact="{{ openContact }}" hint-size="100%,76px"></dc-import>
+
+  <section id="top" style="background:#FFFFFF; color:#0B0B0B; min-height:calc(100vh - 76px); display:flex; align-items:center">
+    <div style="max-width:1360px; margin:0 auto; padding:clamp(48px,6vw,86px) clamp(18px,4vw,48px) clamp(56px,7vw,104px); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(360px,100%), 1fr)); gap:clamp(32px,4vw,52px); align-items:center; width:100%">
+      <div ref="{{ heroTextRef }}" data-reveal="1" style="max-width:640px; opacity:0; transform:translateY(22px); transition:opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1)">
+        <h1 style="margin:0; font-size:clamp(32px,5vw,54px); line-height:1.12; letter-spacing:-1.4px; font-weight:400; text-wrap:pretty">{{ t.heroTitle }}</h1>
+        <p style="margin:26px 0 0; font-size:16.5px; line-height:1.7; color:#4A5057; max-width:560px; text-wrap:pretty">{{ t.heroSub }}</p>
+        <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:38px">
+          <button type="button" onClick="{{ openContact }}" style="font-size:14px; letter-spacing:0.4px; color:#FFFFFF; background:#0028FF; padding:15px 30px; border:none; font-family:inherit; cursor:pointer; display:inline-flex; align-items:center; gap:11px; transition:background 140ms ease, transform 90ms ease; border-radius:3px" style-hover="background:#001FBF" style-active="background:#0018A0; transform:translateY(1px)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex:none"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.4 3.6V16H5.5A1.5 1.5 0 0 1 4 14.5v-9z" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"></path><path d="M8 9h8M8 12h5" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"></path></svg>{{ t.heroCta }}</button>
+          <a href="#capabilities" style="font-size:14px; letter-spacing:0.4px; color:#0028FF; border:1px solid #C7CEDB; padding:15px 30px; display:inline-flex; align-items:center; gap:11px; transition:border-color 140ms ease, background 140ms ease; border-radius:3px" style-hover="border-color:#0028FF; background:#F4F6FF" style-active="background:#E7ECFF"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex:none"><rect x="4" y="4" width="7" height="7" rx="0.5" stroke="#0028FF" stroke-width="1.5"></rect><rect x="13" y="4" width="7" height="7" rx="0.5" stroke="#0028FF" stroke-width="1.5"></rect><rect x="4" y="13" width="7" height="7" rx="0.5" stroke="#0028FF" stroke-width="1.5"></rect><rect x="13" y="13" width="7" height="7" rx="0.5" stroke="#0028FF" stroke-width="1.5"></rect></svg>{{ t.heroSecondary }}</a>
+        </div>
+      </div>
+      <div style="position:relative; width:100%; min-height:{{ heroImgMinHeight }}; background:#0B0B0B; -webkit-mask-image:url(icons/logo-mark.svg); mask-image:url(icons/logo-mark.svg); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center">
+        <sc-for list="{{ heroSlides }}" as="hs" hint-placeholder-count="4">
+          <span style="{{ hs.style }}"></span>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="purpose" style="background:#0028FF">
+    <div style="max-width:1360px; margin:0 auto; padding:clamp(64px,8vw,110px) clamp(18px,4vw,48px)">
+      <div data-reveal="1" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(320px,100%), 1fr)); gap:clamp(28px,4vw,56px); align-items:start; margin-bottom:clamp(38px,5vw,58px); opacity:0; transform:translateY(22px); transition:opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1)">
+        <div>
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px">
+            <span style="width:28px; height:1px; background:#FFFFFF"></span>
+            <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:2.2px; text-transform:uppercase; color:rgba(255,255,255,0.8)">{{ t.whatKicker }}</span>
+          </div>
+          <h2 style="margin:0; font-size:clamp(26px,3.5vw,38px); line-height:1.2; letter-spacing:-0.6px; font-weight:400; color:#FFFFFF; text-wrap:pretty">{{ t.whatH2 }}</h2>
+        </div>
+        <p style="margin:0; font-size:16.5px; line-height:1.65; color:rgba(255,255,255,0.85); max-width:560px; text-wrap:pretty">{{ t.whatBody }}</p>
+      </div>
+      <div data-reveal="1" data-reveal-delay="120" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(300px,100%), 1fr)); gap:clamp(18px,2vw,26px); opacity:0; transform:translateY(22px); transition:opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1)">
+        <sc-for list="{{ whatCards }}" as="w" hint-placeholder-count="3">
+          <div onMouseEnter="{{ w.enter }}" onMouseLeave="{{ w.leave }}" style="position:relative; aspect-ratio:9 / 16; min-height:520px; background:#0B0B0B; border:none; border-radius:3px; overflow:hidden; padding:clamp(26px,3vw,34px) clamp(24px,2.6vw,32px) 32px; display:flex; flex-direction:column; isolation:isolate">
+            <span aria-hidden="true" style="{{ w.imgStyle }}"></span>
+            <span aria-hidden="true" style="{{ w.gradientStyle }}"></span>
+            <span style="flex:1"></span>
+            <div style="position:relative; display:flex; align-items:baseline; gap:14px">
+              <span style="font-family:'IBM Plex Mono', monospace; font-size:26px; letter-spacing:-0.5px; color:#5B85FF; line-height:1">{{ w.num }}</span>
+              <span style="font-size:24px; line-height:1.2; letter-spacing:-0.4px; color:#FFFFFF">{{ w.title }}</span>
+            </div>
+            <p style="position:relative; margin:18px 0 0; font-size:15.5px; line-height:1.5; color:#C9D0D9; text-wrap:pretty">{{ w.blurb }}</p>
+            <div style="{{ w.listStyle }}">
+              <div style="overflow:hidden; min-height:0">
+              <sc-for list="{{ w.items }}" as="it" hint-placeholder-count="5">
+                <span style="display:flex; gap:12px; align-items:flex-start; font-size:14px; line-height:1.55; color:#CDD4DB; margin-bottom:10px">
+                  <span style="width:5px; height:5px; background:#0028FF; margin-top:7px; flex:none; border-radius:3px"></span>
+                  <span>{{ it }}</span>
+                </span>
+              </sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="road" style="background:#FFFFFF">
+    <div style="max-width:1360px; margin:0 auto; padding:clamp(54px,7vw,86px) clamp(18px,4vw,48px)">
+      <div data-reveal="1" style="max-width:760px; margin-bottom:clamp(30px,4vw,44px); opacity:0; transform:translateY(22px); transition:opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1)">
+        <div>
+          <h2 style="margin:0; font-size:clamp(24px,3.2vw,34px); line-height:1.24; letter-spacing:-0.5px; font-weight:400; color:#0B0B0B; text-wrap:pretty">{{ t.roadH2a }} <br>{{ t.roadH2b }}</h2>
+        </div>
+        <p style="margin:20px 0 0; font-size:15.5px; line-height:1.65; color:#4A5057; max-width:560px; text-wrap:pretty">{{ t.roadBody }}</p>
+      </div>
+      <sc-if value="{{ showCurve }}" hint-placeholder-val="{{ true }}">
+        <div data-road-canvas="1" data-reveal="1" data-reveal-delay="120" style="position:relative; width:100vw; margin-left:calc(50% - 50vw); height:clamp(470px,52vw,600px); margin-top:clamp(8px,1.5vw,18px); overflow:hidden; opacity:0; transform:translateY(22px); transition:opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1)">
+          <svg viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none">
+            <path d="M-40 432 Q340 252 1060 72" fill="none" stroke="rgba(0,40,255,0.45)" stroke-width="1" vector-effect="non-scaling-stroke"></path>
+          </svg>
+          <sc-for list="{{ roadSteps }}" as="r" hint-placeholder-count="5">
+            <div style="{{ r.style }}">
+              <span aria-hidden="true" style="position:absolute; left:-4.5px; top:-4.5px; width:9px; height:9px; border-radius:50%; background:#0028FF; display:block"></span>
+              <div style="{{ r.boxStyle }}">
+                <span style="display:flex; align-items:center; gap:10px">
+                  <span aria-hidden="true" style="{{ r.iconStyle }}"></span>
+                  <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:1.6px; color:#0028FF">{{ r.num }}</span>
+                </span>
+                <span style="font-size:clamp(16px,1.4vw,20px); line-height:1.25; letter-spacing:-0.2px; color:#0B0B0B; display:block; margin-top:9px">{{ r.title }}</span>
+                <span style="font-size:13.5px; line-height:1.55; color:#4A5057; display:block; margin-top:9px; text-wrap:pretty">{{ r.desc }}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <div data-reveal="1" data-reveal-delay="120" style="display:flex; flex-direction:column; gap:1px; background:#E2E5EA; border:1px solid #E2E5EA; border-radius:3px; overflow:hidden; opacity:0; transform:translateY(22px); transition:opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1)">
+          <sc-for list="{{ roadList }}" as="r" hint-placeholder-count="5">
+            <div style="background:#FFFFFF; padding:22px 20px 24px; display:flex; flex-direction:column; gap:10px">
+              <span style="display:flex; align-items:center; gap:10px">
+                <span aria-hidden="true" style="{{ r.iconStyle }}"></span>
+                <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:1.6px; color:#0028FF">{{ r.num }}</span>
+              </span>
+              <span style="font-size:17px; line-height:1.3; letter-spacing:-0.2px; color:#0B0B0B">{{ r.title }}</span>
+              <span style="font-size:13.5px; line-height:1.55; color:#4A5057">{{ r.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <section id="coverage" style="background-color:#050A16; background-image:radial-gradient(120% 78% at 50% 118%, rgba(0,40,255,0.55) 0%, rgba(10,25,80,0.34) 42%, rgba(5,10,22,0) 72%); color:#FFFFFF; overflow:hidden">
+    <div style="max-width:1000px; margin:0 auto; padding:clamp(70px,9vw,110px) clamp(18px,4vw,48px) 0; text-align:center">
+      <p data-reveal="1" style="margin:0; font-size:clamp(26px,3.6vw,40px); line-height:1.28; letter-spacing:-0.7px; color:#FFFFFF; text-wrap:balance; opacity:0; transform:translateY(22px); transition:opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1)">{{ t.bridgeA }}<br>{{ t.bridgeB }}<span style="color:#5B85FF">{{ t.bridgeHighlight }}</span>{{ t.bridgeC }}</p>
+      <div data-reveal="1" data-reveal-delay="120" style="opacity:0; transform:translateY(22px); transition:opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1)">
+        <p style="margin:clamp(30px,4vw,44px) auto 0; max-width:380px; font-size:15.5px; line-height:1.7; color:#9BA9C4; text-wrap:balance">{{ t.bridgeBody }}</p>
+      </div>
+    </div>
+    <div data-reveal="1" data-reveal-delay="200" style="max-width:1100px; margin:0 auto; padding:clamp(10px,2vw,24px) 0 0; overflow:hidden; opacity:0; transform:translateY(22px); transition:opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1)">
+      <div ref="{{ mapRef }}" style="width:100%; min-height:260px; overflow:hidden"></div>
+    </div>
+  </section>
+
+  <section style="background:#FFFFFF">
+    <div style="max-width:1000px; margin:0 auto; padding:clamp(70px,9vw,120px) clamp(18px,4vw,48px); text-align:center">
+      <div style="position:relative">
+        <p aria-hidden="true" style="visibility:hidden; margin:0; font-size:clamp(24px,3.4vw,38px); line-height:1.3; letter-spacing:-0.6px; text-wrap:pretty">{{ t.taglineA }} {{ t.taglineB }}</p>
+        <p data-reveal="1" data-typewriter="1" style="position:absolute; inset:0; margin:0; font-size:clamp(24px,3.4vw,38px); line-height:1.3; letter-spacing:-0.6px; color:#0B0B0B; text-wrap:pretty; opacity:0; transform:translateY(22px); transition:opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1)">{{ typedTaglineA }} <span style="color:#0028FF">{{ typedTaglineB }}</span><span aria-hidden="true" style="{{ typeCursorStyle }}">|</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="capabilities" style="background:#0B0B0B; color:#FFFFFF">
+    <div style="max-width:1360px; margin:0 auto; padding:clamp(64px,8vw,110px) clamp(18px,4vw,48px)">
+      <div data-reveal="1" style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:24px 48px; margin-bottom:clamp(36px,5vw,56px); opacity:0; transform:translateY(22px); transition:opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1)">
+        <div style="max-width:640px">
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px">
+            <span style="width:28px; height:1px; background:#0028FF"></span>
+            <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:2.2px; text-transform:uppercase; color:#A8B0BA">{{ t.svcKicker }}</span>
+          </div>
+          <h2 style="margin:0; font-size:clamp(26px,3.5vw,38px); line-height:1.2; letter-spacing:-0.6px; font-weight:400">{{ t.svcH2 }}</h2>
+        </div>
+        <p style="margin:0; max-width:320px; font-size:14.5px; line-height:1.65; color:#A8B0BA">{{ t.svcBody }}</p>
+      </div>
+      <div data-reveal="1" data-reveal-delay="120" style="display:flex; flex-wrap:wrap; gap:clamp(14px,1.6vw,20px); background:transparent; border:none; opacity:0; transform:translateY(22px); transition:opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1)">
+        <div style="flex: 1 1 230px; max-width: 400px; min-width: min(230px,100%); order: 2; background: #0B0B0B; border: 1px solid #2A313A; border-radius: 3px; overflow: hidden; display: flex; flex-direction: column">
+          <div style="flex:1; position:relative; background:#0028FF; padding:clamp(28px,3vw,38px) clamp(22px,2.4vw,32px) 34px; display:flex; flex-direction:column; gap:18px">
+            <span aria-hidden="true" style="position:absolute; top:clamp(20px,2.2vw,26px); right:clamp(20px,2.2vw,26px); display:block; width:116px; height:116px; opacity:0.3; -webkit-mask-image:url(icons/all-services.svg); mask-image:url(icons/all-services.svg); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; background-color:#FFFFFF"></span>
+            <span style="flex:1"></span>
+            <span style="font-size:21px; line-height:1.3; letter-spacing:-0.3px; color:#FFFFFF; display:block">{{ t.svcCardTitle }}</span>
+            <span style="font-size:14.5px; line-height:1.6; color:rgba(255,255,255,0.86); display:block">{{ t.svcCardBody }}</span>
+            <button type="button" onClick="{{ openContact }}" style="align-self:flex-start; font-size:13.5px; letter-spacing:0.4px; color:#0B0B0B; background:#FFFFFF; border:none; font-family:inherit; cursor:pointer; padding:14px 26px; transition:background 140ms ease, color 140ms ease; border-radius:3px" style-hover="background:#0B0B0B; color:#FFFFFF" style-active="background:#33383F">{{ t.svcCardCta }} →</button>
+          </div>
+        </div>
+        <div style="flex:2.6 1 520px; min-width:min(260px,100%); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, max(250px, 45%)), 1fr)); gap:clamp(14px,1.6vw,20px); background:transparent">
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="4">
+          <a href="{{ s.href }}" data-pkg-card="1" onMouseEnter="{{ s.enter }}" onMouseLeave="{{ s.leave }}" onFocus="{{ s.enter }}" onBlur="{{ s.leave }}" style="background:#0B0B0B; border:1px solid #2A313A; padding:clamp(28px,3vw,38px) clamp(22px,2.4vw,32px) 34px; display:flex; flex-direction:column; min-height:320px; color:#FFFFFF; transition:background 160ms ease, border-color 160ms ease; border-radius:3px; position:relative; overflow:hidden; isolation:isolate; border-color:{{ s.borderColor }}" style-hover="background:#0B0B0B; border-color:#FFFFFF" style-active="background:#001233">
+            <span style="{{ s.imgStyle }}"><span style="{{ s.imgInnerStyle }}"></span></span>
+            <span style="position:absolute; top:18px; right:18px; z-index:0; line-height:0; pointer-events:none">
+              <span aria-hidden="true" style="{{ s.iconStyle }}"></span>
+            </span>
+            <span style="{{ s.titleStyle }}">{{ s.title }}</span>
+            <span style="font-size:14px; line-height:1.6; color:#C9D0D9; margin-top:2px; min-height:45px; max-width:74%; display:block; text-wrap:balance; text-shadow:0 1px 14px rgba(0,0,0,0.85)">{{ s.desc }}</span>
+            <span style="{{ s.exploreStyle }}" aria-label="Explore">→</span>
+            <span data-card-divider="1" style="{{ s.dividerStyle }}"></span>
+            <span style="{{ s.listStyle }}">
+              <sc-for list="{{ s.items }}" as="it" hint-placeholder-count="4">
+                <span style="display:flex; gap:12px; align-items:flex-start; font-size:14px; line-height:1.5; color:#B7BFC9">
+                  <span style="width:5px; height:5px; background:#0028FF; margin-top:7px; flex:none"></span>
+                  <span>{{ it }}</span>
+                </span>
+              </sc-for>
+            </span>
+            <span style="flex:1; order:4"></span>
+          </a>
+        </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="insights" style="background:#FFFFFF">
+    <div style="max-width:1360px; margin:0 auto; padding:clamp(64px,8vw,110px) clamp(18px,4vw,48px)">
+      <div data-reveal="1" style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:24px 48px; margin-bottom:clamp(34px,4.5vw,52px); opacity:0; transform:translateY(22px); transition:opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1)">
+        <div style="max-width:620px">
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px">
+            <span style="width:28px; height:1px; background:#0028FF"></span>
+            <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:2.2px; text-transform:uppercase; color:#6E7373">{{ t.insightKicker }}</span>
+          </div>
+          <h2 style="margin:0; font-size:clamp(26px,3.5vw,38px); line-height:1.2; letter-spacing:-0.6px; font-weight:400">{{ t.insightH2 }}</h2>
+        </div>
+        <a href="Insight.dc.html" style="display:flex; align-items:center; gap:12px; font-size:14px; letter-spacing:0.4px; color:#0028FF; border:1px solid #C7CEDB; padding:13px 24px; border-radius:3px; transition:border-color 140ms ease, background 140ms ease" style-hover="border-color:#0028FF; background:#F4F6FF; color:#0028FF" style-active="background:#E7ECFF">{{ t.insightMore }} <span>→</span></a>
+      </div>
+      <div data-reveal="1" data-reveal-delay="120" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(270px,100%), 1fr)); gap:clamp(24px,3vw,36px); opacity:0; transform:translateY(22px); transition:opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1)">
+        <sc-for list="{{ articles }}" as="a" hint-placeholder-count="3">
+          <a href="Insight-Post.dc.html" style="display:block; color:#0B0B0B; transition:opacity 140ms ease; border-radius:3px" style-hover="opacity:0.78" style-active="opacity:0.6">
+            <div role="img" aria-label="{{ a.title }}" style="{{ a.imgStyle }}"></div>
+            <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; margin-top:20px; font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">
+              <span style="color:#0028FF; border:1px solid #C7CEDB; padding:5px 9px; border-radius:3px">{{ a.kind }}</span>
+              <span>{{ a.date }}</span>
+            </div>
+            <div style="font-size:20px; line-height:1.35; letter-spacing:-0.2px; margin-top:12px; text-wrap:pretty">{{ a.title }}</div>
+            <div style="font-size:13.5px; line-height:1.6; color:#4A5057; margin-top:10px">{{ t.by }} {{ a.author }}</div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="partner" style="position:relative; overflow:hidden; background-color:#0B0B0B; color:#FFFFFF">
+    <div aria-hidden="true" style="{{ partnerParallaxStyle }}"></div>
+    <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.58) 100%); pointer-events:none"></div>
+    <div style="position:relative; max-width:1360px; margin:0 auto; padding:clamp(56px,7vw,88px) clamp(18px,4vw,48px)">
+      <div data-reveal="1" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(320px,100%), 1fr)); gap:clamp(32px,5vw,72px); align-items:center; opacity:0; transform:translateY(22px); transition:opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1)">
+        <div>
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px">
+            <span style="width:28px; height:1px; background:#0028FF"></span>
+            <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:2.2px; text-transform:uppercase; color:#A8B0BA">{{ t.partnerKicker }}</span>
+          </div>
+          <h2 style="margin:0; font-size:clamp(26px,3.5vw,38px); line-height:1.2; letter-spacing:-0.6px; font-weight:400; text-wrap:pretty">{{ t.partnerH2 }}</h2>
+          <p style="margin:22px 0 0; font-size:16px; line-height:1.7; color:rgba(255,255,255,0.82); max-width:560px; text-wrap:pretty">{{ t.partnerBody }}</p>
+          <button type="button" onClick="{{ openPartner }}" style="margin-top:32px; font-size:14px; letter-spacing:0.4px; color:#FFFFFF; background:#0028FF; padding:15px 30px; border:none; font-family:inherit; cursor:pointer; display:inline-flex; align-items:center; gap:12px; transition:background 140ms ease, transform 90ms ease; border-radius:3px" style-hover="background:#001FBF" style-active="background:#0018A0; transform:translateY(1px)">{{ t.partnerCta }} <span aria-hidden="true">&rarr;</span></button>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px">
+          <div style="background:rgba(255,255,255,0.88); backdrop-filter:blur(14px) saturate(1.3); -webkit-backdrop-filter:blur(14px) saturate(1.3); border:1px solid rgba(255,255,255,0.4); border-radius:3px; padding:clamp(20px,2.4vw,28px); display:flex; flex-direction:column; gap:10px; min-height:150px">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4L2 9l10 5 10-5-10-5z" stroke="#0028FF" stroke-width="1.5" stroke-linejoin="round"></path><path d="M6 11.5V17c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5" stroke="#0028FF" stroke-width="1.5" stroke-linejoin="round"></path><path d="M22 9v6" stroke="#0028FF" stroke-width="1.5" stroke-linecap="round"></path></svg>
+            <span style="flex:1"></span>
+            <span style="font-size:17px; line-height:1.3; letter-spacing:-0.2px; color:#0B0B0B">{{ partner.a.title }}</span>
+            <span style="font-size:13.5px; line-height:1.55; color:#4A5057">{{ partner.a.desc }}</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.88); backdrop-filter:blur(14px) saturate(1.3); -webkit-backdrop-filter:blur(14px) saturate(1.3); border:1px solid rgba(255,255,255,0.4); border-radius:3px; padding:clamp(20px,2.4vw,28px); display:flex; flex-direction:column; gap:10px; min-height:150px">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9l9-5 9 5" stroke="#0028FF" stroke-width="1.5" stroke-linejoin="round"></path><path d="M5 9.5V18M9.5 9.5V18M14.5 9.5V18M19 9.5V18" stroke="#0028FF" stroke-width="1.5" stroke-linecap="round"></path><path d="M3 18h18" stroke="#0028FF" stroke-width="1.5" stroke-linecap="round"></path><path d="M2.5 20.5h19" stroke="#0028FF" stroke-width="1.5" stroke-linecap="round"></path></svg>
+            <span style="flex:1"></span>
+            <span style="font-size:17px; line-height:1.3; letter-spacing:-0.2px; color:#0B0B0B">{{ partner.b.title }}</span>
+            <span style="font-size:13.5px; line-height:1.55; color:#4A5057">{{ partner.b.desc }}</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.88); backdrop-filter:blur(14px) saturate(1.3); -webkit-backdrop-filter:blur(14px) saturate(1.3); border:1px solid rgba(255,255,255,0.4); border-radius:3px; padding:clamp(20px,2.4vw,28px); display:flex; flex-direction:column; gap:10px; min-height:150px">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="7.5" width="18" height="12" rx="1.5" stroke="#0028FF" stroke-width="1.5"></rect><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5" stroke="#0028FF" stroke-width="1.5" stroke-linejoin="round"></path><path d="M3 13h18" stroke="#0028FF" stroke-width="1.5"></path><path d="M10.5 13v1.5h3V13" stroke="#0028FF" stroke-width="1.5" stroke-linejoin="round"></path></svg>
+            <span style="flex:1"></span>
+            <span style="font-size:17px; line-height:1.3; letter-spacing:-0.2px; color:#0B0B0B">{{ partner.c.title }}</span>
+            <span style="font-size:13.5px; line-height:1.55; color:#4A5057">{{ partner.c.desc }}</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.88); backdrop-filter:blur(14px) saturate(1.3); -webkit-backdrop-filter:blur(14px) saturate(1.3); border:1px solid rgba(255,255,255,0.4); border-radius:3px; padding:clamp(20px,2.4vw,28px); display:flex; flex-direction:column; gap:10px; min-height:150px">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.8 2.8-2.1-2.1 2.8-2.8z" stroke="#0028FF" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+            <span style="flex:1"></span>
+            <span style="font-size:17px; line-height:1.3; letter-spacing:-0.2px; color:#0B0B0B">{{ partner.d.title }}</span>
+            <span style="font-size:13.5px; line-height:1.55; color:#4A5057">{{ partner.d.desc }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="background:#FFFFFF; border-top:1px solid #E2E5EA">
+    <div style="max-width:1360px; margin:0 auto; padding:clamp(64px,8vw,100px) clamp(18px,4vw,48px); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(320px,100%), 1fr)); gap:clamp(36px,5vw,72px); align-items:start">
+      <div>
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px">
+          <span style="width:28px; height:1px; background:#0028FF"></span>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:2.2px; text-transform:uppercase; color:#6E7373">{{ t.faqKicker }}</span>
+        </div>
+        <h2 style="margin:0; font-size:clamp(24px,3.1vw,34px); line-height:1.2; letter-spacing:-0.5px; font-weight:400">{{ t.faqH2 }}</h2>
+        <p style="margin:22px 0 0; font-size:14.5px; line-height:1.7; color:#4A5057">{{ t.faqBody }}</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1px; background:#E2E5EA; border-top:1px solid #E2E5EA; border-bottom:1px solid #E2E5EA">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+          <div style="background:#FFFFFF">
+            <button type="button" onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="width:100%; background:transparent; border:none; font-family:inherit; text-align:left; cursor:pointer; padding:24px 4px; display:flex; align-items:baseline; justify-content:space-between; gap:24px; color:#0B0B0B; transition:color 140ms ease, padding-left 160ms ease; border-radius:3px" style-hover="color:#0028FF; padding-left:10px" style-active="color:#001FBF">
+              <span style="font-size:18px; line-height:1.4">{{ f.q }}</span>
+              <span style="font-size:20px; line-height:1; color:#0028FF">{{ f.sign }}</span>
+            </button>
+            <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:0 clamp(8px,6vw,60px) 26px 4px; font-size:15px; line-height:1.72; color:#4A5057; max-width:720px">{{ f.a }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative; background:#0B0B0B">
+    <img src="uploads/louis-reed-wSTCaQpiLtc-unsplash.jpg" alt="Advanced manufacturing line" style="width:100%; height:clamp(260px,34vw,340px); object-fit:cover; display:block; opacity:0.72">
+    <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(4,7,20,0.9) 0%, rgba(4,7,20,0.45) 60%, rgba(4,7,20,0.2) 100%); display:flex; align-items:center">
+      <div style="max-width:1360px; width:100%; margin:0 auto; padding:0 clamp(18px,4vw,48px)">
+        <div style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:2.2px; text-transform:uppercase; color:#A8B0BA; margin-bottom:18px">{{ t.sectorKicker }}</div>
+        <div style="font-size:clamp(22px,3.2vw,32px); line-height:1.28; letter-spacing:-0.5px; color:#FFFFFF; max-width:660px; text-wrap:pretty">{{ t.sectorBody }}</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="background-color:#0028FF; background-image:repeating-linear-gradient(0deg, rgba(255,255,255,0.16) 0 1px, transparent 1px 14px), repeating-linear-gradient(90deg, rgba(255,255,255,0.16) 0 1px, transparent 1px 14px); color:#FFFFFF">
+    <div style="max-width:1360px; margin:0 auto; padding:clamp(64px,8vw,96px) clamp(18px,4vw,48px); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(320px,100%), 1fr)); gap:clamp(36px,5vw,72px); align-items:center">
+      <div>
+        <h2 style="margin:0; font-size:clamp(28px,4.2vw,42px); line-height:1.16; letter-spacing:-0.8px; font-weight:400; max-width:720px; text-wrap:pretty">{{ t.contactH2 }}</h2>
+        <p style="margin:22px 0 0; font-size:16px; line-height:1.7; color:rgba(255,255,255,0.82); max-width:560px">{{ t.contactBody }}</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1px; background:rgba(255,255,255,0.28); border:1px solid rgba(255,255,255,0.28); border-radius:3px">
+        <button type="button" onClick="{{ openContact }}" style="background:#FFFFFF; color:#0028FF; padding:22px 26px; font-size:15px; display:flex; justify-content:space-between; align-items:center; gap:16px; border:none; font-family:inherit; cursor:pointer; width:100%; text-align:left; transition:background 140ms ease; border-radius:3px 3px 0 0" style-hover="background:#EEF1FF">{{ t.contactCta }} <span>→</span></button>
+        <a href="tel:+18885238168" style="background:#0028FF; color:#FFFFFF; padding:22px 26px; display:block; transition:background 140ms ease" style-hover="background:#001FBF; color:#FFFFFF">
+          <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:rgba(255,255,255,0.7)">{{ t.phone }}</div>
+          <div style="font-size:15px; margin-top:8px">888-523-8168</div>
+        </a>
+        <div style="background:#0028FF; padding:22px 26px">
+          <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:rgba(255,255,255,0.7)">{{ t.office }}</div>
+          <div style="font-size:15px; margin-top:8px">{{ t.address }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" lang="{{ lang }}" hint-size="100%,420px"></dc-import>
+  <dc-import name="ContactModal" lang="{{ lang }}" mode="{{ contactMode }}" open="{{ contactOpen }}" on-close="{{ closeContact }}" hint-size="100%,0px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  constructor(p){
+    super(p);
+    this.mapRef = React.createRef();
+    this.roadRef = React.createRef();
+    this.heroTextRef = React.createRef();
+    this.state = { lang: this.readLang(), contactOpen: false, contactMode: 'contact', openFaq: 0, hover: 0, whatHover: 0, isMobile: typeof window !== 'undefined' && window.innerWidth <= 860, heroImgH: null, taglineTyped: 0, taglineStarted: false };
+  }
+
+  // Hero image mask is kept the same height as the hero text column beside it, measured live.
+  measureHero(){
+    const el = this.heroTextRef.current;
+    if (!el) return;
+    const h = Math.ceil(el.getBoundingClientRect().height);
+    const next = Math.max(360, h);
+    if (Math.abs(next - (this.state.heroImgH || 0)) > 2) this.setState({ heroImgH: next });
+  }
+
+  // Language: ?lang=zh|en wins, then localStorage, then English. The shared header toggles it via onSetLang.
+  readLang(){
+    try {
+      const q = new URLSearchParams(window.location.search).get('lang');
+      if (q === 'zh' || q === 'en') { localStorage.setItem('aa_lang', q); return q; }
+      return localStorage.getItem('aa_lang') === 'zh' ? 'zh' : 'en';
+    } catch (e) { return 'en'; }
+  }
+  applyLang(l){ if (typeof document !== 'undefined') document.documentElement.lang = l === 'zh' ? 'zh-Hant' : 'en'; }
+  setLang = (l) => { this.setState({ lang: l }); try { localStorage.setItem('aa_lang', l); } catch (e) {} this.applyLang(l); };
+
+  // Contact Us (nav / floating / footer / hero) opens the shared 2-step enquiry form; "Become a partner" opens the same modal in partner mode.
+  openContact = () => this.setState({ contactOpen: true, contactMode: 'contact' });
+  openPartner = () => this.setState({ contactOpen: true, contactMode: 'partner' });
+  closeContact = () => this.setState({ contactOpen: false });
+
+  T = {
+    en: {
+      heroTitle: 'A single point of contact for U.S. advanced manufacturing',
+      heroSub: 'Workforce training and certification, labor sourcing, construction process consulting, engineering and architectural referrals, academic partnerships, and real estate support.',
+      heroCta: 'Start a conversation', heroSecondary: 'View services',
+      whatKicker: 'What We Do', whatH2: 'You build the plant. We handle everything else.',
+      whatBody: 'A specialized consulting firm for semiconductor and advanced manufacturing construction. We solve the three problems that stall a U.S. plant: people, capital strategy and the paperwork of entry.',
+      roadH2a: 'It’s a long road into the U.S.', roadH2b: 'We walk every mile of it with you.',
+      roadBody: 'One team from the board’s decision to the first shift — so nothing is handed off between five vendors who have never met.',
+      bridgeA: 'We are the bridge between global capital', bridgeB: 'and the ', bridgeHighlight: 'American jobsite', bridgeC: '.',
+      bridgeBody: 'Headquartered in Arizona, at the centre of the United States semiconductor build-out, and working with owners, EPC contractors and vendors across the Asia–Pacific and European supply base.',
+      taglineA: 'Advanced manufacturing doesn’t wait for the paperwork.', taglineB: 'Neither do we.',
+      svcKicker: 'Services', svcH2: 'A look at our most requested packages.',
+      svcBody: 'Scopes below are the engagements clients ask for most. Each package can be combined or scaled to fit your scope.',
+      svcCardTitle: 'Not sure which package fits?', svcCardBody: 'Tell us the schedule pressure and we will shape the engagement.', svcCardCta: 'Talk to us',
+      insightKicker: 'Insight', insightH2: 'Technical writing and project record.', insightMore: 'View more articles', by: 'By',
+      partnerKicker: 'Partnership', partnerH2: 'Become our partner.',
+      partnerBody: 'Universities, institutions, A&E firms, contractors and specialist providers — if your work touches U.S. advanced manufacturing, we want to know you. Tell us who you are and what you bring, and a principal will follow up.',
+      partnerCta: 'Become a partner',
+      faqKicker: 'Q&A', faqH2: 'Straight answers, before you call.',
+      faqBody: 'If your question isn’t here, send it through the enquiry form — a principal will answer it directly.',
+      sectorKicker: 'Sector focus', sectorBody: 'Semiconductor, advanced packaging, data centre and adjacent high-tech industrial construction.',
+      contactH2: 'Tell us about your project, your entry plan, or the gap you need covered.',
+      contactBody: 'Every enquiry is reviewed by a principal. We will respond with a direct assessment of whether we are the right team — and who to speak to if we are not.',
+      contactCta: 'Submit an enquiry', phone: 'Phone', office: 'Office', address: 'Phoenix, Arizona, United States'
+    },
+    zh: {
+      heroTitle: '美國先進製造的單一聯絡窗口',
+      heroSub: '人力培訓與認證、勞動力招募、營建流程顧問、工程與建築轉介、學術合作，以及不動產支援。',
+      heroCta: '開始對話', heroSecondary: '查看服務',
+      whatKicker: '我們的服務', whatH2: '您負責建廠，其餘交給我們。',
+      whatBody: '專注於半導體與先進製造建設的專業顧問公司。我們解決讓美國廠房停滯的三大問題：人、資本策略，以及進入市場的文書作業。',
+      roadH2a: '進入美國是一條漫長的路。', roadH2b: '每一哩，我們都與您同行。',
+      roadBody: '從董事會決策到第一個班次，由同一個團隊負責——不會在五個素未謀面的供應商之間交接失誤。',
+      bridgeA: '我們是全球資本與', bridgeB: '', bridgeHighlight: '美國工地', bridgeC: '之間的橋樑。',
+      bridgeBody: '總部位於美國半導體建設核心的亞利桑那州，與亞太及歐洲供應體系的業主、EPC 承包商與供應商合作。',
+      taglineA: '先進製造不會等文書作業完成。', taglineB: '我們也不會。',
+      svcKicker: '服務項目', svcH2: '最常被委託的服務方案。',
+      svcBody: '以下是客戶最常委託的工作範圍。每一個方案都能組合或調整，以符合您的需求。',
+      svcCardTitle: '不確定哪個方案適合？', svcCardBody: '告訴我們您的時程壓力，我們會據此設計合作方式。', svcCardCta: '與我們談談',
+      insightKicker: '洞察觀點', insightH2: '技術文章與專案紀錄。', insightMore: '查看更多文章', by: '作者：',
+      partnerKicker: '合作夥伴', partnerH2: '成為我們的合作夥伴。',
+      partnerBody: '大學、機構、建築工程公司、承包商與專業服務供應商——只要您的工作與美國先進製造相關，我們都希望認識您。告訴我們您是誰、能帶來什麼，負責人將與您聯繫。',
+      partnerCta: '成為合作夥伴',
+      faqKicker: '常見問答', faqH2: '在您來電之前，先給您直接的答案。',
+      faqBody: '如果您的問題不在這裡，請透過諮詢表單送出——負責人會直接回覆。',
+      sectorKicker: '產業焦點', sectorBody: '半導體、先進封裝、資料中心，以及相關的高科技工業建設。',
+      contactH2: '告訴我們您的專案、進入美國的計畫，或需要補足的環節。',
+      contactBody: '每一則諮詢都由負責人親自審閱。我們會直接評估我們是否為合適的團隊——若不是，也會告訴您該找誰。',
+      contactCta: '送出諮詢', phone: '電話', office: '辦公室', address: '美國亞利桑那州鳳凰城'
+    }
+  };
+
+
+  FAQ = {
+    en: [
+      { q: 'What kind of engagements does Ascenzi & Associates take on?', a: 'We work with firms entering or expanding in U.S. advanced manufacturing, high-tech facility construction, and industrial development — most often international contractors, vendors, and suppliers establishing their first U.S. operation. Engagements range from a single, defined need — like sourcing certified tradespeople or securing a contractor license — to full market-entry partnerships that guide your firm from initial decision to full operational capability. Whatever the starting point, the model is the same: one accountable partner for anything that touches your U.S. operations.' },
+      { q: 'Do you work with companies outside the United States?', a: 'Yes — international firms are the heart of our practice. We specialize in helping foreign contractors, vendors, and suppliers establish U.S. operations, with services built specifically for that journey: E-2 visa pathway support, entity setup, licensing, banking, and day-one connections to established U.S. partners. Our leadership team brings international business development experience across Asia and Europe, so we understand the expectations of foreign ownership and how to bridge them with the realities of the U.S. market.' },
+      { q: 'Are you a consulting firm or a contractor?', a: 'We are a specialized consulting firm — we don’t hold contracts to build, and we don’t self-perform construction work. Our job is to make sure your firm can build: the certified talent, the licensing and qualifications, and the operational foundation your U.S. projects require. When your work calls for builders, designers, or subcontractors, we connect you with vetted, established partners from our network.' },
+      { q: 'How do you handle confidentiality?', a: 'Confidentiality is foundational to our work — market-entry plans, investment strategies, and hiring intentions are competitively sensitive, and we treat them that way. Client information is shared only within our team on a need-to-know basis, never with other clients or outside parties without your written consent, and we’re glad to execute a non-disclosure agreement before any engagement begins. Our own agreements carry confidentiality obligations as well, so discretion isn’t a courtesy — it’s a term of how we operate.' },
+      { q: 'What does a first conversation look like?', a: 'It’s a conversation, not a sales pitch — we want to understand where you are in your U.S. journey: what you intend to build, what you’ll self-perform, your timeline, and what’s already in place. From there, we’ll give you an honest read on what needs to happen next and in what order, including the things you may not have known to ask about — licensing requirements, qualifying personnel, or setup steps that block each other. There’s no cost and no obligation; if we’re the right partner, we’ll propose a path forward, and if we’re not, we’ll point you toward whoever is.' }
+    ],
+    zh: [
+      { q: 'Ascenzi & Associates 承接哪些類型的專案？', a: '我們與進入或擴張美國先進製造、高科技廠房建設與工業開發的企業合作——最常見的是首次在美國設立營運據點的國際承包商、供應商與廠商。專案範圍從單一、明確的需求——例如尋找具認證的技術工人，或取得承包執照——到完整的市場進入合作，引導您的公司從最初決策走到完整營運能力。無論起點為何，模式都一樣：凡是與您美國營運相關的事，都由同一個負責的夥伴處理。' },
+      { q: '你們與美國以外的公司合作嗎？', a: '是的——國際企業正是我們業務的核心。我們專門協助外國承包商、供應商與廠商建立美國營運據點，並為這段旅程量身打造服務：E-2 簽證路徑支援、公司設立、執照、銀行往來，以及從第一天起就能連結的成熟美國夥伴。我們的領導團隊擁有橫跨亞洲與歐洲的國際業務開發經驗，因此了解外國業主的期待，也知道如何將其與美國市場的現實銜接。' },
+      { q: '你們是顧問公司，還是承包商？', a: '我們是一家專業顧問公司——我們不承攬工程合約，也不自行施工。我們的工作是確保您的公司有能力建造：美國專案所需的具認證人才、執照與資格，以及營運基礎。當您的工作需要建造商、設計方或分包商時，我們會從我們的網絡中為您引介經過查核、信譽良好的夥伴。' },
+      { q: '你們如何處理保密事宜？', a: '保密是我們工作的基礎——市場進入計畫、投資策略與聘用意向都具有競爭敏感性，我們也以此看待。客戶資訊僅在我們團隊內部依「必要知情」原則分享，未經您書面同意，絕不會提供給其他客戶或外部人士；我們也樂意在任何合作開始前簽署保密協議。我們自身的合約同樣載有保密義務，因此謹慎不是一種禮貌——而是我們營運方式的一項條款。' },
+      { q: '第一次談話會是什麼樣子？', a: '那是一場對話，不是銷售簡報——我們想了解您在美國旅程中的位置：您打算建造什麼、哪些會自行施作、時程如何，以及目前已就緒的項目。接著，我們會誠實地告訴您接下來需要做什麼、依什麼順序，包括那些您可能不知道該問的事——執照要求、資格人員，或彼此牽制的設立步驟。這不收費，也沒有任何義務；如果我們是合適的夥伴，我們會提出後續路徑；如果不是，我們會為您指出合適的對象。' }
+    ]
+  };
+
+  componentDidMount(){
+    this.applyLang(this.state.lang);
+    this.tryMap(0);
+    this.setupReveal();
+    this.setupTyping();
+    this.measureCards();
+    this.measureHero();
+    this.updatePartnerParallax();
+    this._hero = setInterval(() => this.setState(s => ({ heroIdx: (s.heroIdx || 0) + 1 })), 5000);
+    [400, 1200, 2400].forEach(t => setTimeout(() => { this.setupReveal(); this.measureCards(); this.measureHero(); }, t));
+    this._revealFallback = setTimeout(() => this.revealAll(), 3000);
+    [200, 700, 1500].forEach(t => setTimeout(() => this.revealVisible(), t));
+    this._onResize = () => {
+      const m = window.innerWidth <= 860;
+      if (m !== this.state.isMobile) this.setState({ isMobile: m });
+      clearTimeout(this._rt);
+      this._rt = setTimeout(() => { this.measureCards(); this.measureHero(); if (this.mapRef.current) this.drawMap(); }, 220);
+    };
+    window.addEventListener('resize', this._onResize);
+    this._tick = () => {
+      this._raf = requestAnimationFrame(this._tick);
+      this.revealVisible();
+      this.updatePartnerParallax();
+      const el = document.querySelector('[data-road-canvas]');
+      if (!el) return;
+      const r = el.getBoundingClientRect(), vh = window.innerHeight || 800;
+      const p = Math.max(0, Math.min(1, (vh - r.top) / (vh + r.height)));
+      if (Math.abs(p - (this.state.roadP || 0)) > 0.002 || r.width !== this.state.roadW) this.setState({ roadP: p, roadW: r.width });
+    };
+    this._onScroll = () => {
+      this.revealVisible();
+      this.updatePartnerParallax();
+      const el = document.querySelector('[data-road-canvas]');
+      if (!el) return;
+      const r = el.getBoundingClientRect(), vh = window.innerHeight || 800;
+      const p = Math.max(0, Math.min(1, (vh - r.top) / (vh + r.height)));
+      if (Math.abs(p - (this.state.roadP || 0)) > 0.002 || r.width !== this.state.roadW) this.setState({ roadP: p, roadW: r.width });
+    };
+    document.addEventListener('scroll', this._onScroll, { passive: true, capture: true });
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._roadPoll = setInterval(this._onScroll, 200);
+    setTimeout(this._tick, 0);
+  }
+
+  ROAD = {
+    en: [
+      { title: 'Decision', desc: 'Board case, siting logic and the first schedule.' },
+      { title: 'Entity & visas', desc: 'US entity, tax posture and the people who move first.' },
+      { title: 'Site & permits', desc: 'AHJ pathway cleared before capex is committed.' },
+      { title: 'Talent & build', desc: 'Craft labor, modules and construction sequencing.' },
+      { title: 'Operating', desc: 'Ramp to first shift and steady-state handover.' }
+    ],
+    zh: [
+      { title: '決策', desc: '董事會提案、選址邏輯與第一版時程。' },
+      { title: '公司與簽證', desc: '美國法人、稅務規劃，以及最先派駐的人員。' },
+      { title: '廠址與許可', desc: '在投入資本支出前，先打通主管機關（AHJ）的審批路徑。' },
+      { title: '人才與建造', desc: '技術勞動力、模組與施工順序。' },
+      { title: '營運', desc: '爬升至第一個班次，並移交至穩定營運。' }
+    ]
+  };
+  ROAD_ICONS = ['icons/road-decision.svg', 'icons/road-entity.svg', 'icons/road-site.svg', 'icons/road-build.svg', 'icons/road-operating.svg'];
+
+  RES = {
+    "icons/modular.svg": "ico-modular",
+    "icons/permitting.svg": "ico-permitting",
+    "icons/labor.svg": "ico-labor",
+    "icons/market.svg": "ico-market",
+    "icons/road-decision.svg": "ico-rd1",
+    "icons/road-entity.svg": "ico-rd2",
+    "icons/road-site.svg": "ico-rd3",
+    "icons/road-build.svg": "ico-rd4",
+    "icons/road-operating.svg": "ico-rd5",
+    "uploads/Screenshot 2025-11-10 132017.png": "hero1",
+    "uploads/Screenshot 2025-11-10 132101.png": "hero2",
+    "uploads/testalize-me-9xHsWmh3m_4-unsplash.jpg": "hero3",
+    "uploads/mitchell-luo-zxV_xahWh7o-unsplash.jpg": "hero4",
+    "uploads/arron-choi-fYD54gVXFGM-unsplash.jpg": "what1",
+    "uploads/krakenimages-376KN_ISplE-unsplash.jpg": "what2",
+    "uploads/tsmc flag-2d9dd308.jpg": "what3",
+    "uploads/fatemeh-rezvani-MnPWB-ybjHQ-unsplash-e19d70e3.jpg": "what2b",
+    "uploads/bilge-tekin-GiATUqz4NYY-unsplash.jpg": "svc1",
+    "uploads/jan-huber-3Btf2cTAGKs-unsplash.jpg": "svc3",
+    "uploads/jonakoh-_-r5lbaK3fDaM-unsplash.jpg": "svc4",
+    "uploads/louis-reed-wSTCaQpiLtc-unsplash.jpg": "art1",
+    "uploads/1981-digital-bf9sZBcGQl4-unsplash.jpg": "art2",
+    "uploads/thumbs/arron-choi-fYD54gVXFGM-unsplash.jpg": "svc-thumb1",
+    "uploads/thumbs/bilge-tekin-GiATUqz4NYY-unsplash.jpg": "svc-thumb2",
+    "uploads/thumbs/krakenimages-376KN_ISplE-unsplash.jpg": "svc-thumb3",
+    "uploads/thumbs/jonakoh-_-r5lbaK3fDaM-unsplash.jpg": "svc-thumb4",
+    "uploads/thumbs/louis-reed-wSTCaQpiLtc-unsplash.jpg": "art-thumb1",
+    "uploads/thumbs/1981-digital-bf9sZBcGQl4-unsplash.jpg": "art-thumb2",
+    "uploads/thumbs/testalize-me-9xHsWmh3m_4-unsplash.jpg": "art-thumb3",
+    "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json": "atlas"
+  };
+
+  res(p){
+    const id = this.RES[p];
+    const map = (typeof window !== 'undefined' && window.__resources) || {};
+    return (id && map[id]) || p;
+  }
+
+  roadIconStyle(src){
+    return 'display:block; width:26px; height:26px; flex:none; background-color:#0028FF; -webkit-mask-image:url("' + this.res(src) + '"); mask-image:url("' + this.res(src) + '"); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center';
+  }
+
+  roadT(s){
+    if (!this._lut) {
+      const N = 240, xs = [];
+      for (let i = 0; i <= N; i++) xs.push(this.roadPoint(i / N).x);
+      const x0 = xs[0], x1 = xs[N];
+      this._lut = xs.map(x => (x - x0) / (x1 - x0));
+    }
+    const lut = this._lut, n = lut.length - 1, target = Math.max(0, Math.min(1, s));
+    let lo = 0, hi = n;
+    while (hi - lo > 1) { const mid = (lo + hi) >> 1; if (lut[mid] < target) lo = mid; else hi = mid; }
+    const span = lut[hi] - lut[lo] || 1;
+    return (lo + (target - lut[lo]) / span) / n;
+  }
+
+  roadPoint(t){
+    const P = [[-0.04, 0.72], [0.34, 0.42], [1.06, 0.12]], u = 1 - t;
+    return {
+      x: u * u * P[0][0] + 2 * u * t * P[1][0] + t * t * P[2][0],
+      y: u * u * P[0][1] + 2 * u * t * P[1][1] + t * t * P[2][1]
+    };
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener('resize', this._onResize);
+    clearInterval(this._hero);
+    clearTimeout(this._revealFallback);
+    if (this._io) this._io.disconnect();
+    if (this._typeIO) this._typeIO.disconnect();
+    clearInterval(this._typeTimer);
+    clearTimeout(this._rt);
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._globeRaf) cancelAnimationFrame(this._globeRaf);
+    clearInterval(this._roadPoll);
+    document.removeEventListener('scroll', this._onScroll, true);
+    window.removeEventListener('scroll', this._onScroll);
+  }
+
+  tryMap(n){
+    if (window.d3 && window.topojson && this.mapRef.current) return this.drawMap();
+    if (n > 120) return;
+    setTimeout(() => this.tryMap(n + 1), 100);
+  }
+
+  markers(){
+    return [
+      { n: 1, name: 'Arizona, United States', lon: -111.9, lat: 33.45, note: 'Headquarters' },
+      { n: 2, name: 'Taiwan', lon: 121.0, lat: 23.7, note: 'Owners · OSC partners' },
+      { n: 3, name: 'Japan', lon: 139.7, lat: 35.7, note: 'Vendor market entry' },
+      { n: 4, name: 'South Korea', lon: 127.0, lat: 37.5, note: 'Supplier coordination' },
+      { n: 5, name: 'Europe', lon: 9.5, lat: 50.5, note: 'Equipment supply base' },
+      { n: 6, name: 'Seattle, Washington', lon: -122.33, lat: 47.61, note: 'Pacific Northwest projects' },
+      { n: 7, name: 'New York', lon: -74.0, lat: 40.71, note: 'Capital partners' },
+      { n: 8, name: 'Texas', lon: -97.74, lat: 30.27, note: 'Gulf Coast build-out' }
+    ];
+  }
+
+  async drawMap(){
+    const el = this.mapRef.current;
+    const w = el.clientWidth || 900;
+    const D = Math.min(w, 1180);
+    const hgt = Math.round(D * 0.44);
+    el.style.height = hgt + 'px';
+    el.style.minHeight = hgt + 'px';
+    let topo;
+    try {
+      topo = await fetch(this.res('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json')).then(r => r.json());
+    } catch (e) { return; }
+    const countries = topojson.feature(topo, topo.objects.countries);
+    const sphere = { type: 'Sphere' };
+    const HUB = [-111.9, 33.45];
+    const rot = [-HUB[0], -(HUB[1] - 32)];
+    const proj = d3.geoOrthographic().rotate(rot).scale(D / 2).translate([w / 2, D * 0.06 + D / 2]);
+    const back = d3.geoOrthographic().rotate(rot).clipAngle(180)
+      .scale(proj.scale()).translate(proj.translate());
+    const path = d3.geoPath(proj), bpath = d3.geoPath(back);
+
+    d3.select(el).selectAll('*').remove();
+    el.style.position = 'relative';
+    const svg = d3.select(el).append('svg')
+      .attr('width', '100%').attr('height', '100%')
+      .attr('viewBox', '0 0 ' + w + ' ' + hgt)
+      .style('display', 'block')
+      .style('font-family', "'Questrial', sans-serif");
+
+    const defs = svg.append('defs');
+    const f = defs.append('filter').attr('id', 'globe-blur').attr('x', '-30%').attr('y', '-30%').attr('width', '160%').attr('height', '160%');
+    f.append('feGaussianBlur').attr('stdDeviation', 3);
+
+    svg.append('path').datum(sphere).attr('d', path).attr('fill', '#081436');
+
+    const arcs = this.markers().slice(1).map(m => ({
+      m: m,
+      line: { type: 'LineString', coordinates: d3.range(0, 1.0001, 1 / 72).map(d3.geoInterpolate(HUB, [m.lon, m.lat])) }
+    }));
+
+    const gBack = svg.append('g').attr('opacity', 0.3);
+    gBack.selectAll('path').data(arcs).join('path')
+      .attr('d', d => bpath(d.line)).attr('fill', 'none')
+      .attr('stroke', '#3F7BFF').attr('stroke-width', 0.6).attr('stroke-linecap', 'butt').attr('stroke-dasharray', '7 6');
+    gBack.selectAll('circle').data(arcs).join('circle')
+      .attr('cx', d => back([d.m.lon, d.m.lat])[0])
+      .attr('cy', d => back([d.m.lon, d.m.lat])[1])
+      .attr('r', 3).attr('fill', '#7FA9FF');
+
+    svg.append('path').datum(d3.geoGraticule10()).attr('d', path)
+      .attr('fill', 'none').attr('stroke', 'rgba(96,140,255,0.16)').attr('stroke-width', 0.5);
+    svg.append('g').selectAll('path').data(countries.features).join('path')
+      .attr('d', path).attr('fill', 'rgba(120,170,255,0.14)')
+      .attr('stroke', 'rgba(140,185,255,0.42)').attr('stroke-width', 0.5);
+    svg.append('path').datum(sphere).attr('d', path)
+      .attr('fill', 'none').attr('stroke', 'rgba(120,170,255,0.5)').attr('stroke-width', 1);
+
+    svg.append('g').attr('filter', 'url(#globe-blur)').attr('opacity', 0.7)
+      .selectAll('path').data(arcs).join('path')
+      .attr('d', d => path(d.line)).attr('fill', 'none')
+      .attr('stroke', '#5B85FF').attr('stroke-width', 1.4).attr('stroke-linecap', 'butt').attr('stroke-dasharray', '7 6');
+    svg.append('g').selectAll('path').data(arcs).join('path')
+      .attr('d', d => path(d.line)).attr('fill', 'none')
+      .attr('stroke', '#BBD1FF').attr('stroke-width', 0.8).attr('stroke-linecap', 'butt').attr('stroke-dasharray', '7 6');
+
+    const gTravel = svg.append('g');
+    const travellers = arcs.map((d, i) => ({
+      arc: d,
+      interp: d3.geoInterpolate(HUB, [d.m.lon, d.m.lat]),
+      node: gTravel.append('circle').attr('r', 3.2).attr('fill', '#FFFFFF').attr('opacity', 0),
+      offset: i / arcs.length
+    }));
+    const rc = proj.rotate();
+    const t0 = performance.now();
+    const tick = (now) => {
+      if (!el.isConnected) return;
+      const base = ((now - t0) / 3600);
+      travellers.forEach(tv => {
+        const f = (base + tv.offset) % 1;
+        const c = tv.interp(f);
+        const vis = d3.geoDistance(c, [-rc[0], -rc[1]]) < Math.PI / 2 - 0.01;
+        const p = proj(c);
+        tv.node.attr('cx', p[0]).attr('cy', p[1])
+          .attr('opacity', vis ? Math.sin(f * Math.PI) * 0.95 : 0);
+      });
+      this._globeRaf = requestAnimationFrame(tick);
+    };
+    this._globeRaf = requestAnimationFrame(tick);
+
+    const g = svg.append('g');
+    this.markers().forEach(m => {
+      const p = proj([m.lon, m.lat]);
+      if (!p) return;
+      const c = proj.rotate();
+      if (d3.geoDistance([m.lon, m.lat], [-c[0], -c[1]]) > Math.PI / 2 - 0.02) return;
+      const hub = m.n === 1;
+      g.append('circle').attr('cx', p[0]).attr('cy', p[1]).attr('r', hub ? 22 : 15)
+        .attr('fill', '#5B85FF').attr('opacity', hub ? 0.3 : 0.18)
+        .style('animation', 'om-pulse ' + (hub ? 2.4 : 3.2) + 's ease-in-out infinite');
+      g.append('circle').attr('cx', p[0]).attr('cy', p[1]).attr('r', hub ? 6 : 4.2)
+        .attr('fill', '#FFFFFF').attr('stroke', '#5B85FF').attr('stroke-width', hub ? 2 : 1.4);
+    });
+  }
+
+  WHAT = {
+    en: [
+      { title: 'Talent', blurb: "The biggest risk on a plant build isn't the drawings — it's the people.", items: ['Skilled trades recruiting', 'Site leadership search', 'Training pathways with universities', 'Expat and local headcount, pay and visa design', 'Labor and community liaison'] },
+      { title: 'Investment strategy', blurb: 'The roadmap is finished before the first dollar of capex moves.', items: ['Market entry and site selection', 'Entity structure and the E-2 pathway', 'Offsite and modular delivery strategy', 'Owner representation', 'Supply chain footprint'] },
+      { title: 'Landing', blurb: 'Every visa and every errand of inbound investment, in one place.', items: ['E-2, L-1 and B-1 visas', 'Entity formation, banking, payroll and tax', 'Contractor licensing, permits and inspections', 'Insurance and bonding', 'Relocation and government liaison'] }
+    ],
+    zh: [
+      { title: '人才', blurb: '廠房建設最大的風險不在圖紙，而在人。', items: ['技術工人招募', '工地領導人才搜尋', '與大學合作的培訓路徑', '外派與在地人員編制、薪酬與簽證設計', '勞工與社區聯絡'] },
+      { title: '投資策略', blurb: '在第一筆資本支出動用之前，路線圖就已完成。', items: ['市場進入與選址', '公司架構與 E-2 路徑', '場外與模組化交付策略', '業主代表', '供應鏈布局'] },
+      { title: '落地', blurb: '每一份簽證、每一項入境投資的瑣事，集中在同一個地方處理。', items: ['E-2、L-1 與 B-1 簽證', '公司設立、銀行、薪資與稅務', '承包執照、許可與查驗', '保險與保證', '搬遷與政府聯絡'] }
+    ]
+  };
+  WHAT_IMGS = ['uploads/arron-choi-fYD54gVXFGM-unsplash.jpg', 'uploads/fatemeh-rezvani-MnPWB-ybjHQ-unsplash-e19d70e3.jpg', 'uploads/krakenimages-376KN_ISplE-unsplash.jpg'];
+
+  SVC = [
+    { iconSrc: 'icons/modular.svg', img: 'uploads/thumbs/arron-choi-fYD54gVXFGM-unsplash.jpg', href: 'Talent-Acquisition.dc.html',
+      en: { title: 'Talent Acquisition', desc: 'Certified, qualified people — from the first weld to the corner office.', items: ['Skilled trades', 'Field supervision', 'Executive management', 'University graduates & students'] },
+      zh: { title: '人才招募', desc: '從第一道焊縫到管理階層，具備認證與資格的人才。', items: ['技術工人', '現場督導', '高階管理', '大學畢業生與學生'] } },
+    { iconSrc: 'icons/permitting.svg', img: 'uploads/thumbs/bilge-tekin-GiATUqz4NYY-unsplash.jpg', href: 'Licensing.dc.html',
+      en: { title: 'Licensing', desc: 'Fully qualified to operate. From day one.', items: ['Contractor licensing', 'Qualifying party strategy', 'Professional licensing', 'Compliance alignment'] },
+      zh: { title: '執照申辦', desc: '從第一天起，就完全具備營運資格。', items: ['營造承包執照', '資格負責人策略', '專業執照', '法規遵循調校'] } },
+    { iconSrc: 'icons/market.svg', img: 'uploads/thumbs/krakenimages-376KN_ISplE-unsplash.jpg', href: 'US-Market-Entry.dc.html',
+      en: { title: 'U.S. Market Entry', desc: 'From initial launch to project execution.', items: ['Corporate banking', 'Insurance & surety', 'E-2 visa pathway support', 'Referral network'] },
+      zh: { title: '美國市場進入', desc: '從初始落地到專案執行。', items: ['企業銀行往來', '保險與保證', 'E-2 簽證路徑支援', '轉介網絡'] } },
+    { iconSrc: 'icons/labor.svg', img: 'uploads/thumbs/jonakoh-_-r5lbaK3fDaM-unsplash.jpg', href: 'Supporting-Growth.dc.html',
+      en: { title: 'Supporting & Growth Services', desc: 'Operational is the starting line. We build from there.', items: ['Workforce training & development', 'Real estate & facilities support', 'Strategic referral network', 'Industry & expert advisory'] },
+      zh: { title: '支援與成長服務', desc: '營運上線只是起點，我們由此持續建構。', items: ['人力培訓與發展', '不動產與設施支援', '策略轉介網絡', '產業與專家顧問'] } }
+  ];
+
+  ARTICLES = [
+    { img: 'uploads/thumbs/1981-digital-bf9sZBcGQl4-unsplash.jpg', author: 'Dayoon Kim', en: { kind: 'Industry News', date: 'Aug 2026', title: 'What the latest Arizona fab announcements mean for inbound contractors' }, zh: { kind: '產業新聞', date: '2026 年 8 月', title: '亞利桑那最新晶圓廠公告對海外承包商的意義' } },
+    { img: 'uploads/thumbs/louis-reed-wSTCaQpiLtc-unsplash.jpg', author: 'Autie R. Ascenzi', en: { kind: 'Project Insights', date: 'Jul 2026', title: 'Sequencing off-site modules against a fab tool-install date' }, zh: { kind: '專案洞察', date: '2026 年 7 月', title: '以晶圓廠設備進場日期為基準，安排場外模組的順序' } },
+    { img: 'uploads/thumbs/testalize-me-9xHsWmh3m_4-unsplash.jpg', author: 'Elisa Shivers', en: { kind: 'Workforce & Talent', date: 'Jun 2026', title: 'Craft labor availability in the Arizona semiconductor corridor' }, zh: { kind: '人力與人才', date: '2026 年 6 月', title: '亞利桑那半導體走廊的技術勞動力供給' } }
+  ];
+
+  PARTNER = {
+    en: {
+      a: { title: 'Academic', desc: 'Universities and training providers building certification pathways.' },
+      b: { title: 'Institutional', desc: 'Trade offices, associations and public bodies bridging markets.' },
+      c: { title: 'Professional', desc: 'Architecture, engineering and contracting firms open to referrals.' },
+      d: { title: 'Specialist', desc: 'Legal, immigration, insurance, banking and real estate providers.' }
+    },
+    zh: {
+      a: { title: '學術', desc: '建立認證路徑的大學與培訓機構。' },
+      b: { title: '機構', desc: '銜接市場的貿易辦事處、協會與公部門單位。' },
+      c: { title: '專業', desc: '願意接受轉介的建築、工程與承包公司。' },
+      d: { title: '專門服務', desc: '法律、移民、保險、銀行與不動產服務供應商。' }
+    }
+  };
+
+  heroImgs = ['uploads/Screenshot 2025-11-10 132017.png', 'uploads/Screenshot 2025-11-10 132101.png', 'uploads/testalize-me-9xHsWmh3m_4-unsplash.jpg', 'uploads/mitchell-luo-zxV_xahWh7o-unsplash.jpg'];
+
+  measureCards(){
+    const card = document.querySelector('[data-pkg-card]');
+    const div = card && card.querySelector('[data-card-divider]');
+    if (!card || !div) return;
+    const px = Math.round(card.getBoundingClientRect().bottom - div.getBoundingClientRect().bottom);
+    if (px > 60 && Math.abs(px - (this.state.imgH || 0)) > 2) this.setState({ imgH: px });
+  }
+
+  revealVisible(){
+    const vh = window.innerHeight || 800;
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      if (el.dataset.revealed) return;
+      const r = el.getBoundingClientRect();
+      if (r.top < vh * 0.94 && r.bottom > 0) {
+        el.dataset.revealed = '1';
+        const d = parseInt(el.dataset.revealDelay || '0', 10);
+        setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, d);
+      }
+    });
+  }
+
+  revealAll(){
+    document.querySelectorAll('[data-reveal]').forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+  }
+
+  // Partnership section parallax: the background photo drifts slower than the page scroll,
+  // reading its offset straight from the section's own position (no separate scroll math needed).
+  updatePartnerParallax(){
+    const el = document.getElementById('partner');
+    if (!el) return;
+    const vh = window.innerHeight || 800;
+    const raw = Math.max(-vh, Math.min(vh, el.getBoundingClientRect().top));
+    const off = Math.round(raw * 0.12);
+    if (Math.abs(off - (this.state.partnerParallax || 0)) > 1) this.setState({ partnerParallax: off });
+  }
+
+  setupReveal(){
+    if (!('IntersectionObserver' in window)) return this.revealAll();
+    if (!this._io) {
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const d = parseInt(e.target.dataset.revealDelay || '0', 10);
+          setTimeout(() => { e.target.style.opacity = '1'; e.target.style.transform = 'none'; }, d);
+          this._io.unobserve(e.target);
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    }
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      if (el.dataset.revealBound) return;
+      el.dataset.revealBound = '1';
+      this._io.observe(el);
+    });
+  }
+
+  // Tagline typewriter: types out once the section first scrolls into view, not before.
+  fullTagline(){
+    const t = this.T[this.state.lang];
+    return t.taglineA + ' ' + t.taglineB;
+  }
+  setupTyping(n){
+    const el = document.querySelector('[data-typewriter]');
+    if (!el) { if ((n || 0) < 40) setTimeout(() => this.setupTyping((n || 0) + 1), 100); return; }
+    if (!('IntersectionObserver' in window)) return this.startTyping();
+    if (this._typeIO) return;
+    this._typeIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !this.state.taglineStarted) {
+          this.setState({ taglineStarted: true });
+          this.startTyping();
+          this._typeIO.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+    this._typeIO.observe(el);
+  }
+  startTyping(){
+    const full = this.fullTagline();
+    clearInterval(this._typeTimer);
+    this._typeTimer = setInterval(() => {
+      this.setState(s => {
+        const next = (s.taglineTyped || 0) + 1;
+        if (next >= full.length) clearInterval(this._typeTimer);
+        return { taglineTyped: next };
+      });
+    }, 28);
+  }
+
+  renderVals(){
+    const st = this.state, L = st.lang, t = this.T[L];
+    const rp = st.roadP || 0;
+    const openCard = st.hover < 0 ? 0 : st.hover;
+    const roadData = this.ROAD[L].map((r, i) => ({ ...r, num: '0' + (i + 1), icon: this.ROAD_ICONS[i] }));
+    const taglineFull = t.taglineA + ' ' + t.taglineB;
+    const taglineShown = taglineFull.slice(0, Math.min(st.taglineTyped || 0, taglineFull.length));
+    const taglineDone = taglineShown.length >= taglineFull.length;
+    const typedTaglineA = taglineShown.length <= t.taglineA.length ? taglineShown : t.taglineA;
+    const typedTaglineB = taglineShown.length <= t.taglineA.length ? '' : taglineShown.slice(t.taglineA.length + 1);
+    return {
+      lang: L,
+      t,
+      setLang: this.setLang,
+      typedTaglineA,
+      typedTaglineB,
+      typeCursorStyle: 'display:inline-block; margin-left:2px; font-weight:400; color:#0028FF;' + (taglineDone ? ' visibility:hidden;' : ' animation:om-type-cursor 900ms steps(1) infinite;'),
+      contactOpen: st.contactOpen,
+      contactMode: st.contactMode,
+      openContact: this.openContact,
+      openPartner: this.openPartner,
+      closeContact: this.closeContact,
+      roadRef: this.roadRef,
+      showCurve: !st.isMobile,
+      roadList: roadData.map(r => ({ ...r, iconStyle: this.roadIconStyle(r.icon) })),
+      roadSteps: roadData.map((r, i) => {
+        const W = st.roadW || 1000;
+        const boxW = Math.max(150, W * 0.20) + 22;
+        const lead = Math.max(24, Math.min(120, W * 0.05));
+        const xEnd = Math.max(lead + 40, W - lead - boxW);
+        const xFrac = (lead + (xEnd - lead) * (i / 4)) / W;
+        const base = Math.max(0, Math.min(1, (xFrac + 0.04) / 1.10));
+        const k = Math.max(0, Math.min(1, (rp - 0.10 - i * 0.055) / 0.30));
+        const e = 1 - Math.pow(1 - k, 3);
+        const s = base + (1.34 - base) * (1 - e);
+        const p = this.roadPoint(this.roadT(s));
+        const over = Math.max(0, s - 1) * 0.92;
+        const fade = Math.max(0, Math.min(1, k / 0.12));
+        return {
+          ...r,
+          iconStyle: this.roadIconStyle(r.icon),
+          boxStyle: 'position:absolute; left:22px; top:20px; width:20%; min-width:150px',
+          style: 'position:absolute; left:' + ((p.x + over) * 100).toFixed(3) + '%; top:' + (p.y * 100).toFixed(3) + '%; opacity:' + fade.toFixed(3) + '; transition:opacity 260ms ease; will-change:left, top'
+        };
+      }),
+      faqs: this.FAQ[L].map((f, i) => ({
+        q: f.q, a: f.a,
+        open: st.openFaq === i,
+        sign: st.openFaq === i ? '−' : '+',
+        toggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i }))
+      })),
+      mapRef: this.mapRef,
+      heroTextRef: this.heroTextRef,
+      partnerParallaxStyle: 'position:absolute; left:-5%; right:-5%; top:-30%; height:160%; background-image:url("' + encodeURI(this.res('uploads/jonakoh-_-r5lbaK3fDaM-unsplash.jpg')) + '"); background-size:cover; background-position:center; opacity:1; filter:brightness(0.42) saturate(0.9); pointer-events:none; will-change:transform; transform:translateY(' + (st.partnerParallax || 0) + 'px)',
+      heroImgMinHeight: (st.heroImgH || 480) + 'px',
+      isMobile: st.isMobile,
+      heroSlides: this.heroImgs.map((src, i) => ({
+        style: 'position:absolute; inset:0; display:block; background-image:url("' + encodeURI(this.res(src)) + '"); background-size:cover; background-position:center; transition:opacity 1200ms ease; opacity:' + ((st.heroIdx || 0) % this.heroImgs.length === i ? 1 : 0)
+      })),
+      whatCards: this.WHAT[L].map((w, i) => {
+        const open = (st.whatHover < 0 ? 0 : st.whatHover) === i;
+        return {
+          num: '0' + (i + 1), title: w.title, blurb: w.blurb, items: w.items,
+          borderColor: open ? '#FFFFFF' : '#2A313A',
+          imgStyle: 'position:absolute; inset:0; z-index:-2; background-color:#000208; background-image:url("' + encodeURI(this.res(this.WHAT_IMGS[i])) + '"); background-size:cover; background-position:center',
+          gradientStyle: 'position:absolute; left:0; right:0; bottom:0; z-index:-1; background-image:linear-gradient(180deg, rgba(0,10,40,0) 0%, rgba(0,3,12,0.82) 55%, rgba(0,2,8,1) 100%); transition:height 480ms cubic-bezier(.22,.65,.25,1); height:' + (open ? '100%' : '42%'),
+          listStyle: 'position:relative; display:grid; grid-template-rows:' + (open ? '1fr' : '0fr') + '; background:transparent; margin-left:calc(-1 * clamp(24px,2.6vw,32px)); margin-right:calc(-1 * clamp(24px,2.6vw,32px)); margin-bottom:-32px; margin-top:' + (open ? '20px' : '70px') + '; padding:' + (open ? '22px clamp(24px,2.6vw,32px) 16px' : '0 clamp(24px,2.6vw,32px)') + '; transition:grid-template-rows 480ms cubic-bezier(.22,.65,.25,1), margin-top 480ms cubic-bezier(.22,.65,.25,1), padding 480ms cubic-bezier(.22,.65,.25,1), opacity 300ms ease, background 480ms cubic-bezier(.22,.65,.25,1); opacity:' + (open ? 1 : 0) + '; pointer-events:' + (open ? 'auto' : 'none'),
+          enter: () => this.setState({ whatHover: i }),
+          leave: () => this.setState({ whatHover: -1 })
+        };
+      }),
+      services: this.SVC.map((s, i) => ({
+        href: s.href,
+        title: s[L].title, desc: s[L].desc, items: s[L].items,
+        imgStyle: 'position:absolute; left:0; right:0; bottom:0; z-index:-1; pointer-events:none; overflow:hidden; display:block; border-radius:0 0 3px 3px; transition:height 480ms cubic-bezier(.2,.7,.2,1), opacity 320ms ease; height:' + (openCard !== i ? (st.imgH || 200) + 'px' : '0px') + '; opacity:' + (openCard !== i ? 1 : 0),
+        imgInnerStyle: 'position:absolute; left:0; right:0; bottom:0; display:block; height:' + (st.imgH || 200) + 'px; background-image:linear-gradient(180deg, rgba(0,20,90,0.3) 0%, rgba(0,8,40,0.58) 100%), url("' + encodeURI(this.res(s.img)) + '"); background-size:cover, cover; background-position:center; background-repeat:no-repeat',
+        titleStyle: 'text-shadow:0 1px 16px rgba(0,0,0,0.8); font-size:23px; line-height:1.28; letter-spacing:-0.3px; display:block; max-width:64%; min-height:52px; padding-top:0; padding-bottom:0',
+        iconStyle: 'display:block; width:76px; height:76px; -webkit-mask-image:url("' + this.res(s.iconSrc) + '"); mask-image:url("' + this.res(s.iconSrc) + '"); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; transition:background-color 200ms ease, opacity 200ms ease; opacity:' + (openCard === i ? 0.85 : 0.3) + '; background-color:#FFFFFF',
+        listStyle: 'order:3; display:flex; flex-direction:column; gap:11px; padding-right:58px; padding-bottom:12px; transition:opacity 260ms ease; opacity:' + (openCard !== i ? 0 : 1) + '; visibility:' + (openCard !== i ? 'hidden' : 'visible'),
+        borderColor: openCard === i ? '#FFFFFF' : '#2A313A',
+        exploreStyle: 'position:absolute; right:clamp(22px,2.4vw,32px); bottom:26px; z-index:1; display:flex; align-items:center; justify-content:center; width:42px; height:42px; font-size:18px; line-height:1.35; padding-top:2px; color:#FFFFFF; background:#0028FF; border:none; border-radius:50%; box-shadow:0 2px 18px rgba(0,20,120,0.45)',
+        dividerStyle: 'order:2; height:1px; background:#3B434D; margin:22px 0; display:block; transition:opacity 240ms ease; opacity:' + (openCard !== i ? 0 : 1),
+        enter: () => this.setState({ hover: i }),
+        leave: () => this.setState(prev => (prev.hover === i ? { hover: -1 } : null))
+      })),
+      articles: this.ARTICLES.map(a => ({
+        kind: a[L].kind, date: a[L].date, title: a[L].title, author: a.author,
+        imgStyle: 'width:100%; height:230px; border-radius:3px; background-color:#F0F2F5; background-image:url("' + encodeURI(this.res(a.img)) + '"); background-size:cover; background-position:center'
+      })),
+      partner: this.PARTNER[L]
+    };
+  }
+}
+</script>
+</body>
+</html>

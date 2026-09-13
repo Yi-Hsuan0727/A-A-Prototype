@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/png" href="icons/favicon.png">
+<meta name="ext-resource-dependency" content="uploads/louis-reed-wSTCaQpiLtc-unsplash.jpg" data-resource-id="post-hero">
+<meta name="ext-resource-dependency" content="uploads/mitchell-luo-zxV_xahWh7o-unsplash.jpg" data-resource-id="post-img1">
+<meta name="ext-resource-dependency" content="uploads/testalize-me-9xHsWmh3m_4-unsplash.jpg" data-resource-id="post-img2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&amp;family=IBM+Plex+Mono:wght@400&amp;family=Noto+Sans+TC:wght@400&amp;display=swap" rel="stylesheet">
+<template id="__bundler_thumbnail" data-bg-color="#0B0B0B">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240"><rect width="240" height="240" fill="#0B0B0B"/><rect x="72" y="96" width="96" height="10" fill="#0028FF"/><rect x="72" y="118" width="96" height="10" fill="#FFFFFF"/><rect x="72" y="140" width="58" height="10" fill="#FFFFFF" opacity="0.5"/></svg>
+</template>
+<style>
+  html, body { margin:0; padding:0; background:#FFFFFF; }
+  body { font-family:'Questrial', 'Noto Sans TC', system-ui, sans-serif; color:#0B0B0B; -webkit-font-smoothing:antialiased; }
+  * { box-sizing:border-box; }
+  a { color:#0028FF; text-decoration:none; }
+  a:hover { color:#001FBF; }
+  html[lang="zh-Hant"] h1, html[lang="zh-Hant"] h2, html[lang="zh-Hant"] h3 { letter-spacing:0 !important; }
+</style>
+</helmet>
+
+<div style="width:100%; background:#FFFFFF; overflow-x:clip">
+
+  <dc-import name="SiteHeader" style="position:sticky; top:0; z-index:50" lang="{{ lang }}" active="insight" on-set-lang="{{ setLang }}" on-contact="{{ openContact }}" hint-size="100%,76px"></dc-import>
+
+  <article>
+
+    <section style="background:#0B0B0B; color:#FFFFFF">
+      <div style="max-width:900px; margin:0 auto; padding:clamp(40px,5vw,64px) clamp(18px,4vw,48px) clamp(44px,6vw,72px)">
+        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; margin-bottom:24px">
+          <a href="Insight.dc.html" style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#5B85FF; border:1px solid #33383F; padding:6px 10px; border-radius:3px; transition:border-color 140ms ease" style-hover="border-color:#0028FF; color:#5B85FF">{{ t.category }}</a>
+          <span style="width:4px; height:4px; background:#33383F; border-radius:50%"></span>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#A8B0BA">{{ t.date }}</span>
+        </div>
+
+        <h1 style="margin:0; font-size:clamp(30px,4.6vw,52px); line-height:1.1; letter-spacing:-1.2px; font-weight:400; text-wrap:pretty">{{ t.title }}</h1>
+        <p style="margin:24px 0 0; font-size:clamp(16px,1.9vw,19px); line-height:1.65; color:#CDD4DB; max-width:680px; text-wrap:pretty">{{ t.dek }}</p>
+
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:32px">
+          <sc-for list="{{ tags }}" as="tag" hint-placeholder-count="3">
+            <a href="Insight.dc.html" style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#CDD4DB; border:1px solid #33383F; padding:7px 12px; border-radius:3px; transition:border-color 140ms ease, color 140ms ease" style-hover="border-color:#0028FF; color:#FFFFFF">{{ tag }}</a>
+          </sc-for>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 14px; margin-top:36px; padding-top:26px; border-top:1px solid #2A313A">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.byLabel }}</span>
+          <span style="font-size:15px; color:#FFFFFF">Autie R. Ascenzi</span>
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.authorRole }}</span>
+        </div>
+      </div>
+    </section>
+
+    <div role="img" aria-label="{{ t.heroAlt }}" style="{{ heroImgStyle }}"></div>
+
+    <section style="background:#FFFFFF">
+      <div style="max-width:900px; margin:0 auto; padding:clamp(40px,5vw,64px) clamp(18px,4vw,48px) clamp(48px,6vw,80px)">
+
+        <p style="margin:0; font-size:19px; line-height:1.75; color:#0B0B0B; text-wrap:pretty">{{ t.lede }}</p>
+        <p style="margin:26px 0 0; font-size:17px; line-height:1.8; color:#33383F; text-wrap:pretty">{{ t.p1 }}</p>
+
+        <h2 style="margin:clamp(38px,4.5vw,54px) 0 0; font-size:clamp(23px,3vw,30px); line-height:1.25; letter-spacing:-0.5px; font-weight:400; text-wrap:pretty">{{ t.h2a }}</h2>
+        <p style="margin:20px 0 0; font-size:17px; line-height:1.8; color:#33383F; text-wrap:pretty">{{ t.p2 }}</p>
+
+        <div style="border-left:2px solid #0028FF; padding:6px 0 6px 26px; margin:clamp(32px,4vw,44px) 0 0">
+          <p style="margin:0; font-size:clamp(19px,2.4vw,23px); line-height:1.55; letter-spacing:-0.3px; color:#0B0B0B; text-wrap:pretty">{{ t.pull }}</p>
+        </div>
+
+        <h2 style="margin:clamp(38px,4.5vw,54px) 0 0; font-size:clamp(23px,3vw,30px); line-height:1.25; letter-spacing:-0.5px; font-weight:400; text-wrap:pretty">{{ t.h2b }}</h2>
+        <p style="margin:20px 0 0; font-size:17px; line-height:1.8; color:#33383F; text-wrap:pretty">{{ t.p3 }}</p>
+        <div style="display:flex; flex-direction:column; gap:14px; margin-top:22px">
+          <sc-for list="{{ bullets }}" as="b" hint-placeholder-count="4">
+            <div style="display:flex; gap:14px; align-items:flex-start"><span style="width:6px; height:6px; background:#0028FF; margin-top:10px; flex:none"></span><span style="font-size:17px; line-height:1.7; color:#33383F">{{ b }}</span></div>
+          </sc-for>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(260px,100%), 1fr)); gap:clamp(14px,2vw,20px); margin-top:clamp(36px,4.5vw,50px)">
+          <div>
+            <div role="img" aria-label="{{ t.img1Alt }}" style="{{ img1Style }}"></div>
+            <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.2px; color:#6E7373; margin-top:10px">{{ t.img1Caption }}</div>
+          </div>
+          <div>
+            <div role="img" aria-label="{{ t.img2Alt }}" style="{{ img2Style }}"></div>
+            <div style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.2px; color:#6E7373; margin-top:10px">{{ t.img2Caption }}</div>
+          </div>
+        </div>
+
+        <h2 style="margin:clamp(38px,4.5vw,54px) 0 0; font-size:clamp(23px,3vw,30px); line-height:1.25; letter-spacing:-0.5px; font-weight:400; text-wrap:pretty">{{ t.h2c }}</h2>
+        <p style="margin:20px 0 0; font-size:17px; line-height:1.8; color:#33383F; text-wrap:pretty">{{ t.p4 }}</p>
+
+        <div style="margin-top:24px; border:1px solid #E2E5EA; border-radius:3px; overflow:hidden">
+          <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:1px; background:#E2E5EA">
+            <div style="background:#F5F7F9; padding:14px 18px; font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.colStage }}</div>
+            <div style="background:#F5F7F9; padding:14px 18px; font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.colDuration }}</div>
+            <div style="background:#F5F7F9; padding:14px 18px; font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373">{{ t.colFloat }}</div>
+            <sc-for list="{{ rows }}" as="r" hint-placeholder-count="4">
+              <div style="background:#FFFFFF; padding:16px 18px; font-size:15.5px; color:#0B0B0B">{{ r.stage }}</div>
+              <div style="background:#FFFFFF; padding:16px 18px; font-size:15.5px; color:#4A5057">{{ r.duration }}</div>
+              <div style="background:#FFFFFF; padding:16px 18px; font-size:15.5px; color:{{ r.floatColor }}">{{ r.float }}</div>
+            </sc-for>
+          </div>
+        </div>
+
+        <h2 style="margin:clamp(38px,4.5vw,54px) 0 0; font-size:clamp(23px,3vw,30px); line-height:1.25; letter-spacing:-0.5px; font-weight:400; text-wrap:pretty">{{ t.h2d }}</h2>
+        <p style="margin:20px 0 0; font-size:17px; line-height:1.8; color:#33383F; text-wrap:pretty">{{ t.p5 }}</p>
+
+      </div>
+    </section>
+
+    <section style="background:#FFFFFF">
+      <div style="max-width:900px; margin:0 auto; padding:24px clamp(18px,4vw,48px) 0">
+        <button type="button" onClick="{{ goBack }}" style="display:inline-flex; align-items:center; gap:8px; margin:0 0 28px; background:transparent; border:1px solid #E2E5EA; font-family:inherit; font-size:14px; color:#6E7373; cursor:pointer; padding:10px 18px; transition:border-color 140ms ease, color 140ms ease; border-radius:3px" style-hover="border-color:#0028FF; color:#0028FF">&larr; {{ t.back }}</button>
+      </div>
+    </section>
+
+    <section style="background:#F5F7F9; border-top:1px solid #E2E5EA">
+      <div style="max-width:900px; margin:0 auto; padding:clamp(30px,4vw,44px) clamp(18px,4vw,48px)">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(260px,100%), 1fr)); gap:1px; background:#E2E5EA; border:1px solid #E2E5EA; border-radius:3px">
+          <a href="Insight.dc.html" style="background:#FFFFFF; padding:22px 24px; color:#0B0B0B" style-hover="background:#FFFFFF; color:#0028FF">
+            <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373; display:block">← {{ t.prev }}</span>
+            <span style="font-size:16px; line-height:1.45; display:block; margin-top:10px">{{ t.prevTitle }}</span>
+          </a>
+          <a href="Insight.dc.html" style="background:#FFFFFF; padding:22px 24px; color:#0B0B0B; text-align:right" style-hover="background:#FFFFFF; color:#0028FF">
+            <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:#6E7373; display:block">{{ t.next }} →</span>
+            <span style="font-size:16px; line-height:1.45; display:block; margin-top:10px">{{ t.nextTitle }}</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </article>
+
+  <section style="background-color:#0028FF; background-image:repeating-linear-gradient(0deg, rgba(255,255,255,0.16) 0 1px, transparent 1px 14px), repeating-linear-gradient(90deg, rgba(255,255,255,0.16) 0 1px, transparent 1px 14px); color:#FFFFFF">
+    <div style="max-width:1360px; margin:0 auto; padding:clamp(52px,6vw,80px) clamp(18px,4vw,48px); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(320px,100%), 1fr)); gap:clamp(32px,5vw,64px); align-items:center">
+      <div>
+        <h2 style="margin:0; font-size:clamp(24px,3.6vw,36px); line-height:1.18; letter-spacing:-0.7px; font-weight:400; max-width:600px; text-wrap:pretty">{{ t.ctaHead }}</h2>
+        <p style="margin:18px 0 0; font-size:16px; line-height:1.7; color:rgba(255,255,255,0.82); max-width:500px">{{ t.ctaBody }}</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1px; background:rgba(255,255,255,0.28); border:1px solid rgba(255,255,255,0.28); border-radius:3px">
+        <button type="button" onClick="{{ openContact }}" style="background:#FFFFFF; color:#0028FF; padding:22px 26px; font-size:15px; display:flex; justify-content:space-between; align-items:center; gap:16px; border:none; font-family:inherit; cursor:pointer; width:100%; text-align:left; transition:background 140ms ease" style-hover="background:#EEF1FF">{{ t.ctaButton }} <span>→</span></button>
+        <a href="tel:+18885238168" style="background:#0028FF; color:#FFFFFF; padding:22px 26px; display:block; transition:background 140ms ease" style-hover="background:#001FBF; color:#FFFFFF">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:1.4px; text-transform:uppercase; color:rgba(255,255,255,0.7); display:block">{{ t.phone }}</span>
+          <span style="font-size:15px; margin-top:8px; display:block">888-523-8168</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" lang="{{ lang }}" hint-size="100%,420px"></dc-import>
+  <dc-import name="ContactModal" lang="{{ lang }}" open="{{ contactOpen }}" on-close="{{ closeContact }}" hint-size="100%,0px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  state = { lang: this.readLang(), contactOpen: false };
+
+  readLang(){
+    try {
+      const q = new URLSearchParams(window.location.search).get('lang');
+      if (q === 'zh' || q === 'en') { localStorage.setItem('aa_lang', q); return q; }
+      return localStorage.getItem('aa_lang') === 'zh' ? 'zh' : 'en';
+    } catch (e) { return 'en'; }
+  }
+  applyLang(l){ if (typeof document !== 'undefined') document.documentElement.lang = l === 'zh' ? 'zh-Hant' : 'en'; }
+  setLang = (l) => { this.setState({ lang: l }); try { localStorage.setItem('aa_lang', l); } catch (e) {} this.applyLang(l); };
+  openContact = () => this.setState({ contactOpen: true });
+  closeContact = () => this.setState({ contactOpen: false });
+  goBack = () => { if (typeof window !== 'undefined') window.history.back(); };
+  componentDidMount(){ this.applyLang(this.state.lang); }
+
+  RES = {
+    'uploads/louis-reed-wSTCaQpiLtc-unsplash.jpg': 'post-hero',
+    'uploads/mitchell-luo-zxV_xahWh7o-unsplash.jpg': 'post-img1',
+    'uploads/testalize-me-9xHsWmh3m_4-unsplash.jpg': 'post-img2'
+  };
+  res(p){ const id = this.RES[p]; const map = (typeof window !== 'undefined' && window.__resources) || {}; return (id && map[id]) || p; }
+  bg(p, h){ return 'width:100%; height:' + h + '; background-color:#F0F2F5; background-image:url("' + encodeURI(this.res(p)) + '"); background-size:cover; background-position:center'; }
+
+  // Sample article (placeholder editorial content). Post template: category tag + date + title + dek + tags + author name.
+  T = {
+    en: {
+      back: 'Back',
+      category: 'Project Insights', date: '14 July 2026', byLabel: 'By', authorRole: 'Founder & Principal',
+      title: 'Sequencing off-site modules against a fab tool-install date',
+      dek: 'Why module release dates — not site dates — drive the critical path on advanced-node builds, and what an owner should be asking for at bid stage.',
+      heroAlt: 'Module fabrication yard',
+      lede: 'Every advanced-node build we have reviewed in the last three years has treated the tool-install date as the fixed point and everything upstream as negotiable. That is the right instinct and the wrong arithmetic. Once a meaningful share of process utilities is delivered as off-site modules, the binding constraint moves out of the site fence and into the fabrication yard.',
+      p1: 'The distinction matters because the two schedules fail differently. A site delay is visible daily — you can walk it, count crews and see the slip. A yard delay is invisible until the truck does not arrive, and by then the recovery options are logistics-only and expensive.',
+      h2a: 'Start from the release date, not the delivery date',
+      p2: 'A module’s release date is the day it clears final inspection and is cleared to ship. Everything a schedule owner cares about sits behind it: weld inspection, hydro, instrument loop checks, insulation and paint cure. Delivery is a transport problem; release is an engineering and labor problem, and it is the one that moves.',
+      pull: 'If the release date is not on the owner’s schedule, the owner does not have a schedule — they have a delivery expectation.',
+      h2b: 'What to require at bid stage',
+      p3: 'Four items, none of them onerous, remove most of the ambiguity from a modular scope before a contract is signed:',
+      img1Alt: 'Module transport', img1Caption: 'Route survey drives permit lead time.',
+      img2Alt: 'Site handover', img2Caption: 'Gate handover, inspected against the register.',
+      h2c: 'A working float allocation',
+      p4: 'Float belongs where the variance is. On the programmes we have supported, the distribution below has held up better than an even spread across the chain.',
+      colStage: 'Stage', colDuration: 'Typical duration', colFloat: 'Float held',
+      h2d: 'The short version',
+      p5: 'Put release dates on the master schedule, hold float in the yard rather than at the gate, and make the handover protocol contractual. None of it is expensive at bid stage. All of it is expensive at week forty.',
+      prev: 'Previous', next: 'Next',
+      prevTitle: 'Craft labor availability in the Arizona semiconductor corridor',
+      nextTitle: 'Reading an AHJ before you commit capex',
+      ctaHead: 'Want the analysis applied to your project?', ctaBody: 'Send us an enquiry or call the office directly.',
+      ctaButton: 'Submit an enquiry', phone: 'Phone'
+    },
+    zh: {
+      back: '返回',
+      category: '專案洞察', date: '2026 年 7 月 14 日', byLabel: '作者', authorRole: '創辦人暨負責人',
+      title: '以晶圓廠設備進場日期為基準，安排場外模組的順序',
+      dek: '為什麼在先進製程的建案中，決定關鍵路徑的是模組放行日期，而不是現場日期——以及業主在投標階段應該要求什麼。',
+      heroAlt: '模組製造廠',
+      lede: '過去三年我們檢視過的每一個先進製程建案，都把設備進場日期視為固定點，而把上游的一切視為可以協商。這是正確的直覺，卻是錯誤的算法。一旦有相當比例的製程公用系統以場外模組交付，真正的限制條件就從工地圍籬內移到了製造廠。',
+      p1: '這個區別之所以重要，是因為兩種進度的失敗方式不同。現場延誤每天都看得見——你可以走一趟、數一數人力、看到落後。廠內延誤則在卡車沒有出現之前都看不見，而到了那時，補救的選項只剩物流手段，而且代價高昂。',
+      h2a: '從放行日期開始，而不是交付日期',
+      p2: '模組的放行日期，是它通過最終檢驗、獲准出貨的那一天。進度負責人在意的一切都在它之後：焊道檢驗、水壓試驗、儀表迴路測試、保溫與塗裝養護。交付是運輸問題；放行是工程與人力問題，而且是會變動的那一個。',
+      pull: '如果放行日期不在業主的進度表上，業主就沒有進度表——只有一個交付期望。',
+      h2b: '投標階段應該要求什麼',
+      p3: '四個項目，都不繁瑣，就能在簽約前排除模組化範圍中大部分的模糊地帶：',
+      img1Alt: '模組運輸', img1Caption: '路線勘查決定許可的前置時間。',
+      img2Alt: '工地交接', img2Caption: '閘門交接，依模組清冊逐項檢驗。',
+      h2c: '可行的浮時配置',
+      p4: '浮時應該放在變異所在之處。在我們支援過的專案中，以下的配置比在整條鏈上平均分配更經得起考驗。',
+      colStage: '階段', colDuration: '一般所需時間', colFloat: '保留浮時',
+      h2d: '簡短版本',
+      p5: '把放行日期放上主進度表，把浮時保留在製造廠而不是閘門，並把交接程序寫進合約。這些在投標階段都不昂貴；到了第四十週，每一項都很昂貴。',
+      prev: '上一篇', next: '下一篇',
+      prevTitle: '亞利桑那半導體走廊的技術勞動力供給',
+      nextTitle: '投入資本支出前，先讀懂主管機關（AHJ）',
+      ctaHead: '想把這些分析應用到您的專案？', ctaBody: '送出諮詢，或直接致電辦公室。',
+      ctaButton: '送出諮詢', phone: '電話'
+    }
+  };
+
+  TAGS = { en: ['Modularization', 'Schedule', 'Semiconductor'], zh: ['模組化', '進度', '半導體'] };
+
+  BULLETS = {
+    en: [
+      'A module register with a named release date per unit, not a batch date for the package.',
+      'Yard capacity commitments expressed in bays and shifts, with the other work occupying those bays disclosed.',
+      'A transport study covering route survey, permit lead time and the seasonal restrictions on the corridor.',
+      'A named handover protocol at the site gate — who inspects, against what, and what happens on rejection.'
+    ],
+    zh: [
+      '一份模組清冊，為每一個單元標明放行日期，而不是整個包裹的批次日期。',
+      '以工位與班次表示的廠內產能承諾，並揭露佔用這些工位的其他工作。',
+      '一份涵蓋路線勘查、許可前置時間與走廊季節性限制的運輸研究。',
+      '一套具名的工地閘門交接程序——由誰檢驗、依據什麼、退件時如何處理。'
+    ]
+  };
+
+  ROWS = {
+    en: [
+      { stage: 'Detailed design freeze', duration: '6–10 weeks', float: '1 week', hot: false },
+      { stage: 'Yard fabrication', duration: '12–20 weeks', float: '3 weeks', hot: true },
+      { stage: 'Inspection & release', duration: '2–4 weeks', float: '2 weeks', hot: true },
+      { stage: 'Transport to site', duration: '1–3 weeks', float: '1 week', hot: false }
+    ],
+    zh: [
+      { stage: '細部設計凍結', duration: '6–10 週', float: '1 週', hot: false },
+      { stage: '廠內製造', duration: '12–20 週', float: '3 週', hot: true },
+      { stage: '檢驗與放行', duration: '2–4 週', float: '2 週', hot: true },
+      { stage: '運輸至工地', duration: '1–3 週', float: '1 週', hot: false }
+    ]
+  };
+
+  renderVals(){
+    const L = this.state.lang;
+    return {
+      lang: L,
+      t: this.T[L],
+      setLang: this.setLang,
+      contactOpen: this.state.contactOpen,
+      openContact: this.openContact,
+      closeContact: this.closeContact,
+      goBack: this.goBack,
+      tags: this.TAGS[L],
+      bullets: this.BULLETS[L],
+      rows: this.ROWS[L].map(r => ({ ...r, floatColor: r.hot ? '#0028FF' : '#4A5057' })),
+      heroImgStyle: this.bg('uploads/louis-reed-wSTCaQpiLtc-unsplash.jpg', 'clamp(240px,38vw,520px)'),
+      img1Style: this.bg('uploads/mitchell-luo-zxV_xahWh7o-unsplash.jpg', '230px'),
+      img2Style: this.bg('uploads/testalize-me-9xHsWmh3m_4-unsplash.jpg', '230px')
+    };
+  }
+}
+</script>
+</body>
+</html>
